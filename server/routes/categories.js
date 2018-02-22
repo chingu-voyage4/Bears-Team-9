@@ -7,7 +7,7 @@ const Categories = require( '../models/categories' );
 router.get( '/categories', ( req, res ) => {
     Categories.find( {} )
               .then( allData => res.status(200).json(allData) )
-              .catch( error => res.status(400).json({ error }))
+              .catch( error => res.status(400).json({ error }) )
 } )
 
 
