@@ -1,0 +1,28 @@
+{
+  "name": "bears-team-9",
+  "version": "1.0.0",
+  "description": "Voyage-4",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chingu-voyage4/Bears-Team-9.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chingu-voyage4/Bears-Team-9/issues"
+  },
+  "homepage": "https://github.com/chingu-voyage4/Bears-Team-9#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.6",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7",
+    "serve-static": "^1.13.2"
+  }
+}
