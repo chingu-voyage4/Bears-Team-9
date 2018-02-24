@@ -9,4 +9,39 @@ html {
   font-size: 62.5%; }
 
 body {
+  background-color: #243972; }
+
+.app {
+  width: 100%; }
+
+body {
   font-family: 'Poppins', sans-serif; }
+
+.btn--navbar {
+  display: inline-block;
+  color: #9dabc1;
+  font-size: 1.5rem;
+  text-decoration: none;
+  height: 3rem;
+  line-height: 3rem;
+  transition: all .2s; }
+  .btn--navbar:not(:first-child) {
+    margin-left: 2.4rem; }
+  .btn--navbar:hover {
+    color: #faffb0; }
+
+.navbar {
+  position: relative;
+  width: 80%;
+  margin: 1.5rem auto;
+  box-sizing: border-box;
+  border-bottom: 1px solid #9dabc1;
+  height: 3.4rem; }
+  .navbar::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .navbar__left {
+    float: left; }
+  .navbar__right {
+    float: right; }
