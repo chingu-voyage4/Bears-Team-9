@@ -2,7 +2,7 @@ import React from 'react';
 
 const navbar = () => {
     return (
-        <div className="navbar">
+        <div className="navbar content-width">
             <div className="navbar__left">
                 <div>
                     <a href="#" className="btn btn--navbar">Dashboard</a>
