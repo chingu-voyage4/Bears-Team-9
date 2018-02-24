@@ -1,0 +1,16 @@
+.navbar {
+    position: relative;
+    width: 80%;
+    margin: 1.5rem auto;
+    box-sizing: border-box;
+    // border: 1px solid black;
+    border-bottom: 1px solid $color-light-blue;
+    height: 3.4rem;
+    @include clearfix;
+    &__left {
+        float: left;
+    }
+    &__right {
+        float: right;
+    }
+}
