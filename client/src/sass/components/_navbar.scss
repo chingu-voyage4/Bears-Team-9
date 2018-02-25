@@ -5,7 +5,8 @@
     box-sizing: border-box;
     // border: 1px solid black;
     border-bottom: 1px solid $color-light-blue;
-    height: 3.4rem;
+    height: 4rem;
+    padding-bottom: 1rem;
     @include clearfix;
     &__left {
         float: left;

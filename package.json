@@ -23,6 +23,7 @@
     "mongoose": "^5.0.6",
     "morgan": "^1.9.0",
     "path": "^0.12.7",
+    "react-router-dom": "^4.2.2",
     "serve-static": "^1.13.2"
   }
 }
