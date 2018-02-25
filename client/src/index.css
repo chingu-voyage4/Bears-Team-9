@@ -17,6 +17,12 @@ body {
 body {
   font-family: 'Poppins', sans-serif; }
 
+.temporary {
+  text-align: center;
+  font-size: 3rem;
+  color: #fff;
+  font-weight: 600; }
+
 .content-width {
   width: 80%; }
 
@@ -27,9 +33,11 @@ body {
   text-decoration: none;
   padding: 2px auto; }
   .btn--navbar {
+    padding: 2px 2px;
     display: inline-block;
     color: #9dabc1;
     font-size: 1.5rem;
+    font-weight: 400;
     height: 3rem;
     line-height: 3rem;
     transition: all .2s; }
@@ -37,6 +45,10 @@ body {
       margin-left: 2.4rem; }
     .btn--navbar:hover {
       color: #faffb0; }
+    .btn--navbar--active {
+      border-top: 1px solid #f6ff6f;
+      color: #f6ff6f;
+      padding-top: 1px; }
   .btn--stack {
     color: #fff;
     display: inline-block;
@@ -63,7 +75,8 @@ body {
   margin: 1.5rem auto;
   box-sizing: border-box;
   border-bottom: 1px solid #9dabc1;
-  height: 3.4rem; }
+  height: 4rem;
+  padding-bottom: 1rem; }
   .navbar::after {
     content: "";
     display: table;

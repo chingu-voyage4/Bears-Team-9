@@ -2,9 +2,11 @@
     text-decoration: none;
     padding: 2px auto;
     &--navbar {
+        padding: 2px 2px;
         display: inline-block;
         color: $color-light-blue;
         font-size: 1.5rem;
+        font-weight: 400;
         height: 3rem;
         // border: 1px solid red;
         line-height: 3rem;
@@ -14,6 +16,12 @@
         }
         &:hover {
             color: $color-light-yellow;
+        }
+        &--active {
+            border-top: 1px solid $color-medium-yellow;
+            // background-color: $color-light-yellow;
+            color: $color-medium-yellow;
+            padding-top: 1px;
         }
     }
     &--stack {
