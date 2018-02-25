@@ -79,7 +79,7 @@ class Dashboard extends Component {
             );
         })
         return (
-            <div className="dashboard content-width">
+            <div className="dashboard">
                 { stacks }
             </div>
         );
