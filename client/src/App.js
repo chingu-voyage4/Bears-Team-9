@@ -9,6 +9,7 @@ class App extends Component {
         .then( res => res.json() )
         .then( res => console.log( res ) )
   }
+  
   render() {
     return (
       <div className="app">
