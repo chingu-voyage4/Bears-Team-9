@@ -79,8 +79,8 @@ body {
   padding: 3rem 3rem 3rem 3rem;
   margin-top: 3rem;
   transition: all .2s; }
-  .stack:not(:first-child) {
-    margin-left: 2rem; }
+  .stack:not(:last-child) {
+    margin-right: 2rem; }
   .stack:hover {
     box-shadow: 5px 5px 0px red;
     transform: translate(-2px, -2px); }
@@ -100,4 +100,6 @@ body {
       font-weight: 400; }
 
 .dashboard {
-  margin: 1.5rem auto; }
+  margin: 1.5rem auto;
+  max-width: 80%;
+  text-align: center; }
