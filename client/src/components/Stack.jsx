@@ -10,6 +10,10 @@ const stack = (props) => {
             <span className="stack__text">
                 High Score:
             </span>
+            <div className="btn-group--stack">
+                <a href="#" className="btn btn--stack">Quiz</a>
+                <a href="#" className="btn btn--stack">Study</a>
+            </div>
         </div>
     );
 }

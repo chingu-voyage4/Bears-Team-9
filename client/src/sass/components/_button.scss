@@ -1,9 +1,10 @@
 .btn {
+    text-decoration: none;
+    padding: 2px auto;
     &--navbar {
         display: inline-block;
         color: $color-light-blue;
         font-size: 1.5rem;
-        text-decoration: none;
         height: 3rem;
         // border: 1px solid red;
         line-height: 3rem;
@@ -14,5 +15,31 @@
         &:hover {
             color: $color-light-yellow;
         }
+    }
+    &--stack {
+        color: $color-white;
+        display: inline-block;
+        border: 2px solid $color-white;
+        // background-color: $color-white;
+        font-size: 1.5rem;
+        width: 6rem;
+        font-weight: 600;
+        text-align: center;
+        line-height: 3rem;
+        // border-radius: 3px;
+        box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75);
+        transition: all .2s;
+        &:first-child {
+            margin-right: 2rem;
+        }
+        &:hover {
+            background-color: $color-white;
+            color: $color-dark-blue;
+        }
+    }
+    &-group--stack {
+        width: 15rem;
+        margin: 4.5rem auto 0 auto;
+        text-align: center;
     }
 }
