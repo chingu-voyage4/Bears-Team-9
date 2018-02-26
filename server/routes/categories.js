@@ -2,6 +2,7 @@ const mongoose = require( 'mongoose' );
 const express  = require( 'express' );
 const router   = express.Router();
 const Categories = require( '../models/categories' );
+const { sanitizeUpdatedCards } = require('../middleware/sanitizeInput';)
 
 
 /**
@@ -50,7 +51,7 @@ router.post( '/category', ( req, res ) => {
     // ===== Need to check if this category already exists ===== //
     Categories.findOne( { 'categoryName' : newCategory.categoryName } )
               .then( foundCat => {
-                  if( foundCat ) {
+                  if( !foundCat ) {
                       return Categories.create( newCategory );
                   }
               } )
