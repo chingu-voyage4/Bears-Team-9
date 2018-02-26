@@ -8,11 +8,13 @@ const util    = require( './server/utilities' )
 const bodyParser = require( 'body-parser' );
 const mongoose   = require( 'mongoose' );
 const serveStatic = require( 'serve-static' );
+const expressSanitizer = require('express-sanitizer');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(expressSanitizer());
 
 
 // ===== MODELS ===== //
