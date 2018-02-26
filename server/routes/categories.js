@@ -7,9 +7,9 @@ const handler    = require( '../controllers/categories.js' );
 const { sanitizeUpdatedCards } = require('../middleware/sanitizeInput');
 
 
-router.get( '/categories', handler.getAll() );
-router.get( '/category', handler.getOne() );
-router.post( '/category', handler.addNew() )
-router.post( '/category/:id', handler.updateOne() )
+router.get( '/categories', handler.getAll );
+router.get( '/category', handler.getOne );
+router.post( '/category', handler.addNew )
+router.post( '/category/:id', handler.updateOne )
 
 module.exports = router;

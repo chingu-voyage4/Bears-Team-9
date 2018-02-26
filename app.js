@@ -8,13 +8,11 @@ const util    = require( './server/utilities' )
 const bodyParser = require( 'body-parser' );
 const mongoose   = require( 'mongoose' );
 const serveStatic = require( 'serve-static' );
-const expressSanitizer = require('express-sanitizer');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(expressSanitizer());
 
 
 // ===== MODELS ===== //
@@ -30,7 +28,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect( process.env.DB_URL );
 
 // ==== SET UP MOCK DATA ===== //
-util.seedDB()
+// util.seedDB()
 
 
 app.get( '/', ( req, res ) => {
