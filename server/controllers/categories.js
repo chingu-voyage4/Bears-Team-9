@@ -63,7 +63,7 @@ const addNew = ( req, res ) => {
  *      2) updatedCards from body 
  *         - [ { id: 'asdfasdfasd', front: 'newStuff', back: 'otherNewStuff' } ]
  */
-const updateOne = ( req, res => {
+const updateOne = ( req, res ) => {
     let id = req.params.id;
     let updatedCards = req.body.updatedCards;
     return Categories.findById( id )
@@ -80,11 +80,12 @@ const updateOne = ( req, res => {
                          } )
                          category.markModified('cards')
                          return category.save();
-                         }
+                         } 
                      } )
-                     .then( result => res.json( result ) )
-                     .catch( error => res.status(400).json( { error } ) ) 
-} )
+                     .then( result => res.status(200).json(result) )
+                     .catch( (error => res.status(500).json( { error }) ) ) 
+} 
+
 
 module.exports = {
     getAll, 
