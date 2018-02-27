@@ -1,0 +1,60 @@
+.flashcardTable {
+    width: $table-width;
+    // font-family: 'Varela Round', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25rem);
+    &__row {
+        color:  $color-medium-blue;
+        padding: 5px 10px;
+        overflow-wrap: break-word;
+        &:not(:first-child) {
+            margin-top: 3px;
+        }
+        input {
+            background-color: transparent;
+            border: 1px solid transparent;
+
+            &:focus {
+                outline: none;
+            }
+        }
+        &:nth-child(odd) {
+            background-color:$color-light-blue;
+        }
+        &:nth-child(even) {
+            background-color: lighten($color-light-blue, 10%);
+        }
+        
+        &--content {
+            // font-family: 'Varela Round', sans-serif;
+            
+            &--front {
+                width: 40%;
+                display: inline-block;
+                font-size: $row-content-font;
+            }
+            &--back {
+                width: 49%;
+                display: inline-block;
+                font-size: $row-content-font;
+            }
+        }
+        
+        &--header {
+            font-size: $row-header-font;
+            border-bottom: 4px solid $color-red;
+            color: $color-white;
+            padding: 5px 10px;
+            &--front {
+                width: 40%;
+                display: inline-block;
+            }
+            &--back {
+                width: 40%;
+                display: inline-block;
+            }
+        }
+    }
+}

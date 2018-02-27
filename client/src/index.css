@@ -49,6 +49,35 @@ body {
       border-top: 1px solid #f6ff6f;
       color: #f6ff6f;
       padding-top: 1px; }
+  .btn--add-card {
+    margin-top: 10px;
+    font-size: 1.7rem;
+    line-height: 2rem;
+    border: 3px solid #9dabc1;
+    color: #9dabc1;
+    font-weight: 600;
+    padding: 5px 6px;
+    background-color: transparent;
+    transition: all .2s;
+    cursor: pointer;
+    box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75); }
+    .btn--add-card:hover {
+      background-color: #9dabc1;
+      color: #243972; }
+  .btn-row {
+    padding: 10px 10px;
+    border: transparent;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .2s;
+    display: inline-block;
+    font-size: 2rem;
+    line-height: 1rem;
+    color: #243972; }
+    .btn-row-delete:hover {
+      color: red; }
+    .btn-row-edit:hover {
+      color: green; }
   .btn--stack {
     color: #fff;
     display: inline-block;
@@ -112,6 +141,47 @@ body {
     .stack__text--count {
       color: #9dabc1;
       font-weight: 400; }
+
+.flashcardTable {
+  width: 80rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -25rem); }
+  .flashcardTable__row {
+    color: #243972;
+    padding: 5px 10px;
+    overflow-wrap: break-word; }
+    .flashcardTable__row:not(:first-child) {
+      margin-top: 3px; }
+    .flashcardTable__row input {
+      background-color: transparent;
+      border: 1px solid transparent; }
+      .flashcardTable__row input:focus {
+        outline: none; }
+    .flashcardTable__row:nth-child(odd) {
+      background-color: #9dabc1; }
+    .flashcardTable__row:nth-child(even) {
+      background-color: #bcc6d5; }
+    .flashcardTable__row--content--front {
+      width: 40%;
+      display: inline-block;
+      font-size: 1.5rem; }
+    .flashcardTable__row--content--back {
+      width: 49%;
+      display: inline-block;
+      font-size: 1.5rem; }
+    .flashcardTable__row--header {
+      font-size: 4rem;
+      border-bottom: 4px solid red;
+      color: #fff;
+      padding: 5px 10px; }
+      .flashcardTable__row--header--front {
+        width: 40%;
+        display: inline-block; }
+      .flashcardTable__row--header--back {
+        width: 40%;
+        display: inline-block; }
 
 .dashboard {
   margin: 1.5rem auto;

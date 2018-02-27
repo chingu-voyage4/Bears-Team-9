@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import FlashcardTable from './FlashcardTable';
 
 class EditPage extends Component {
     render () {
         return (
-            <div className="temporary">
-                Edit Page
+            <div>
+                <FlashcardTable />
             </div>
         );
     }
