@@ -24,6 +24,44 @@
             padding-top: 1px;
         }
     }
+    &--add-card {
+        margin-top: 10px;
+        font-size: 1.7rem;
+        line-height: 2rem;
+        border: 3px solid $color-light-blue;
+        color: $color-light-blue;
+        font-weight: 600;
+        padding: 5px 6px;
+        background-color: transparent;
+        transition: all .2s;
+        cursor: pointer;
+        box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75);
+        &:hover {
+            background-color: $color-light-blue;
+            color: $color-medium-blue;
+        }
+    }
+    &-row {
+        padding: 10px 10px;
+        border: transparent;
+        background-color: transparent;
+        cursor: pointer;
+        transition: all .2s;
+        display: inline-block;
+        font-size: 2rem;
+        line-height: 1rem;
+        color: $color-medium-blue;
+        &-delete {
+            &:hover {
+                color: red;
+            }
+        }
+        &-edit {
+            &:hover {
+                color: green;
+            }
+        }
+    }
     &--stack {
         color: $color-white;
         display: inline-block;
@@ -34,7 +72,6 @@
         font-weight: 600;
         text-align: center;
         line-height: 3rem;
-        // border-radius: 3px;
         box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75);
         transition: all .2s;
         &:first-child {
