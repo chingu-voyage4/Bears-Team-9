@@ -1,4 +1,5 @@
-const Categories = require('../models/categories');
+const Categories = require( '../models/categories' );
+const { sanitize, escapeChars } = require( '../helpers/sanitizeInputs' );
 
 
 /**
@@ -48,7 +49,11 @@ const addNew = ( req, res ) => {
     return Categories.findOne( { 'categoryName' : newCategory.categoryName } )
                      .then( foundCat => {
                           if( !foundCat ) {
+                             newCategory.categoryName = escapeChars( newCategory.categoryName );
+                             newCategory.cards = sanitize( newCategory.cards );
                              return Categories.create( newCategory );
+                         } else {
+                             res.status(401).json( { error: 'Category already exists' } );
                          }
                      } )
                      .then( addedCat => res.status(200).json( addedCat ) )
@@ -65,7 +70,7 @@ const addNew = ( req, res ) => {
  */
 const updateOne = ( req, res ) => {
     let id = req.params.id;
-    let updatedCards = req.body.updatedCards;
+    let updatedCards = sanitize( req.body.updatedCards );
     return Categories.findById( id )
                      .then( category => {
                          if( category ) {

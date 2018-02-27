@@ -14,7 +14,10 @@ class App extends Component {
   //       'content-type': 'application/json',   // actual category id
   //      },
   //       body: JSON.stringify( 
-  //       {'updatedCards': [{  'id': '5a94841650bd003428b4d2a3', 'front': 'Hi', 'back': 'Angular'} ]}
+  //       {'updatedCards': [
+  //         { 'id': '5a94841650bd003428b4d2a3', 'front': 'Hi', 'back': 'Angular'},
+  //         { 'id': '5a94841650bd003428b4d2a2', 'front': '<script></script>', 'back': 'Testing script'}
+  //       ] }
           
   //       )
   //   })
