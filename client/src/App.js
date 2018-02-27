@@ -7,11 +7,24 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 class App extends Component {
 
-  componentDidMount(){
-    fetch( '/api/categories' )
-        .then( res => res.json() )
-        .then( res => console.log( res ) )
-  }
+  // componentDidMount(){
+  //   fetch( '/api/category/5a94841650bd003428b4d2a4' , {
+  //     method: 'POST',
+  //     headers: {
+  //       'content-type': 'application/json',   // actual category id
+  //      },
+  //       body: JSON.stringify( 
+  //       {'updatedCards': [
+  //         { 'id': '5a94841650bd003428b4d2a3', 'front': 'Hi', 'back': 'Angular'},
+  //         { 'id': '5a94841650bd003428b4d2a2', 'front': '<script></script>', 'back': 'Testing script'}
+  //       ] }
+          
+  //       )
+  //   })
+  //       .then( res => res.json() ) 
+  //       .then( res => console.log( res ))
+  //       .catch( err => console.log( err ) )
+  // }
   
   render() {
     return (

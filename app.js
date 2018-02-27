@@ -4,7 +4,7 @@ const express = require( 'express' );
 const logger  = require( 'morgan' );
 const path    = require( 'path' );
 const PORT    = process.env.PORT || 3001;
-const util    = require( './server/utilities' )
+const util    = require( './server/helpers/seedDB' )
 const bodyParser = require( 'body-parser' );
 const mongoose   = require( 'mongoose' );
 const serveStatic = require( 'serve-static' );
@@ -28,7 +28,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect( process.env.DB_URL );
 
 // ==== SET UP MOCK DATA ===== //
-util.seedDB()
+// util.seedDB()
 
 
 app.get( '/', ( req, res ) => {
