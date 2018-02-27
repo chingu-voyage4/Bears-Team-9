@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FlashcardRow from '../components/FlashcardRow';
 import InputRow from '../components/InputRow';
 import EditModal from '../components/EditModal';
+import { connect } from 'react-redux';
 
 class FlashcardTable extends Component {
     state = {
@@ -151,4 +152,11 @@ class FlashcardTable extends Component {
     }
 }
 
+// const mapStateToProps = state => {
+//     return {
+//         stacks: state.card.stacks,
+//         currentStack: state.card.currentStackId
+//     }
+// }
+// export default connect(mapStateToProps)(FlashcardTable);
 export default FlashcardTable;
