@@ -2,7 +2,11 @@ import React from 'react';
 
 const stackChoice = (props) => {
     return (
-        <span className="btn btn--stackchoice">{props.name}</span>
+        <span 
+            onClick={ props.clicked }
+            className="btn btn--stackchoice">
+                {props.name}
+        </span>
     );
 };
 
