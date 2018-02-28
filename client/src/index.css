@@ -31,7 +31,20 @@ body {
 
 .btn {
   text-decoration: none;
-  padding: 2px auto; }
+  padding: 2px auto;
+  transition: all .2s; }
+  .btn--stackchoice {
+    display: inline-block;
+    border: 2px solid red;
+    padding: 4px 8px;
+    font-size: 1.5rem;
+    color: red;
+    cursor: pointer; }
+    .btn--stackchoice:hover {
+      color: #fff;
+      background-color: red; }
+    .btn--stackchoice:not(:last-child) {
+      margin-right: 3rem; }
   .btn--navbar {
     padding: 2px 2px;
     display: inline-block;
@@ -182,6 +195,11 @@ body {
       .flashcardTable__row--header--back {
         width: 40%;
         display: inline-block; }
+
+.stackChoiceContainer {
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem; }
 
 .dashboard {
   margin: 1.5rem auto;
