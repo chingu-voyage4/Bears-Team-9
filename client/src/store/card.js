@@ -8,17 +8,17 @@ const initialState = {
                 {
                     id: 1,
                     front: 'What is HTTPS',
-                    back: 'an internet protocol'
+                    back: 'The "S" in HTTPS stands for secure. HTTPS ensures an encrypted connection to whatever site is being visited.'
                 },
                 {
                     id: 2,
                     front: 'What is Sass',
-                    back: 'a CSS preprocessor'
+                    back: 'Sass is an extension of CSS that allows for more complex and organized stylesheets.'
                 },
                 {
                     id: 3,
                     front: 'is react a library or a framework',
-                    back: 'a library'
+                    back: 'React is technically a library, but can be used with extension such as Redux to turn it into more of a framework.'
                 }
             ],
             id: 'stack_1'
@@ -66,7 +66,7 @@ const initialState = {
             id: 'stack_3'
         }
     ],
-    currentStackId: 'stack_1'
+    currentStackId: 'stack_3'
 }
 
 // REDUCERS

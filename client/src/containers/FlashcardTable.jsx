@@ -6,25 +6,25 @@ import { connect } from 'react-redux';
 
 class FlashcardTable extends Component {
     state = {
-        category: 'front end',
-        cards: [
-            {
-                id: 1,
-                front: 'What is HTTPS',
-                back: 'The "S" in HTTPS stands for secure. HTTPS ensures an encrypted connection to whatever site is being visited.'
-            },
-            {
-                id: 2,
-                front: 'What is Sass?',
-                back: 'Sass is an extension of CSS that allows for more complex and organized stylesheets.'
-            },
-            {
-                id: 3,
-                front: 'Is react a library or a framework?',
-                back: 'React is technically a library, but can be used with extension such as Redux to turn it into more of a framework.'
-            }
-        ],
-        id: 'stack_1',
+        // category: 'front end',
+        // cards: [
+        //     {
+        //         id: 1,
+        //         front: 'What is HTTPS',
+        //         back: 'The "S" in HTTPS stands for secure. HTTPS ensures an encrypted connection to whatever site is being visited.'
+        //     },
+        //     {
+        //         id: 2,
+        //         front: 'What is Sass?',
+        //         back: 'Sass is an extension of CSS that allows for more complex and organized stylesheets.'
+        //     },
+        //     {
+        //         id: 3,
+        //         front: 'Is react a library or a framework?',
+        //         back: 'React is technically a library, but can be used with extension such as Redux to turn it into more of a framework.'
+        //     }
+        // ],
+        // id: 'stack_1',
         newFront: '',
         newBack: '',
         modalShow: false,
@@ -118,7 +118,7 @@ class FlashcardTable extends Component {
                 currentFront={this.state.currentFront}
                 currentBack={this.state.currentBack} />;
         }
-        const rows = this.state.cards.map((card, i) => {
+        const rows = this.props.cards.cards.map((card, i) => {
             return <FlashcardRow
                 edit={this.editCardHandler.bind(this, card.id)}
                 delete={this.deleteCardHandler.bind(this, card.id)}
@@ -152,11 +152,17 @@ class FlashcardTable extends Component {
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         stacks: state.card.stacks,
-//         currentStack: state.card.currentStackId
-//     }
-// }
-// export default connect(mapStateToProps)(FlashcardTable);
-export default FlashcardTable;
+const mapStateToProps = state => {
+    return {
+        category: state.card.stacks.filter(stack => {
+            return stack.id === state.card.currentStackId;
+        })[0].category,
+        cards: state.card.stacks.filter(stack => {
+            return stack.id === state.card.currentStackId;
+        })[0],
+        id: state.card.currentStackId
+    }
+}
+
+export default connect(mapStateToProps)(FlashcardTable);
+// export default FlashcardTable;
