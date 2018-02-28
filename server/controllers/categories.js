@@ -13,22 +13,6 @@ const getAll = ( req, res ) => {
 
 
 /**
- * Returns specific category from list
- * Expects: 
- *      1) category id from headers
- */
-const getOne = ( req, res ) => {
-    let id = req.headers.id;
-    return Categories.findById( id )
-                     .then( cat => {
-                         if( !cat ) res.status(400).json( { error: 'No data found'} )
-                         res.status(200).json(cat)
-                     } )
-                     .catch( err => res.status(400).json( { error: 'No data found' } ) )
-}
-
-
-/**
  * Returns a newly added category 
  * Expects:
  *      1) newCategory object from the body
@@ -42,22 +26,59 @@ const getOne = ( req, res ) => {
  *              }
  *            }
  */
-const addNew = ( req, res ) => {
+const addNewCategory = ( req, res ) => {
     const { newCategory } = req.body;
-
+    
     // ===== Need to check if this category already exists ===== //
     return Categories.findOne( { 'categoryName' : newCategory.categoryName } )
-                     .then( foundCat => {
-                          if( !foundCat ) {
-                             newCategory.categoryName = escapeChars( newCategory.categoryName );
-                             newCategory.cards = sanitize( newCategory.cards );
-                             return Categories.create( newCategory );
-                         } else {
-                             res.status(401).json( { error: 'Category already exists' } );
-                         }
+    .then( foundCat => {
+        if( !foundCat ) {
+            newCategory.categoryName = escapeChars( newCategory.categoryName );
+            newCategory.cards = sanitize( newCategory.cards );
+            return Categories.create( newCategory );
+        } else {
+            throw new Error( 'Category already exists' );
+        }
+    } )
+    .then( addedCat => res.status(200).json( addedCat ) )
+    .catch( error => res.status(401).json( { error } ) )
+}
+
+
+/**
+ * Returns specific category from list
+ * Expects: 
+ *      1) category id from headers
+ */
+const getOne = ( req, res ) => {
+    let id = req.headers.id;
+    return Categories.findById( id )
+                     .then( cat => {
+                         if( !cat ) throw new Error();
+                         res.status(200).json(cat)
                      } )
-                     .then( addedCat => res.status(200).json( addedCat ) )
-                     .catch( error => res.status(401).json( { error } ) )
+                     .catch( err => res.status(400).json( { error: 'No data found' } ) )
+}
+
+
+/**
+ * Returns an OK status if successful
+ * Expects: 
+ *      1) category id from headers
+ *      2) request body properties
+ *          - front ( string )
+ *          - back  ( string )
+ */
+const addNewCard = ( req, res ) => {
+    let id = req.params.id;
+    let { front, back } = req.body;
+    return Categories.findByIdAndUpdate( 
+                        id, 
+                        { $push: { cards: { front, back } } },
+                        { new: true }  
+                    )
+                     .then( category => res.status(200).json({ status: 'OK' }) )
+                     .catch( error => res.status(401).json({ error }))        
 }
 
 
@@ -68,7 +89,7 @@ const addNew = ( req, res ) => {
  *      2) updatedCards from body 
  *         - [ { id: 'asdfasdfasd', front: 'newStuff', back: 'otherNewStuff' } ]
  */
-const updateOne = ( req, res ) => {
+const updateCategory = ( req, res ) => {
     let id = req.params.id;
     let updatedCards = sanitize( req.body.updatedCards );
     return Categories.findById( id )
@@ -95,6 +116,7 @@ const updateOne = ( req, res ) => {
 module.exports = {
     getAll, 
     getOne,
-    addNew,
-    updateOne
+    addNewCard,
+    addNewCategory,
+    updateCategory
 }
