@@ -8,8 +8,10 @@ const { sanitizeUpdatedCards } = require('../middleware/sanitizeInput');
 
 
 router.get( '/categories', handler.getAll );
+router.post( '/categories', handler.addNewCategory )
+
 router.get( '/category', handler.getOne );
-router.post( '/category', handler.addNew )
-router.post( '/category/:id', handler.updateOne )
+router.post( '/category/:id', handler.addNewCard );
+router.put( '/category/:id', handler.updateCategory )
 
 module.exports = router;
