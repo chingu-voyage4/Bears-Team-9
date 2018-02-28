@@ -3,32 +3,23 @@ import FlashcardRow from '../components/FlashcardRow';
 import InputRow from '../components/InputRow';
 import EditModal from '../components/EditModal';
 import { connect } from 'react-redux';
+import * as actionTypes from '../store/actions';
 
 class FlashcardTable extends Component {
     state = {
-        // category: 'front end',
-        // cards: [
-        //     {
-        //         id: 1,
-        //         front: 'What is HTTPS',
-        //         back: 'The "S" in HTTPS stands for secure. HTTPS ensures an encrypted connection to whatever site is being visited.'
-        //     },
-        //     {
-        //         id: 2,
-        //         front: 'What is Sass?',
-        //         back: 'Sass is an extension of CSS that allows for more complex and organized stylesheets.'
-        //     },
-        //     {
-        //         id: 3,
-        //         front: 'Is react a library or a framework?',
-        //         back: 'React is technically a library, but can be used with extension such as Redux to turn it into more of a framework.'
-        //     }
-        // ],
-        // id: 'stack_1',
+        currentFront: '',
+        currentBack: '',
         newFront: '',
         newBack: '',
         modalShow: false,
         cardId: ''
+    }
+
+    clearInputs = () => {
+        this.setState({
+            newFront: '',
+            newBack: ''
+        });
     }
 
     textChangeHandlerFront = (e) => {
@@ -44,33 +35,8 @@ class FlashcardTable extends Component {
         })
     };
 
-    addCardHandler = () => {
-        const newCards = [
-            ...this.state.cards,
-            {
-                id: this.state.cards.length + 1,
-                front: this.state.newFront,
-                back: this.state.newBack
-            }
-        ]
-        this.setState({
-            cards: newCards,
-            newFront: '',
-            newBack: ''
-        })
-    }
-
-    deleteCardHandler = (id) => {
-        const newCards = this.state.cards.filter(card => card.id !== id);
-        // console.log(i);
-        console.log(this.state);
-        this.setState({
-            cards: newCards
-        })
-    }
-
     editCardHandler = (id) => {
-        const currentCard = this.state.cards.filter(card => card.id === id)[0];
+        const currentCard = this.props.cards.cards.filter(card => card.id === id)[0];
         // console.log(currentCard);
         this.setState({
             modalShow: true,
@@ -113,18 +79,21 @@ class FlashcardTable extends Component {
         if (this.state.modalShow) {
             modal = <EditModal
                 updateCard={this.updateCardHandler}
-                cardId={this.cardId}
+                cardId={this.props.id}
                 closeModal={this.closeModalHandler}
                 currentFront={this.state.currentFront}
                 currentBack={this.state.currentBack} />;
         }
         const rows = this.props.cards.cards.map((card, i) => {
             return <FlashcardRow
-                edit={this.editCardHandler.bind(this, card.id)}
-                delete={this.deleteCardHandler.bind(this, card.id)}
+                edit={ () => this.editCardHandler(card.id)}
+                // edit={this.editCardHandler.bind(this, card.id)}
+                delete={ () => this.props.onDeleteCard(card.id) }
+                // delete={this.deleteCardHandler.bind(this, card.id)}
                 frontText={card.front}
                 backText={card.back}
-                key={card.id} />;
+                key={card.id} 
+                />;
         })
         return (
             <div>
@@ -142,7 +111,11 @@ class FlashcardTable extends Component {
                         newBack={this.state.newBack}
                     />
                     <button
-                        onClick={this.addCardHandler}
+                        // onClick={this.addCardHandler}
+                        onClick={ () => {
+                            this.clearInputs();
+                            this.props.onAddCard(this.state.newFront, this.state.newBack)
+                        } }
                         className='btn btn--add-card'>
                         Add Card
                 </button>
@@ -164,5 +137,11 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(FlashcardTable);
+const mapDispatchToProps = dispatch => {
+    return {
+        onDeleteCard: (cardId) => dispatch({ type: actionTypes.DELETE_CARD, cardId: cardId }),
+        onAddCard: (front, back) => dispatch({ type: actionTypes.ADD_CARD, frontText: front, backText: back})
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(FlashcardTable);
 // export default FlashcardTable;
