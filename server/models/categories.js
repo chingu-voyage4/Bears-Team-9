@@ -1,12 +1,21 @@
 const mongoose = require( 'mongoose' );
 
 const cardSchema = mongoose.Schema( {
-    front: String,
-    back: String
+    front: {
+        type: String,
+        required: true
+    },
+    back: {
+        type: String,
+        required: true
+    }
 } )
 
 const categorySchema = mongoose.Schema( {
-    categoryName: String,
+    categoryName: {
+        type: String,
+        required: true
+    },
     cards    : [ cardSchema ]
 } );
 
