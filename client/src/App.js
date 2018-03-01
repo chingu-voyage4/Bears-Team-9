@@ -8,23 +8,28 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 class App extends Component {
 
   // componentDidMount(){
-  //   fetch( '/api/category/5a94841650bd003428b4d2a4' , {
-  //     method: 'POST',
+  //   fetch( '/api/categories' , {
+  //     method: 'DELETE',
   //     headers: {
   //       'content-type': 'application/json',   // actual category id
+  //       'id': '5a94841650bd003428b4d2a4'
   //      },
-  //       body: JSON.stringify( 
-  //       {'updatedCards': [
-  //         { 'id': '5a94841650bd003428b4d2a3', 'front': 'Hi', 'back': 'Angular'},
-  //         { 'id': '5a94841650bd003428b4d2a2', 'front': '<script></script>', 'back': 'Testing script'}
-  //       ] }
-          
-  //       )
-  //   })
-  //       .then( res => res.json() ) 
-  //       .then( res => console.log( res ))
-  //       .catch( err => console.log( err ) )
-  // }
+        // body: JSON.stringify( 
+        // {
+        //     newCategory: {
+        //       categoryName: 'New Category',
+        //       cards: [
+        //         { front: 'What is HTTPS?', back: 'An Internet protocol' },
+        //         { front: 'What is SASS?', back: 'A CSS preprocessor' }
+        //       ]
+        //     }
+        //   }
+        // )
+    // })
+    //     .then( res => res.json() ) 
+    //     .then( res => console.log( res ))
+    //     .catch( err => console.log( err ) )
+  }
   
   render() {
     return (
