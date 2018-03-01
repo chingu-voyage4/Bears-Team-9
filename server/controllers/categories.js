@@ -51,21 +51,11 @@ const addNewCategory = ( req, res ) => {
  * Expects:
  *      1) category id from headers
  */
-// ===== This actually will successfully delete, but throws an empty error ===== //
-// ===== right now we're checking if error is empty, then we assume that's a success? ===== //
 const deleteOneCategory = ( req, res ) => {
     const { id } = req.headers;
     return Categories.findByIdAndRemove( id )
-                     .then( res => res.status(200).json({ status: 'OK'}) )
-                     .catch( error => {
-                        
-                        // ==== guessing if error is empty, the delete is actually successful =====//
-                        // ==== freakin Mongoose ===== //
-                        if( error === Object(err) && Object.keys(error).length === 0 ) {
-                            return res.status(200).json({ status: 'OK'})
-                        }
-                        res.status(400).json({ error })
-                      } )
+                     .then( () => res.status(200).json({ status: 'OK'}) )
+                     .catch( error => res.status(400).json({ error }) )
 }
 
 
