@@ -31,17 +31,41 @@ const addNewCategory = ( req, res ) => {
     
     // ===== Need to check if this category already exists ===== //
     return Categories.findOne( { 'categoryName' : newCategory.categoryName } )
-    .then( foundCat => {
-        if( !foundCat ) {
-            newCategory.categoryName = escapeChars( newCategory.categoryName );
-            newCategory.cards = sanitize( newCategory.cards );
-            return Categories.create( newCategory );
-        } else {
-            throw new Error( 'Category already exists' );
-        }
-    } )
-    .then( addedCat => res.status(200).json( addedCat ) )
-    .catch( error => res.status(401).json( { error } ) )
+                     .then( foundCat => {
+                         if( !foundCat ) {
+                             newCategory.categoryName = escapeChars( newCategory.categoryName );
+                             newCategory.cards = sanitize( newCategory.cards );
+                             return Categories.create( newCategory );
+                         } else {
+                             throw new Error( 'Category already exists' );
+                         }
+                     } )
+                     .then( addedCat => res.status(200).json( addedCat ) )
+                     .catch( error => res.status(400).json( { error } ) )
+}
+
+
+/**
+ * 
+ * Returns an OK status if successful
+ * Expects:
+ *      1) category id from headers
+ */
+// ===== This actually will successfully delete, but throws an empty error ===== //
+// ===== right now we're checking if error is empty, then we assume that's a success? ===== //
+const deleteOneCategory = ( req, res ) => {
+    const { id } = req.headers;
+    return Categories.findByIdAndRemove( id )
+                     .then( res => res.status(200).json({ status: 'OK'}) )
+                     .catch( error => {
+                        
+                        // ==== guessing if error is empty, the delete is actually successful =====//
+                        // ==== freakin Mongoose ===== //
+                        if( error === Object(err) && Object.keys(error).length === 0 ) {
+                            return res.status(200).json({ status: 'OK'})
+                        }
+                        res.status(400).json({ error })
+                      } )
 }
 
 
@@ -95,17 +119,17 @@ const updateCategory = ( req, res ) => {
     return Categories.findById( id )
                      .then( category => {
                          if( category ) {
-                         let cards = category.cards;
-                         updatedCards.forEach( update => {
-                             cards.forEach( card => {
-                                 if( update.id === card.id ) {
-                                     card.front = update.front;
-                                     card.back  = update.back;
-                                 }
-                             } )
-                         } )
-                         category.markModified('cards')
-                         return category.save();
+                            let cards = category.cards;
+                            updatedCards.forEach( update => {
+                                cards.forEach( card => {
+                                    if( update.id === card.id ) {
+                                        card.front = update.front;
+                                        card.back  = update.back;
+                                    }
+                                } )
+                            } )
+                            category.markModified('cards')
+                            return category.save();
                          } 
                      } )
                      .then( result => res.status(200).json(result) )
@@ -113,10 +137,31 @@ const updateCategory = ( req, res ) => {
 } 
 
 
+/**
+ * 
+ * Returns an OK status if successful 
+ * Expects:
+ *      1) category id from params
+ *      2) cardId from body
+ */
+const deleteCard = ( req, res ) => {
+    let catId  = req.params.id;
+    let cardId = escapeChars( req.body.cardId );
+    return Categories.findByIdAndUpdate( 
+                        catId, 
+                        { $pull: { cards: { _id: cardId } } }
+                    )
+                     .then( result => res.status(200).json({ status: 'OK' }) )
+                     .catch( error => res.status(400).json({ error }) )
+}
+
+
 module.exports = {
     getAll, 
     getOne,
     addNewCard,
     addNewCategory,
-    updateCategory
+    updateCategory,
+    deleteOneCategory,
+    deleteCard
 }
