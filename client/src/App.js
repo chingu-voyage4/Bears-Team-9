@@ -29,7 +29,8 @@ class App extends Component {
     //     .then( res => res.json() ) 
     //     .then( res => console.log( res ))
     //     .catch( err => console.log( err ) )
-  }
+    // }
+    
   
   render() {
     return (
