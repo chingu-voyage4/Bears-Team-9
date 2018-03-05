@@ -27,20 +27,26 @@ class EditModal extends Component {
                     className="modal-background">
                 </div>
                 <div className="modal">
-                    <textarea
-                        className="modal__front"
-                        onChange={this.onChangeHandlerFront}
-                        value={this.state.currentFront}
-                        name=""
-                        id="">
-                    </textarea>
-                    <textarea
-                        className="modal__back"
-                        onChange={this.onChangeHandlerBack}
-                        value={this.state.currentBack}
-                        name=""
-                        id="">
-                    </textarea>
+                    <div className="modal__front">
+                        <div className="modal--titles">Card Front</div>
+                        <textarea
+                            className="modal__front--textarea"
+                            onChange={this.onChangeHandlerFront}
+                            value={this.state.currentFront}
+                            name=""
+                            id="">
+                        </textarea>
+                    </div>
+                    <div className="modal__back">
+                        <div className="modal--titles">Card Back</div>
+                        <textarea
+                            className="modal__back--textarea"
+                            onChange={this.onChangeHandlerBack}
+                            value={this.state.currentBack}
+                            name=""
+                            id="">
+                        </textarea>
+                    </div>
                     <div className="btn__group--modal">
                         <button
                             onClick={() => this.props.updateCard(this.state.currentFront, this.state.currentBack)}

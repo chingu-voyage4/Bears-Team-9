@@ -17,6 +17,32 @@
             margin-right: 3rem;
         }
     }
+
+    &__group {
+        &--modal {
+            position: relative;
+            padding: 3rem 0;
+            margin-left: $modal-padding-horizontal;
+        }
+    }
+    &--modal {
+        font-size: 1.7rem;
+        line-height: 2rem;
+        border: 3px solid #4a4a4a;
+        color: #4a4a4a;
+        font-weight: 600;
+        padding: 5px 6px;
+        cursor: pointer;
+        box-shadow: 0 2px 3px 0 rgba(50, 50, 50, 0.75);
+        &:not(:last-child) {
+            margin-right: 2rem;
+        }
+        &:hover {
+            background-color: #4a4a4a;
+            color: rgb(216, 216, 216);
+        }
+    }
+
     &--navbar {
         padding: 2px 2px;
         display: inline-block;
