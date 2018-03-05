@@ -8,3 +8,10 @@ body {
     color: $color-white;
     font-weight: 600;
 }
+
+.modal {
+    &--titles {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}
