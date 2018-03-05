@@ -4,6 +4,7 @@ const express = require( 'express' );
 const logger  = require( 'morgan' );
 const path    = require( 'path' );
 const PORT    = process.env.PORT || 3001;
+// const PORT    = 3001;
 const util    = require( './server/helpers/seedDB' )
 const bodyParser = require( 'body-parser' );
 const mongoose   = require( 'mongoose' );
@@ -28,7 +29,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect( process.env.DB_URL );
 
 // ==== SET UP MOCK DATA ===== //
-// util.seedDB()
+util.seedDB()
 
 
 app.get( '/', ( req, res ) => {
@@ -36,4 +37,6 @@ app.get( '/', ( req, res ) => {
 } )
 
 
-app.listen( PORT )
+app.listen( PORT, () => {
+    console.log('listening on port: ', PORT);
+} )

@@ -6,7 +6,8 @@ class Dashboard extends Component {
     render () {
         const stacks = this.props.stacks.map(stack => {
             return (
-                <Stack 
+                <Stack
+                    key={ stack.id } 
                     name={ stack.category }
                     count={ stack.cards.length } />
             );
