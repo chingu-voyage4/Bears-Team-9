@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class EditModal extends Component {
     state = {
@@ -67,5 +68,16 @@ class EditModal extends Component {
         );
     }
 }
+const mapStateToProps = state => {
+    return {
+        id: state.card.currentStackId
+    }
+}
 
-export default EditModal;
+const mapDispatchToProps = dispatch => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditModal);

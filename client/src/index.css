@@ -210,8 +210,8 @@ body {
 
 .flashcardTable {
   width: 80rem;
-  position: absolute;
-  top: 50%;
+  position: relative;
+  margin-top: 30rem;
   left: 50%;
   transform: translate(-50%, -25rem); }
   .flashcardTable__row {

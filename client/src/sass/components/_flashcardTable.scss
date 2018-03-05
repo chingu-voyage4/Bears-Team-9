@@ -1,8 +1,9 @@
 .flashcardTable {
     width: $table-width;
     // font-family: 'Varela Round', sans-serif;
-    position: absolute;
-    top: 50%;
+    position: relative;
+    // top: 50%;
+    margin-top: 30rem;
     left: 50%;
     transform: translate(-50%, -25rem);
     &__row {
