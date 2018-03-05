@@ -1,3 +1,17 @@
 body {
     font-family: 'Poppins', sans-serif;
 }
+
+.temporary {
+    text-align: center;
+    font-size: 3rem;
+    color: $color-white;
+    font-weight: 600;
+}
+
+.modal {
+    &--titles {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}

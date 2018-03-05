@@ -1,0 +1,132 @@
+.btn {
+    text-decoration: none;
+    padding: 2px auto;
+    transition: all .2s;
+    &--stackchoice {
+        display: inline-block;
+        border: 2px solid $color-red;
+        padding: 4px 8px;
+        font-size: 1.5rem;
+        color: $color-red;
+        cursor: pointer;
+        &:hover {
+            color: $color-white;
+            background-color: $color-red;
+        }
+        &:not(:last-child) {
+            margin-right: 3rem;
+        }
+    }
+
+    &__group {
+        &--modal {
+            position: relative;
+            padding: 3rem 0;
+            margin-left: $modal-padding-horizontal;
+        }
+    }
+    &--modal {
+        font-size: 1.7rem;
+        line-height: 2rem;
+        border: 3px solid #4a4a4a;
+        color: #4a4a4a;
+        font-weight: 600;
+        padding: 5px 6px;
+        cursor: pointer;
+        box-shadow: 0 2px 3px 0 rgba(50, 50, 50, 0.75);
+        &:not(:last-child) {
+            margin-right: 2rem;
+        }
+        &:hover {
+            background-color: #4a4a4a;
+            color: rgb(216, 216, 216);
+        }
+    }
+
+    &--navbar {
+        padding: 2px 2px;
+        display: inline-block;
+        color: $color-light-blue;
+        font-size: 1.5rem;
+        font-weight: 400;
+        height: 3rem;
+        // border: 1px solid red;
+        line-height: 3rem;
+        transition: all .2s;
+        &:not(:first-child) {
+            margin-left: 2.4rem;
+        }
+        &:hover {
+            color: $color-light-yellow;
+        }
+        &--active {
+            border-top: 1px solid $color-medium-yellow;
+            // background-color: $color-light-yellow;
+            color: $color-medium-yellow;
+            padding-top: 1px;
+        }
+    }
+    &--add-card {
+        margin-top: 10px;
+        font-size: 1.7rem;
+        line-height: 2rem;
+        border: 3px solid $color-light-blue;
+        color: $color-light-blue;
+        font-weight: 600;
+        padding: 5px 6px;
+        background-color: transparent;
+        transition: all .2s;
+        cursor: pointer;
+        box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75);
+        &:hover {
+            background-color: $color-light-blue;
+            color: $color-medium-blue;
+        }
+    }
+    &-row {
+        padding: 10px 10px;
+        border: transparent;
+        background-color: transparent;
+        cursor: pointer;
+        transition: all .2s;
+        display: inline-block;
+        font-size: 2rem;
+        line-height: 1rem;
+        color: $color-medium-blue;
+        &-delete {
+            &:hover {
+                color: red;
+            }
+        }
+        &-edit {
+            &:hover {
+                color: green;
+            }
+        }
+    }
+    &--stack {
+        color: $color-white;
+        display: inline-block;
+        border: 2px solid $color-white;
+        // background-color: $color-white;
+        font-size: 1.5rem;
+        width: 6rem;
+        font-weight: 600;
+        text-align: center;
+        line-height: 3rem;
+        box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75);
+        transition: all .2s;
+        &:first-child {
+            margin-right: 2rem;
+        }
+        &:hover {
+            background-color: $color-white;
+            color: $color-dark-blue;
+        }
+    }
+    &-group--stack {
+        width: 15rem;
+        margin: 4.5rem auto 0 auto;
+        text-align: center;
+    }
+}

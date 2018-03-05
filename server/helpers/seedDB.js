@@ -1,5 +1,5 @@
 const mongoose = require( 'mongoose' );
-const Categories = require( './models/categories' );
+const Categories = require( '../models/categories' );
 
 
 const seedDB = () =>  {
