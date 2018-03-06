@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actionTypes from '../store/actions';
 
 class EditModal extends Component {
     state = {
         currentFront: this.props.currentFront,
         currentBack: this.props.currentBack,
-        id: this.props.cardId
+        cardId: this.props.cardId
     }
 
     onChangeHandlerFront = (e) => {
@@ -50,9 +51,15 @@ class EditModal extends Component {
                     </div>
                     <div className="btn__group--modal">
                         <button
-                            onClick={() => this.props.updateCard(this.state.currentFront, this.state.currentBack)}
-                            className="btn btn--modal">
-                            Update Card
+                            onClick={ 
+                                    () => {
+                                        this.props.onUpdateCard(this.state.cardId, this.state.currentFront, this.state.currentBack);
+                                        this.props.closeModal()
+                                        }
+                                    
+                            }
+                className="btn btn--modal">
+                Update Card
                         </button>
                         <button
                             onClick={this.props.closeModal}
@@ -70,13 +77,13 @@ class EditModal extends Component {
 }
 const mapStateToProps = state => {
     return {
-        id: state.card.currentStackId
+        stackId: state.card.currentStackId
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        onUpdateCard: (cardId, newFront, newBack) => dispatch({ type: actionTypes.UPDATE_CARD, cardId: cardId, newFront: newFront, newBack: newBack })
     }
 }
 

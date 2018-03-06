@@ -130,8 +130,12 @@ const cardsReducer = (state = initialState, action) => {
         case actionTypes.UPDATE_CARD:
             currentStack = state.stacks.filter(stack => stack.id === state.currentStackId)[0];
             updatedCard = currentStack.cards.filter(card => card.id === action.cardId)[0];
+            // console.log(state.currentStackId);
+            // return {
+            //     ...state
+            // }
             updatedCard.front = action.newFront;
-            updatedCard.front = action.newBack;
+            updatedCard.back = action.newBack;
             newCards = currentStack.cards.filter(card => {
                 if (card.id === action.cardId) {
                     return updatedCard;
@@ -142,6 +146,19 @@ const cardsReducer = (state = initialState, action) => {
             updatedStack = {
                 ...currentStack,
                 cards: newCards
+            }
+
+            newStacks = state.stacks.map(stack => {
+                if (stack.id === state.currentStackId) {
+                    return updatedStack;
+                } else {
+                    return stack;
+                }
+            })
+            
+            return {
+                ...state,
+                stacks: newStacks
             }
             
         case actionTypes.CHANGE_STACK:

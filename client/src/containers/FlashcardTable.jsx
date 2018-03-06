@@ -55,31 +55,32 @@ class FlashcardTable extends Component {
         })
     }
     updateCardHandler = (front, back) => {
-        const newCard = this.state.cards.filter(card => card.id === this.state.cardId)[0];
-        newCard.front = front;
-        newCard.back = back;
-        const newCards = this.state.cards.map(card => {
-            if (card.id !== this.state.cardId) {
-                return card;
-            } else {
-                return newCard;
-            }
-        });
+        // const newCard = this.state.cards.filter(card => card.id === this.state.cardId)[0];
+        // newCard.front = front;
+        // newCard.back = back;
+        // const newCards = this.state.cards.map(card => {
+        //     if (card.id !== this.state.cardId) {
+        //         return card;
+        //     } else {
+        //         return newCard;
+        //     }
+        // });
         this.setState({
             modalShow: false,
             currentFront: '',
             currentBack: '',
             cardId: '',
-            cards: newCards
+            cards: this.state.cards
         });
+        // console.log(this.state.id);
     }
 
     render() {
         let modal = null;
         if (this.state.modalShow) {
             modal = <EditModal
-                updateCard={this.updateCardHandler}
-                cardId={this.props.id}
+                // updateCard={this.updateCardHandler}
+                cardId={this.state.cardId}
                 closeModal={this.closeModalHandler}
                 currentFront={this.state.currentFront}
                 currentBack={this.state.currentBack} />;
@@ -95,6 +96,7 @@ class FlashcardTable extends Component {
                 key={card.id} 
                 />;
         })
+        // console.log(this.state.id);
         return (
             <div>
                 {modal}
