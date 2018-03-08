@@ -12,6 +12,7 @@ const cardSchema = mongoose.Schema( {
 } )
 
 const categorySchema = mongoose.Schema( {
+    owner: mongoose.Schema.Types.ObjectId,
     categoryName: {
         type: String,
         required: true
