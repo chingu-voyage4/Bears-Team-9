@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import Stack from '../components/Stack';
-import { connect } from 'react-redux';
 
 class Dashboard extends Component {
+    componentDidMount () {
+        fetch('/api/categories')
+            .then(res => res.json())
+            .then(res => console.log(res));
+    }
     render () {
-        const stacks = this.props.stacks.map(stack => {
+        const stateProps = this.props.store.getState();
+        const stacks = stateProps.stacks.map((stack, id) => {
             return (
                 <Stack
-                    key={ stack.id } 
+                    key={ id } 
                     name={ stack.category }
                     count={ stack.cards.length } />
             );
@@ -20,9 +25,4 @@ class Dashboard extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        stacks: state.card.stacks
-    }
-}
-export default connect(mapStateToProps)(Dashboard);
+export default Dashboard;

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import FlashcardRow from '../components/FlashcardRow';
 import InputRow from '../components/InputRow';
 import EditModal from '../components/EditModal';
-import { connect } from 'react-redux';
-import * as actionTypes from '../store/actions';
+import * as actionTypes from '../actions/actions';
+import AddCard from '../actions/AddCard';
+import DeleteCard from '../actions/DeleteCard';
 
 class FlashcardTable extends Component {
     state = {
@@ -36,7 +37,7 @@ class FlashcardTable extends Component {
     };
 
     editCardHandler = (id) => {
-        const currentCard = this.props.cards.cards.filter(card => card.id === id)[0];
+        const currentCard = this.getCurrentCards().cards.filter(card => card.id === id)[0];
         // console.log(currentCard);
         this.setState({
             modalShow: true,
@@ -44,6 +45,16 @@ class FlashcardTable extends Component {
             currentBack: currentCard.back,
             cardId: id
         })
+    }
+
+    deleteCardHandler = (id) => {
+        console.log(id);
+        this.props.store.dispatch(
+            DeleteCard(
+                this.props.store.getState().stacks, 
+                this.props.store.getState().currentStackId, 
+                id)
+        );
     }
 
     closeModalHandler = () => {
@@ -54,42 +65,33 @@ class FlashcardTable extends Component {
             cardId: ''
         })
     }
-    updateCardHandler = (front, back) => {
-        const newCard = this.state.cards.filter(card => card.id === this.state.cardId)[0];
-        newCard.front = front;
-        newCard.back = back;
-        const newCards = this.state.cards.map(card => {
-            if (card.id !== this.state.cardId) {
-                return card;
-            } else {
-                return newCard;
-            }
-        });
-        this.setState({
-            modalShow: false,
-            currentFront: '',
-            currentBack: '',
-            cardId: '',
-            cards: newCards
-        });
+    
+    getCurrentCards = () => {
+        const currentStackId = this.props.store.getState().currentStackId;
+        const stack = this.props.store.getState().stacks.filter(stack => {
+           return stack.id === currentStackId;
+       })[0];
+       return stack; 
+    }
+
+    componentWillMount = () => {
+        this.props.store.subscribe(() => this.forceUpdate());
     }
 
     render() {
         let modal = null;
         if (this.state.modalShow) {
             modal = <EditModal
-                updateCard={this.updateCardHandler}
-                cardId={this.props.id}
+                store={this.props.store}
+                cardId={this.state.cardId}
                 closeModal={this.closeModalHandler}
                 currentFront={this.state.currentFront}
                 currentBack={this.state.currentBack} />;
         }
-        const rows = this.props.cards.cards.map((card, i) => {
+        const rows = this.getCurrentCards().cards.map((card, i) => {
             return <FlashcardRow
                 edit={ () => this.editCardHandler(card.id)}
-                // edit={this.editCardHandler.bind(this, card.id)}
-                delete={ () => this.props.onDeleteCard(card.id) }
-                // delete={this.deleteCardHandler.bind(this, card.id)}
+                delete = { () => this.deleteCardHandler(card.id)}
                 frontText={card.front}
                 backText={card.back}
                 key={card.id} 
@@ -111,10 +113,13 @@ class FlashcardTable extends Component {
                         newBack={this.state.newBack}
                     />
                     <button
-                        // onClick={this.addCardHandler}
                         onClick={ () => {
                             this.clearInputs();
-                            this.props.onAddCard(this.state.newFront, this.state.newBack)
+                            this.props.store.dispatch(
+                                AddCard(
+                                    this.props.store.getState().stacks, 
+                                    this.props.store.getState().currentStackId,
+                                    this.state.newFront, this.state.newBack))
                         } }
                         className='btn btn--add-card'>
                         Add Card
@@ -125,23 +130,4 @@ class FlashcardTable extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        category: state.card.stacks.filter(stack => {
-            return stack.id === state.card.currentStackId;
-        })[0].category,
-        cards: state.card.stacks.filter(stack => {
-            return stack.id === state.card.currentStackId;
-        })[0],
-        id: state.card.currentStackId
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onDeleteCard: (cardId) => dispatch({ type: actionTypes.DELETE_CARD, cardId: cardId }),
-        onAddCard: (front, back) => dispatch({ type: actionTypes.ADD_CARD, frontText: front, backText: back})
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(FlashcardTable);
-// export default FlashcardTable;
+export default FlashcardTable;

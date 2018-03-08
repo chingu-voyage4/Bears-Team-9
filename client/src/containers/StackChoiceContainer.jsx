@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import StackChoice from '../components/StackChoice';
-import { connect } from 'react-redux';
-import * as actionTypes from '../store/actions';
+import ChangeStack from '../actions/ChangeStack';
 
 class StackChoiceContainer extends Component {
     render() {
-        const choices = this.props.stacks.map(stack => {
+        const choices = this.props.store.getState().stacks.map(stack => {
             return (
                 <StackChoice 
                     name={ stack.category } 
                     key={ stack.id }
-                    clicked={ () => this.props.onChangeStack(stack.id) }
+                    clicked={ () => this.props.store.dispatch(ChangeStack(stack.id)) }
                     />
             );
         });
@@ -22,17 +21,4 @@ class StackChoiceContainer extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        stacks: state.card.stacks,
-        id: state.card.currentStackId
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        onChangeStack: (newId) => dispatch({ type: actionTypes.CHANGE_STACK, stackId: newId })
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(StackChoiceContainer);
+export default StackChoiceContainer;

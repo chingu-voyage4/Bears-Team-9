@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actionTypes from '../actions/actions';
+import EditCard from '../actions/EditCard';
 
 class EditModal extends Component {
     state = {
         currentFront: this.props.currentFront,
         currentBack: this.props.currentBack,
-        id: this.props.cardId
+        cardId: this.props.cardId
     }
 
     onChangeHandlerFront = (e) => {
@@ -50,9 +52,19 @@ class EditModal extends Component {
                     </div>
                     <div className="btn__group--modal">
                         <button
-                            onClick={() => this.props.updateCard(this.state.currentFront, this.state.currentBack)}
-                            className="btn btn--modal">
-                            Update Card
+                            onClick={ 
+                                    () => {
+                                        this.props.store.dispatch(
+                                            EditCard(
+                                                this.props.store.getState().stacks, 
+                                                this.props.store.getState().currentStackId, 
+                                                this.state.cardId, this.state.currentFront, this.state.currentBack))
+                                        this.props.closeModal()
+                                        }
+                                    
+                            }
+                className="btn btn--modal">
+                Update Card
                         </button>
                         <button
                             onClick={this.props.closeModal}
@@ -68,16 +80,5 @@ class EditModal extends Component {
         );
     }
 }
-const mapStateToProps = state => {
-    return {
-        id: state.card.currentStackId
-    }
-}
 
-const mapDispatchToProps = dispatch => {
-    return {
-
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(EditModal);
+export default EditModal;
