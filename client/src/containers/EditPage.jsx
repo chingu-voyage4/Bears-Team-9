@@ -2,22 +2,24 @@ import React, { Component } from 'react';
 import FlashcardTable from './FlashcardTable';
 import StackChoiceContainer from './StackChoiceContainer';
 
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 class EditPage extends Component {
     render () {
         return (
             <div>
-                <StackChoiceContainer />
-                <FlashcardTable />
+                <StackChoiceContainer store={ this.props.store }/>
+                <FlashcardTable store={ this.props.store }/>
             </div>
         );
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        stacks: state.card.stacks
-    }
-}
-export default connect(mapStateToProps)(EditPage);
+// const mapStateToProps = state => {
+//     return {
+//         stacks: state.card.stacks
+//     }
+// }
+// export default connect(mapStateToProps)(EditPage);
+
+export default EditPage;

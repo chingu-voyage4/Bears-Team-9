@@ -9,12 +9,12 @@ const flashcardRow = (props) => {
             <button
                 onClick={props.delete}
                 className='btn btn-row btn-row-delete'>
-                <i class="far fa-trash-alt"></i>
+                <i className="far fa-trash-alt"></i>
             </button>
             <button
                 onClick={props.edit}
                 className='btn btn-row btn-row-edit'>
-                <i class="far fa-edit"></i>
+                <i className="far fa-edit"></i>
             </button>
         </div>
     );
