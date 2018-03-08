@@ -30,6 +30,21 @@ class App extends Component {
   //       .then( res => console.log( res ))
   //       .catch( err => console.log( err ) )
   //   }
+
+  componentDidMount(){
+    fetch( '/api/category/5a9f238bb1046f575107c377' , {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+       },
+        body: JSON.stringify( 
+          { cardId : '5aa1ba7ecc5cde4e7b4b70d0'}
+        )
+    })
+        .then( res => res.json() ) 
+        .then( res => console.log( res ))
+        .catch( err => console.log( err ) )
+    }
     
 
 
