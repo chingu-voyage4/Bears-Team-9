@@ -1,31 +1,35 @@
-const Auth0Strategy = require('passport-auth0');
-const passport      = require('passport');
-const session       = require('express-session');
-const MongoStore    = require('connect-mongo')(session);
-const mongoose      = require('mongoose');
-const express       = require('express');
+const Auth0Strategy = require( 'passport-auth0' );
+const passport      = require( 'passport' );
+const session       = require( 'express-session' );
+const MongoStore    = require( 'connect-mongo' )(session);
+const mongoose      = require( 'mongoose') ;
+const express       = require( 'express' );
 const router        = express.Router();
+const Users         = require( './models/users' );
 
 
 const strategy = new Auth0Strategy( {
   domain      :  process.env.domain,
   clientID    :  process.env.clientID, 
   clientSecret:  process.env.clientSecret,
-  callbackURL :  process.env.callbackURL
+  callbackURL :  process.env.callbackURL,
+  scope: 'openid profile'
 },
   function ( accessToken, refreshToken, extraParams, profile, done ) {
     // accessToken is the token to call Auth0 API (not needed in the most cases)
     // extraParams.id_token has the JSON Web Token
     // profile has all the information from the user
+    console.log( profile )
     Users.findOne( { userName : profile.displayName } )
-        .then( user => {
+         .then( user => {
 
           if( !user ) {
 
-            User.create( {
-              userName: profile.displayName
-            } ).then( madeUser => done( null, madeUser )) 
-              .catch( err => console.log(err) )
+             Users.create( {
+               userName: profile.displayName
+             } )
+                  .then( madeUser => done( null, madeUser )) 
+                  .catch( err => console.log(err) )
 
           //user in db
           } else {

@@ -23,6 +23,7 @@ const Categories = require( './server/models/categories' )
 
 // ===== ROUTES ===== //
 app.use( '/api', require( './server/routes/categories' ) );
+app.use( '/auth', require( './server/routes/authentication' ) );
 
 
 // ===== Mongoose ===== //
