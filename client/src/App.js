@@ -31,12 +31,7 @@ class App extends Component {
   //       .catch( err => console.log( err ) )
   //   }
     
-  componentDidMount() {
-    fetch('/api/categories')
-      .then(res => res.json())
-      .then(cats => console.log(cats))
-      .catch(err => console.log(err))
-  }
+
 
   render() {
     return (
