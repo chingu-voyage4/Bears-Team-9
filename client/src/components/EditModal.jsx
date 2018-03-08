@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actionTypes from '../store/actions';
+import * as actionTypes from '../actions/actions';
+import EditCard from '../actions/EditCard';
 
 class EditModal extends Component {
     state = {
@@ -53,7 +54,11 @@ class EditModal extends Component {
                         <button
                             onClick={ 
                                     () => {
-                                        this.props.onUpdateCard(this.state.cardId, this.state.currentFront, this.state.currentBack);
+                                        this.props.store.dispatch(
+                                            EditCard(
+                                                this.props.store.getState().stacks, 
+                                                this.props.store.getState().currentStackId, 
+                                                this.state.cardId, this.state.currentFront, this.state.currentBack))
                                         this.props.closeModal()
                                         }
                                     
@@ -75,16 +80,5 @@ class EditModal extends Component {
         );
     }
 }
-const mapStateToProps = state => {
-    return {
-        stackId: state.card.currentStackId
-    }
-}
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onUpdateCard: (cardId, newFront, newBack) => dispatch({ type: actionTypes.UPDATE_CARD, cardId: cardId, newFront: newFront, newBack: newBack })
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(EditModal);
+export default EditModal;
