@@ -1,12 +1,12 @@
 import * as actionTypes from './actions';
 
 const EditCard = (stacks, currentStackId, cardId, newFront, newBack) => {
-    const currentStack = stacks.filter(stack => stack.id === currentStackId)[0];
-    const updatedCard = currentStack.cards.filter(card => card.id === cardId)[0];
+    const currentStack = stacks.filter(stack => stack._id === currentStackId)[0];
+    const updatedCard = currentStack.cards.filter(card => card._id === cardId)[0];
     updatedCard.front = newFront;
     updatedCard.back = newBack;
     const newCards = currentStack.cards.filter(card => {
-        if (card.id === cardId) {
+        if (card._id === cardId) {
             return updatedCard;
         } else {
             return card;
@@ -17,7 +17,7 @@ const EditCard = (stacks, currentStackId, cardId, newFront, newBack) => {
         cards: newCards
     }
     const newStacks = stacks.map(stack => {
-        if (stack.id === currentStackId) {
+        if (stack._id === currentStackId) {
             return updatedStack;
         } else {
             return stack;

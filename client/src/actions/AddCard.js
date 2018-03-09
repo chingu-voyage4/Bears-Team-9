@@ -1,7 +1,7 @@
 import * as actionTypes from './actions';
 
 const AddCard = (stacks, currentStackId, frontText, backText) => {
-    const currentStack = stacks.filter(stack => stack.id === currentStackId)[0];
+    const currentStack = stacks.filter(stack => stack._id === currentStackId)[0];
 
     const newCard = {
         id: currentStack.cards.length + 1,
@@ -17,7 +17,7 @@ const AddCard = (stacks, currentStackId, frontText, backText) => {
     // }
 
     const newStacks = stacks.map(stack => {
-        if (stack.id === currentStackId) {
+        if (stack._id === currentStackId) {
             return {
                 ...stack,
                 cards: newCards

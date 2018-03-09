@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Stack from '../components/Stack';
+import Loader from '../components/Loader';
 
 class Dashboard extends Component {
 //     componentDidMount() {
@@ -15,14 +16,18 @@ class Dashboard extends Component {
 // }
     render () {
         const stateProps = this.props.store.getState();
-        const stacks = stateProps.stacks.map((stack, id) => {
-            return (
-                <Stack
-                    key={ id } 
-                    name={ stack.category }
-                    count={ stack.cards.length } />
-            );
-        })
+        let stacks = <Loader />;
+        if (stateProps.status === 'success') {
+            stacks = stateProps.stacks.map((stack, id) => {
+                return (
+                    <Stack
+                        key={id}
+                        name={stack.category}
+                        count={stack.cards.length} />
+                );
+            })
+        }
+        
         return (
             <div className="dashboard">
                 { stacks }

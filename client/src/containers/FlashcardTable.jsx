@@ -5,6 +5,8 @@ import EditModal from '../components/EditModal';
 import * as actionTypes from '../actions/actions';
 import AddCard from '../actions/AddCard';
 import DeleteCard from '../actions/DeleteCard';
+import FetchState from '../actions/FetchState';
+import Loader from '../components/Loader';
 
 class FlashcardTable extends Component {
     state = {
@@ -37,8 +39,7 @@ class FlashcardTable extends Component {
     };
 
     editCardHandler = (id) => {
-        const currentCard = this.getCurrentCards().cards.filter(card => card.id === id)[0];
-        // console.log(currentCard);
+        const currentCard = this.getCurrentCards().cards.filter(card => card._id === id)[0];
         this.setState({
             modalShow: true,
             currentFront: currentCard.front,
@@ -69,16 +70,19 @@ class FlashcardTable extends Component {
     getCurrentCards = () => {
         const currentStackId = this.props.store.getState().currentStackId;
         const stack = this.props.store.getState().stacks.filter(stack => {
-           return stack.id === currentStackId;
+           return stack._id === currentStackId;
        })[0];
+        console.log(stack);
        return stack; 
     }
 
     componentWillMount = () => {
         this.props.store.subscribe(() => this.forceUpdate());
+        this.props.store.dispatch(FetchState());
     }
 
     render() {
+        const stateProps = this.props.store.getState();
         let modal = null;
         if (this.state.modalShow) {
             modal = <EditModal
@@ -88,15 +92,18 @@ class FlashcardTable extends Component {
                 currentFront={this.state.currentFront}
                 currentBack={this.state.currentBack} />;
         }
-        const rows = this.getCurrentCards().cards.map((card, i) => {
-            return <FlashcardRow
-                edit={ () => this.editCardHandler(card.id)}
-                delete = { () => this.deleteCardHandler(card.id)}
-                frontText={card.front}
-                backText={card.back}
-                key={card.id} 
+        let rows = <Loader />;
+        if (stateProps.status === 'success') {
+            rows = this.getCurrentCards().cards.map(card => {
+                return <FlashcardRow
+                    edit={() => this.editCardHandler(card._id)}
+                    delete={() => this.deleteCardHandler(card._id)}
+                    frontText={card.front}
+                    backText={card.back}
+                    key={card._id}
                 />;
-        })
+            })
+        }
         return (
             <div>
                 {modal}

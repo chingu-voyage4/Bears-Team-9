@@ -7,9 +7,9 @@ class StackChoiceContainer extends Component {
         const choices = this.props.store.getState().stacks.map(stack => {
             return (
                 <StackChoice 
-                    name={ stack.category } 
-                    key={ stack.id }
-                    clicked={ () => this.props.store.dispatch(ChangeStack(stack.id)) }
+                    name={ stack.categoryName } 
+                    key={ stack._id }
+                    clicked={ () => this.props.store.dispatch(ChangeStack(stack._id)) }
                     />
             );
         });
