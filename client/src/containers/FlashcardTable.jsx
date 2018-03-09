@@ -72,7 +72,7 @@ class FlashcardTable extends Component {
         const stack = this.props.store.getState().stacks.filter(stack => {
            return stack._id === currentStackId;
        })[0];
-        console.log(stack);
+        // console.log(stack);
        return stack; 
     }
 
