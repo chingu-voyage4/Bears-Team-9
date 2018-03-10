@@ -118,6 +118,8 @@ body {
     .btn--add-card:hover {
       background-color: #9dabc1;
       color: #243972; }
+    .btn--add-card:not(:last-child) {
+      margin-right: 1rem; }
   .btn-row {
     padding: 10px 10px;
     border: transparent;

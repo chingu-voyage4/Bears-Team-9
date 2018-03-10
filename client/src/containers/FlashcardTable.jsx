@@ -129,6 +129,14 @@ class FlashcardTable extends Component {
                     className='btn btn--add-card'>
                     Add Card
                 </button>
+                <button
+                    onClick={() => {
+                        this.clearInputs();
+                        // this.props.store.dispatch()
+                    }}
+                    className='btn btn--add-card'>
+                    Delete Category
+                </button>
                 </div>
             );
         }
