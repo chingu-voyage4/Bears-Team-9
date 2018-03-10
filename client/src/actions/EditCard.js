@@ -1,4 +1,5 @@
 import * as actionTypes from './actions';
+import FetchState from './FetchState';
 
 const EditCard = (stacks, currentStackId, cardId, newFront, newBack) => {
     const currentStack = stacks.filter(stack => stack._id === currentStackId)[0];
@@ -28,8 +29,25 @@ const EditCard = (stacks, currentStackId, cardId, newFront, newBack) => {
         type: actionTypes.UPDATE_CARD,
         stacks: newStacks
     }
+    return (dispatch) => {
+        fetch(`/api/category/${currentStackId}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                updatedCards: newCards
+            })
+        })
+            .then(res => res.json())
+            .then(res => dispatch(FetchState()))
+            // .then(res => dispatch(FetchSuccess(res)))
+            // .then(() => {return ADD_CARD_OBJ})
+            .catch(err => console.log(err))
+    }
 
-    return EDIT_CARD_OBJ;
+
+    // return EDIT_CARD_OBJ;
 }
 
 export default EditCard;

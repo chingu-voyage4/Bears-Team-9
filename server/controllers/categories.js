@@ -113,7 +113,7 @@ const updateCategory = ( req, res ) => {
                             let cards = category.cards;
                             updatedCards.forEach( update => {
                                 cards.forEach( card => {
-                                    if( update.id === card.id ) {
+                                    if( update._id === card.id ) {
                                         card.front = update.front;
                                         card.back  = update.back;
                                     }

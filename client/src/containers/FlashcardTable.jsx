@@ -84,6 +84,7 @@ class FlashcardTable extends Component {
     render() {
         const stateProps = this.props.store.getState();
         let modal = null;
+        let flashcardTable = null;
         if (this.state.modalShow) {
             modal = <EditModal
                 store={this.props.store}
@@ -93,8 +94,8 @@ class FlashcardTable extends Component {
                 currentBack={this.state.currentBack} />;
         }
         let rows = <Loader />;
-        if (stateProps.status === 'success') {
-            rows = this.getCurrentCards().cards.map(card => {
+        if (stateProps.status === 'success' && stateProps.currentStackId !== '') {
+            const rowContents = this.getCurrentCards().cards.map(card => {
                 return <FlashcardRow
                     edit={() => this.editCardHandler(card._id)}
                     delete={() => this.deleteCardHandler(card._id)}
@@ -103,35 +104,45 @@ class FlashcardTable extends Component {
                     key={card._id}
                 />;
             })
+            rows = (
+                <div>
+                <div className='flashcardTable__row--header'>
+                    <span className='flashcardTable__row--header--front'>Question</span>
+                    <span className='flashcardTable__row--header--back'>Answer</span>
+                </div>
+                { rowContents }
+                <InputRow
+                    textChangeFront={this.textChangeHandlerFront}
+                    textChangeBack={this.textChangeHandlerBack}
+                    newFront={this.state.newFront}
+                    newBack={this.state.newBack}
+                />
+                <button
+                    onClick={() => {
+                        this.clearInputs();
+                        this.props.store.dispatch(
+                            AddCard(
+                                this.props.store.getState().stacks,
+                                this.props.store.getState().currentStackId,
+                                this.state.newFront, this.state.newBack))
+                    }}
+                    className='btn btn--add-card'>
+                    Add Card
+                </button>
+                </div>
+            );
+        }
+        if (stateProps.currentStackId !== '') {
+            flashcardTable = (
+                <div className='flashcardTable'>
+                    {rows}
+                </div>
+            );
         }
         return (
             <div>
                 {modal}
-                <div className='flashcardTable'>
-                    <div className='flashcardTable__row--header'>
-                        <span className='flashcardTable__row--header--front'>Question</span>
-                        <span className='flashcardTable__row--header--back'>Answer</span>
-                    </div>
-                    {rows}
-                    <InputRow
-                        textChangeFront={this.textChangeHandlerFront}
-                        textChangeBack={this.textChangeHandlerBack}
-                        newFront={this.state.newFront}
-                        newBack={this.state.newBack}
-                    />
-                    <button
-                        onClick={ () => {
-                            this.clearInputs();
-                            this.props.store.dispatch(
-                                AddCard(
-                                    this.props.store.getState().stacks, 
-                                    this.props.store.getState().currentStackId,
-                                    this.state.newFront, this.state.newBack))
-                        } }
-                        className='btn btn--add-card'>
-                        Add Card
-                </button>
-                </div>
+                {flashcardTable}
             </div>
         );
     }

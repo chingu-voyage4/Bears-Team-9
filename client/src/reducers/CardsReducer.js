@@ -72,7 +72,8 @@ import * as actionTypes from '../actions/actions';
 const initialState = {
     status: '',
     stacks: [],
-    currentStackId: '5a9f238bb1046f575107c373'
+    currentStackId: ''
+    // currentStackId: '5a9f238bb1046f575107c373'
 }
 
 const cardsReducer = (state = initialState, action) => {
@@ -88,21 +89,21 @@ const cardsReducer = (state = initialState, action) => {
                 status: action.status,
                 stacks: action.stacks
             }
-        case actionTypes.ADD_CARD:
-            return {
-                ...state,
-                stacks: action.stacks
-            }
-        case actionTypes.DELETE_CARD:
-            return {
-                ...state,
-                stacks: action.stacks
-            }
-        case actionTypes.UPDATE_CARD:
-            return {
-                ...state,
-                stacks: action.stacks
-            }
+        // case actionTypes.ADD_CARD:
+        //     return {
+        //         ...state,
+        //         stacks: action.stacks
+        //     }
+        // case actionTypes.DELETE_CARD:
+        //     return {
+        //         ...state,
+        //         stacks: action.stacks
+        //     }
+        // case actionTypes.UPDATE_CARD:
+        //     return {
+        //         ...state,
+        //         stacks: action.stacks
+        //     }
         case actionTypes.CHANGE_STACK:
             return {
                 ...state,
