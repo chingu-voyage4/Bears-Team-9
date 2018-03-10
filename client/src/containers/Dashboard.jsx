@@ -22,7 +22,7 @@ class Dashboard extends Component {
                 return (
                     <Stack
                         key={id}
-                        name={stack.category}
+                        name={stack.categoryName}
                         count={stack.cards.length} />
                 );
             })
