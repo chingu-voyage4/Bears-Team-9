@@ -13,5 +13,15 @@ router.get( '/login/callback',
     res.redirect( 'http://localhost:3000/verify' );
 } );
 
+router.get( '/checkAuth', ( req, res ) => {
+    if( !req.user )  return res.status(400).json( { error: 'No User Found'} )
+    res.json( { userName: req.user.userName, _id: req.user._id } );
+} )
+
+router.get( '/logout', ( req, res ) => {
+    req.logOut();
+    res.redirect( '/' )
+} )
+
 
 module.exports = router;

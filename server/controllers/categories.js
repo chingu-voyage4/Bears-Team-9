@@ -105,7 +105,6 @@ const addNewCard = ( req, res ) => {
  */
 const updateCategory = ( req, res ) => {
     let id = req.params.id;
-    // let updatedCards = sanitize( req.body.updatedCards );
     let updatedCards = req.body.updatedCards;
     return Categories.findById( id )
                      .then( category => {
@@ -137,7 +136,6 @@ const updateCategory = ( req, res ) => {
  */
 const deleteCard = ( req, res ) => {
     let catId  = req.params.id;
-    // let cardId = escapeChars( req.body.cardId );
     let cardId = req.body.cardId;
     return Categories.findByIdAndUpdate( 
                         catId, 
