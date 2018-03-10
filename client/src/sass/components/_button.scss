@@ -16,6 +16,10 @@
         &:not(:last-child) {
             margin-right: 3rem;
         }
+        &-active {
+            color: $color-white;
+            background-color: $color-red;
+        }
     }
 
     &__group {
