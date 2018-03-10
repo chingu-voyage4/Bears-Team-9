@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import Dashboard from './containers/Dashboard';
 import EditPage from './containers/EditPage';
-// import PreferencePage from './containers/PreferencePage';
+import PreferencePage from './containers/PreferencePage';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import FetchState from './actions/FetchState';
 
 class App extends Component {
 
@@ -30,18 +31,36 @@ class App extends Component {
   //       .then( res => console.log( res ))
   //       .catch( err => console.log( err ) )
   //   }
-    
+
+  // componentDidMount(){
+  //   fetch( '/api/category/5a9f238bb1046f575107c377' , {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'content-type': 'application/json',
+  //      },
+  //       body: JSON.stringify( 
+  //         { cardId : '5aa1ba7ecc5cde4e7b4b70d0'}
+  //       )
+  //   })
+  //       .then( res => res.json() ) 
+  //       .then( res => console.log( res ))
+  //       .catch( err => console.log( err ) )
+  // }
   
+  componentWillMount = () => {
+    this.props.store.subscribe(() => this.forceUpdate())
+    this.props.store.dispatch(FetchState());
+  }
+
+
   render() {
     return (
       <div className="app">
         <Navbar />
         <Switch>
-          {/* <Route path='/edit' component={ EditPage } /> */}
           <Route path='/edit' render={() => <EditPage store={ this.props.store } />} />
           <Route path='/dashboard' render={() => <Dashboard store={ this.props.store } />} />
-          
-          {/* <Route path='/preferences' component={ PreferencePage } /> */}
+          <Route path='/preferences' component={ PreferencePage } />
           <Redirect from='/' to='/dashboard' />
         </Switch>
       </div>

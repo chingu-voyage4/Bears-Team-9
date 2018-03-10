@@ -105,14 +105,15 @@ const addNewCard = ( req, res ) => {
  */
 const updateCategory = ( req, res ) => {
     let id = req.params.id;
-    let updatedCards = sanitize( req.body.updatedCards );
+    // let updatedCards = sanitize( req.body.updatedCards );
+    let updatedCards = req.body.updatedCards;
     return Categories.findById( id )
                      .then( category => {
                          if( category ) {
                             let cards = category.cards;
                             updatedCards.forEach( update => {
                                 cards.forEach( card => {
-                                    if( update.id === card.id ) {
+                                    if( update._id === card.id ) {
                                         card.front = update.front;
                                         card.back  = update.back;
                                     }
@@ -136,7 +137,8 @@ const updateCategory = ( req, res ) => {
  */
 const deleteCard = ( req, res ) => {
     let catId  = req.params.id;
-    let cardId = escapeChars( req.body.cardId );
+    // let cardId = escapeChars( req.body.cardId );
+    let cardId = req.body.cardId;
     return Categories.findByIdAndUpdate( 
                         catId, 
                         { $pull: { cards: { _id: cardId } } }

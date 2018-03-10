@@ -1,7 +1,8 @@
 import * as actionTypes from './actions';
+import FetchState from './FetchState';
 
 const AddCard = (stacks, currentStackId, frontText, backText) => {
-    const currentStack = stacks.filter(stack => stack.id === currentStackId)[0];
+    const currentStack = stacks.filter(stack => stack._id === currentStackId)[0];
 
     const newCard = {
         id: currentStack.cards.length + 1,
@@ -11,13 +12,8 @@ const AddCard = (stacks, currentStackId, frontText, backText) => {
     // CREATE NEW STACK BY APPENDING NEW CARD
     const newCards = currentStack.cards.concat(newCard);
 
-    // REPLACE OLD STACK IN OLD STATE WITH NEW STACK
-    // const newState = {
-    //     ...state
-    // }
-
     const newStacks = stacks.map(stack => {
-        if (stack.id === currentStackId) {
+        if (stack._id === currentStackId) {
             return {
                 ...stack,
                 cards: newCards
@@ -32,7 +28,24 @@ const AddCard = (stacks, currentStackId, frontText, backText) => {
         stacks: newStacks
     }
 
-    return ADD_CARD_OBJ;
+    return(dispatch) => {
+        fetch(`/api/category/${currentStackId}`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                front: frontText,
+                back: backText
+            })
+        })
+        .then(res => res.json())
+        .then(res => dispatch(FetchState()))
+        // .then(res => dispatch(FetchSuccess(res)))
+        // .then(() => {return ADD_CARD_OBJ})
+        .catch(err => console.log(err))
+    }
+    // return ADD_CARD_OBJ;
 }
 
 export default AddCard;

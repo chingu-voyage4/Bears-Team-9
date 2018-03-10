@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import FlashcardTable from './FlashcardTable';
 import StackChoiceContainer from './StackChoiceContainer';
 
-// import { connect } from 'react-redux';
-
 class EditPage extends Component {
     render () {
         return (
@@ -14,12 +12,5 @@ class EditPage extends Component {
         );
     }
 }
-
-// const mapStateToProps = state => {
-//     return {
-//         stacks: state.card.stacks
-//     }
-// }
-// export default connect(mapStateToProps)(EditPage);
 
 export default EditPage;

@@ -9,6 +9,7 @@ import { createStore, applyMiddleware } from 'redux';
 // import cardsReducer from './store/card';
 import CardsReducer from './reducers/CardsReducer';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 
 // const rootReducer = combineReducers({
 //     card: cardsReducer
@@ -16,7 +17,7 @@ import logger from 'redux-logger';
 
 const store = createStore(
     CardsReducer,
-    applyMiddleware(logger)
+    applyMiddleware(thunk, logger)
 );
 
 ReactDOM.render(
