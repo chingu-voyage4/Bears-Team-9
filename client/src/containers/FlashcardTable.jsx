@@ -52,8 +52,8 @@ class FlashcardTable extends Component {
         console.log(id);
         this.props.store.dispatch(
             DeleteCard(
-                this.props.store.getState().stacks, 
-                this.props.store.getState().currentStackId, 
+                this.props.store.getState().cards.stacks, 
+                this.props.store.getState().cards.currentStackId, 
                 id)
         );
     }
@@ -68,8 +68,8 @@ class FlashcardTable extends Component {
     }
     
     getCurrentCards = () => {
-        const currentStackId = this.props.store.getState().currentStackId;
-        const stack = this.props.store.getState().stacks.filter(stack => {
+        const currentStackId = this.props.store.getState().cards.currentStackId;
+        const stack = this.props.store.getState().cards.stacks.filter(stack => {
            return stack._id === currentStackId;
        })[0];
         // console.log(stack);
@@ -82,7 +82,7 @@ class FlashcardTable extends Component {
     }
 
     render() {
-        const stateProps = this.props.store.getState();
+        const stateProps = this.props.store.getState().cards;
         let modal = null;
         let flashcardTable = null;
         if (this.state.modalShow) {
@@ -122,8 +122,8 @@ class FlashcardTable extends Component {
                         this.clearInputs();
                         this.props.store.dispatch(
                             AddCard(
-                                this.props.store.getState().stacks,
-                                this.props.store.getState().currentStackId,
+                                stateProps.stacks,
+                                stateProps.currentStackId,
                                 this.state.newFront, this.state.newBack))
                     }}
                     className='btn btn--add-card'>

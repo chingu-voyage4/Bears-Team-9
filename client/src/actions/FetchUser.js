@@ -5,10 +5,10 @@ const FetchUser = () => {
     return ( dispatch ) => {
         fetch( '/auth/checkAuth', { credentials: 'include' } )
             .then( res => {
-              if (!res.ok) {
+               if (!res.ok) {
                   throw Error();
-              }
-              return res;
+               }
+               return res;
             } )
             .then( res => res.json() )
             .then( res => dispatch( {

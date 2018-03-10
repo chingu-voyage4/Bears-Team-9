@@ -5,18 +5,20 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 // import cardsReducer from './store/card';
 import CardsReducer from './reducers/CardsReducer';
+import userReducer from './reducers/UserReducer';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
-// const rootReducer = combineReducers({
-//     card: cardsReducer
-// });
+const rootReducer = combineReducers({
+    cards: CardsReducer,
+    user: userReducer
+});
 
 const store = createStore(
-    CardsReducer,
+    rootReducer,
     applyMiddleware(thunk, logger)
 );
 

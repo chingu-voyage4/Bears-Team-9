@@ -56,8 +56,8 @@ class EditModal extends Component {
                                     () => {
                                         this.props.store.dispatch(
                                             EditCard(
-                                                this.props.store.getState().stacks, 
-                                                this.props.store.getState().currentStackId, 
+                                                this.props.store.getState().cards.stacks, 
+                                                this.props.store.getState().cards.currentStackId, 
                                                 this.state.cardId, this.state.currentFront, this.state.currentBack))
                                         this.props.closeModal()
                                         }
