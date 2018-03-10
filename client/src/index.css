@@ -37,6 +37,22 @@ body {
   text-decoration: none;
   padding: 2px auto;
   transition: all .2s; }
+  .btn--add-stack {
+    color: #fff;
+    display: inline-block;
+    border: 2px solid #fff;
+    background-color: transparent;
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 3rem;
+    box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75);
+    transition: all .2s;
+    padding: 4px 8px;
+    cursor: pointer; }
+    .btn--add-stack:hover {
+      background-color: #fff;
+      color: #091e36; }
   .btn--stackchoice {
     display: inline-block;
     border: 2px solid red;

@@ -18,7 +18,7 @@ class Dashboard extends Component {
         const stateProps = this.props.store.getState().cards;
         let stacks = <Loader />;
         if (stateProps.status === 'success') {
-            stacks = stateProps.stacks.map((stack, id) => {
+            const stackContent = stateProps.stacks.map((stack, id) => {
                 return (
                     <Stack
                         key={id}
@@ -26,6 +26,16 @@ class Dashboard extends Component {
                         count={stack.cards.length} />
                 );
             })
+            stacks = (
+                <div>
+                    <div>
+                        <button className='btn btn--add-stack'>
+                            Add Stack
+                        </button>
+                    </div>
+                    {stackContent}
+                </div>
+            );
         }
         
         return (
