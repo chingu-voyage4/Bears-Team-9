@@ -49,6 +49,9 @@ body {
       background-color: red; }
     .btn--stackchoice:not(:last-child) {
       margin-right: 3rem; }
+    .btn--stackchoice-active {
+      color: #fff;
+      background-color: red; }
   .btn__group--modal {
     position: relative;
     padding: 3rem 0;

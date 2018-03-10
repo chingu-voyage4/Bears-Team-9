@@ -4,11 +4,14 @@ import ChangeStack from '../actions/ChangeStack';
 
 class StackChoiceContainer extends Component {
     render() {
-        const choices = this.props.store.getState().cards.stacks.map(stack => {
+        const stateProps = this.props.store.getState()
+        const choices = stateProps.cards.stacks.map(stack => {
             return (
                 <StackChoice 
                     name={ stack.categoryName } 
                     key={ stack._id }
+                    active={ stack._id  }
+                    currentStackId={ stateProps.cards.currentStackId }
                     clicked={ () => this.props.store.dispatch(ChangeStack(stack._id)) }
                     />
             );
