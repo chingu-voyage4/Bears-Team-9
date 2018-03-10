@@ -37,6 +37,22 @@ body {
   text-decoration: none;
   padding: 2px auto;
   transition: all .2s; }
+  .btn--add-stack {
+    color: #fff;
+    display: inline-block;
+    border: 2px solid #fff;
+    background-color: transparent;
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 3rem;
+    box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75);
+    transition: all .2s;
+    padding: 4px 8px;
+    cursor: pointer; }
+    .btn--add-stack:hover {
+      background-color: #fff;
+      color: #091e36; }
   .btn--stackchoice {
     display: inline-block;
     border: 2px solid red;
@@ -154,6 +170,22 @@ body {
     left: 0%;
     width: 100vw;
     height: 100vh; }
+  .modal__add-stack {
+    width: 40rem;
+    text-align: left; }
+    .modal__add-stack--titles {
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      margin-left: 3rem; }
+    .modal__add-stack--input {
+      width: 30rem;
+      height: 4rem;
+      margin-left: 3rem;
+      outline: none;
+      border: none;
+      font-size: 3rem;
+      border-bottom: 2px solid #243972; }
   .modal__front, .modal__back {
     width: calc((100% - (2*3rem) - 4rem) / 2);
     position: relative;
