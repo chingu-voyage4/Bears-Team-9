@@ -15,7 +15,7 @@ class Dashboard extends Component {
 //             .catch(err => console.log(err));
 // }
     render () {
-        const stateProps = this.props.store.getState();
+        const stateProps = this.props.store.getState().cards;
         let stacks = <Loader />;
         if (stateProps.status === 'success') {
             stacks = stateProps.stacks.map((stack, id) => {

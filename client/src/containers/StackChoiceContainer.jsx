@@ -4,7 +4,7 @@ import ChangeStack from '../actions/ChangeStack';
 
 class StackChoiceContainer extends Component {
     render() {
-        const choices = this.props.store.getState().stacks.map(stack => {
+        const choices = this.props.store.getState().cards.stacks.map(stack => {
             return (
                 <StackChoice 
                     name={ stack.categoryName } 

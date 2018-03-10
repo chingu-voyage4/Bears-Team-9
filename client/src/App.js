@@ -5,6 +5,8 @@ import EditPage from './containers/EditPage';
 import PreferencePage from './containers/PreferencePage';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import FetchState from './actions/FetchState';
+import VerifyAuth from './components/VerifyAuth';
+import FetchUser from './actions/FetchUser';
 
 class App extends Component {
 
@@ -48,19 +50,21 @@ class App extends Component {
   // }
   
   componentWillMount = () => {
-    this.props.store.subscribe(() => this.forceUpdate())
+    this.props.store.subscribe(() => this.forceUpdate());
     this.props.store.dispatch(FetchState());
+    this.props.store.dispatch(FetchUser())
   }
 
 
   render() {
     return (
       <div className="app">
-        <Navbar />
+        <Navbar store={ this.props.store }/>
         <Switch>
           <Route path='/edit' render={() => <EditPage store={ this.props.store } />} />
           <Route path='/dashboard' render={() => <Dashboard store={ this.props.store } />} />
           <Route path='/preferences' component={ PreferencePage } />
+          <Route path='/verify' component={ VerifyAuth } />          
           <Redirect from='/' to='/dashboard' />
         </Switch>
       </div>
