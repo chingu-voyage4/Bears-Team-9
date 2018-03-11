@@ -59,6 +59,7 @@ body {
     padding: 4px 8px;
     font-size: 1.5rem;
     color: red;
+    margin-bottom: 2rem;
     cursor: pointer; }
     .btn--stackchoice:hover {
       color: #fff;
@@ -296,8 +297,7 @@ body {
 
 .stackChoiceContainer {
   text-align: center;
-  margin-top: 4rem;
-  margin-bottom: 4rem; }
+  margin: 4rem auto; }
 
 .loader {
   color: #ffffff;
