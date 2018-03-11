@@ -105,6 +105,9 @@
             background-color: $color-light-blue;
             color: $color-medium-blue;
         }
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
     }
     &-row {
         padding: 10px 10px;
