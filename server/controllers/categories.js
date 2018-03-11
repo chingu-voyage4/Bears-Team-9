@@ -7,13 +7,14 @@ const { sanitize, escapeChars } = require( '../helpers/sanitizeInputs' );
  */
 const getAll = ( req, res ) => {
     return Categories.find( {} )
+                     .sort({categoryName: "ascending"})
                      .then( allData => res.status(200).json(allData) )
                      .catch( error => res.status(400).json({ error }) )
 }
 
 
 /**
- * Returns a newly added category 
+ * Returns a newly added category
  * Expects:
  *      1) newCategory object from the body
  *          - {
@@ -28,7 +29,7 @@ const getAll = ( req, res ) => {
  */
 const addNewCategory = ( req, res ) => {
     const { newCategory } = req.body;
-    
+
     // ===== Need to check if this category already exists ===== //
     return Categories.findOne( { 'categoryName' : newCategory.categoryName } )
                      .then( foundCat => {
@@ -46,7 +47,7 @@ const addNewCategory = ( req, res ) => {
 
 
 /**
- * 
+ *
  * Returns an OK status if successful
  * Expects:
  *      1) category id from headers
@@ -61,7 +62,7 @@ const deleteOneCategory = ( req, res ) => {
 
 /**
  * Returns specific category from list
- * Expects: 
+ * Expects:
  *      1) category id from headers
  */
 const getOne = ( req, res ) => {
@@ -77,7 +78,7 @@ const getOne = ( req, res ) => {
 
 /**
  * Returns an OK status if successful
- * Expects: 
+ * Expects:
  *      1) category id from headers
  *      2) request body properties
  *          - front ( string )
@@ -86,21 +87,21 @@ const getOne = ( req, res ) => {
 const addNewCard = ( req, res ) => {
     let id = req.params.id;
     let { front, back } = req.body;
-    return Categories.findByIdAndUpdate( 
-                        id, 
+    return Categories.findByIdAndUpdate(
+                        id,
                         { $push: { cards: { front, back } } },
-                        { new: true }  
+                        { new: true }
                     )
                      .then( category => res.status(200).json({ status: 'OK' }) )
-                     .catch( error => res.status(401).json({ error }))        
+                     .catch( error => res.status(401).json({ error }))
 }
 
 
 /**
  * Returns a new updated document
- * Expects: 
+ * Expects:
  *      1) category id from params
- *      2) updatedCards from body 
+ *      2) updatedCards from body
  *         - [ { id: 'asdfasdfasd', front: 'newStuff', back: 'otherNewStuff' } ]
  */
 const updateCategory = ( req, res ) => {
@@ -120,16 +121,16 @@ const updateCategory = ( req, res ) => {
                             } )
                             category.markModified('cards')
                             return category.save();
-                         } 
+                         }
                      } )
                      .then( result => res.status(200).json(result) )
-                     .catch( (error => res.status(500).json( { error }) ) ) 
-} 
+                     .catch( (error => res.status(500).json( { error }) ) )
+}
 
 
 /**
- * 
- * Returns an OK status if successful 
+ *
+ * Returns an OK status if successful
  * Expects:
  *      1) category id from params
  *      2) cardId from body
@@ -137,8 +138,8 @@ const updateCategory = ( req, res ) => {
 const deleteCard = ( req, res ) => {
     let catId  = req.params.id;
     let cardId = req.body.cardId;
-    return Categories.findByIdAndUpdate( 
-                        catId, 
+    return Categories.findByIdAndUpdate(
+                        catId,
                         { $pull: { cards: { _id: cardId } } }
                     )
                      .then( result => res.status(200).json({ status: 'OK' }) )
@@ -147,7 +148,7 @@ const deleteCard = ( req, res ) => {
 
 
 module.exports = {
-    getAll, 
+    getAll,
     getOne,
     addNewCard,
     addNewCategory,
