@@ -34,8 +34,10 @@ const addNewCategory = ( req, res ) => {
     return Categories.findOne( { 'categoryName' : newCategory.categoryName } )
                      .then( foundCat => {
                          if( !foundCat ) {
-                             newCategory.categoryName = escapeChars( newCategory.categoryName );
-                             newCategory.cards = sanitize( newCategory.cards );
+                             newCategory.categoryName =  newCategory.categoryName;
+                            //  newCategory.categoryName = escapeChars( newCategory.categoryName );
+                             newCategory.cards = newCategory.cards;
+                            //  newCategory.cards = sanitize( newCategory.cards );
                              return Categories.create( newCategory );
                          } else {
                              throw new Error( 'Category already exists' );

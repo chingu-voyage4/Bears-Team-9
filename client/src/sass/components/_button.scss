@@ -2,12 +2,32 @@
     text-decoration: none;
     padding: 2px auto;
     transition: all .2s;
+    &--add-stack {
+        color: $color-white;
+        display: inline-block;
+        border: 2px solid $color-white;
+        background-color: transparent;
+        font-size: 1.7rem;
+        // width: 6rem;
+        font-weight: 600;
+        text-align: center;
+        line-height: 3rem;
+        box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75);
+        transition: all .2s;
+        padding: 4px 8px;
+        cursor: pointer;
+        &:hover {
+            background-color: $color-white;
+            color: $color-dark-blue;
+        }
+    }
     &--stackchoice {
         display: inline-block;
         border: 2px solid $color-red;
         padding: 4px 8px;
         font-size: 1.5rem;
         color: $color-red;
+        margin-bottom: 2rem;
         cursor: pointer;
         &:hover {
             color: $color-white;
@@ -15,6 +35,10 @@
         }
         &:not(:last-child) {
             margin-right: 3rem;
+        }
+        &-active {
+            color: $color-white;
+            background-color: $color-red;
         }
     }
 
@@ -81,6 +105,9 @@
         &:hover {
             background-color: $color-light-blue;
             color: $color-medium-blue;
+        }
+        &:not(:last-child) {
+            margin-right: 1rem;
         }
     }
     &-row {

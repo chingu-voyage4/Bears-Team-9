@@ -7,6 +7,7 @@ import AddCard from '../actions/AddCard';
 import DeleteCard from '../actions/DeleteCard';
 import FetchState from '../actions/FetchState';
 import Loader from '../components/Loader';
+import DeleteCategoryModal from '../components/DeleteCategoryModal';
 
 class FlashcardTable extends Component {
     state = {
@@ -15,7 +16,8 @@ class FlashcardTable extends Component {
         newFront: '',
         newBack: '',
         modalShow: false,
-        cardId: ''
+        cardId: '',
+        modalDeleteShow: false
     }
 
     clearInputs = () => {
@@ -58,6 +60,19 @@ class FlashcardTable extends Component {
         );
     }
 
+    deleteCategoryHandler = () => {
+        this.setState({
+            modalDeleteShow: true
+        })
+        console.log(this.state)
+    }
+
+    closeDeleteModalHandler = () => {
+        this.setState({
+            modalDeleteShow: false
+        })
+    }
+
     closeModalHandler = () => {
         this.setState({
             modalShow: false,
@@ -85,6 +100,7 @@ class FlashcardTable extends Component {
         const stateProps = this.props.store.getState().cards;
         let modal = null;
         let flashcardTable = null;
+        let deleteModal = null;
         if (this.state.modalShow) {
             modal = <EditModal
                 store={this.props.store}
@@ -92,6 +108,12 @@ class FlashcardTable extends Component {
                 closeModal={this.closeModalHandler}
                 currentFront={this.state.currentFront}
                 currentBack={this.state.currentBack} />;
+        }
+        if (this.state.modalDeleteShow) {
+            deleteModal = <DeleteCategoryModal 
+                store={this.props.store}
+                closeModal={this.closeDeleteModalHandler}
+                />
         }
         let rows = <Loader />;
         if (stateProps.status === 'success' && stateProps.currentStackId !== '') {
@@ -129,6 +151,11 @@ class FlashcardTable extends Component {
                     className='btn btn--add-card'>
                     Add Card
                 </button>
+                <button
+                    onClick={ this.deleteCategoryHandler }
+                    className='btn btn--add-card'>
+                    Delete Category
+                </button>
                 </div>
             );
         }
@@ -142,6 +169,7 @@ class FlashcardTable extends Component {
         return (
             <div>
                 {modal}
+                {deleteModal}
                 {flashcardTable}
             </div>
         );
