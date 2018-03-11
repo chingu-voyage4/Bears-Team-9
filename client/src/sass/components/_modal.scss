@@ -21,6 +21,15 @@
         width: 100vw;
         height: 100vh;
     }
+    &__category-title {
+        display: block;
+        font-size: 3rem;
+        margin-top: 1.5rem;
+        color: $color-red;
+        width: 80%;
+        overflow-wrap: break-word;
+        text-align: center;
+    }
     &__add-stack {
         width: $modal-width-small;
         text-align: left;

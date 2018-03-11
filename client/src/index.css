@@ -172,6 +172,14 @@ body {
     left: 0%;
     width: 100vw;
     height: 100vh; }
+  .modal__category-title {
+    display: block;
+    font-size: 3rem;
+    margin-top: 1.5rem;
+    color: red;
+    width: 80%;
+    overflow-wrap: break-word;
+    text-align: center; }
   .modal__add-stack {
     width: 40rem;
     text-align: left; }
