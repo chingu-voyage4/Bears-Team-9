@@ -17,7 +17,7 @@ class StackChoiceContainer extends Component {
             );
         });
         return (
-            <div className='stackChoiceContainer'>
+            <div className='stackChoiceContainer content-width'>
                 {choices}
             </div>
         );
