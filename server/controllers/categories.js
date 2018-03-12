@@ -38,9 +38,7 @@ const addNewCategory = ( req, res ) => {
                      .then( foundCat => {
                          if( !foundCat ) {
                              newCategory.categoryName =  newCategory.categoryName;
-                            //  newCategory.categoryName = escapeChars( newCategory.categoryName );
                              newCategory.cards = newCategory.cards;
-                            //  newCategory.cards = sanitize( newCategory.cards );
                              return Categories.create( newCategory );
                          } else {
                              throw new Error( 'Category already exists' );
@@ -48,12 +46,12 @@ const addNewCategory = ( req, res ) => {
                      } )
                      .then( addedCat => {
                          return Users.findById( userId )
-                                    .then( user => {
+                                     .then( user => {
                                         user.categories.push( addedCat._id )
                                         user.save();
                                         addedCat.owner = user._id;
                                         return addedCat.save();
-                                    } )
+                                     } )
                       } )
                      .then( addedCat => res.status(200).json( addedCat ) )
                      .catch( error => res.status(400).json( { error } ) )
@@ -68,9 +66,20 @@ const addNewCategory = ( req, res ) => {
  */
 const deleteOneCategory = ( req, res ) => {
     const { id } = req.headers;
-    return Categories.findByIdAndRemove( id )
-                     .then( () => res.status(200).json({ status: 'OK'}) )
-                     .catch( error => res.status(400).json({ error }) )
+    const userId = req.user._id;
+    
+    return Users.findById( userId )
+                .then( user => {
+                    let userCats = user.categories;
+                    if( userCats.indexOf( id ) === -1 ) {
+                        throw new Error( 'Can\'t delete category' )
+                    }
+                    userCats.splice( userCats.indexOf( id ), 1);
+                    return user.save();
+                } )
+                .then( () => Categories.findByIdAndRemove( id ) )
+                .then( () => res.status(200).json({ status: 'OK'}) )
+                .catch( error => res.status(400).json( { error } ) )
 }
 
 

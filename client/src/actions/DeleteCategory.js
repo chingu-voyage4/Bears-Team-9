@@ -11,6 +11,12 @@ const DeleteCategory = (deleteCategoryId) => {
                 'id': deleteCategoryId
             }
         })
+            .then( res => {
+              if (!res.ok) {
+                throw Error('Can\'t delete category');
+              }
+              return res;
+            } )
             .then(res => res.json())
             .then(res => dispatch(FetchState()))
             // .then(res => dispatch(FetchSuccess(res)))
