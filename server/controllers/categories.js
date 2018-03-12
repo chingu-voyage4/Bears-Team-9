@@ -1,4 +1,5 @@
 const Categories = require( '../models/categories' );
+const Users      = require( '../models/users' );
 const { sanitize, escapeChars } = require( '../helpers/sanitizeInputs' );
 
 
@@ -30,6 +31,8 @@ const getAll = ( req, res ) => {
 const addNewCategory = ( req, res ) => {
     const { newCategory } = req.body;
 
+    const userId = req.user._id
+
     // ===== Need to check if this category already exists ===== //
     return Categories.findOne( { 'categoryName' : newCategory.categoryName } )
                      .then( foundCat => {
@@ -43,6 +46,15 @@ const addNewCategory = ( req, res ) => {
                              throw new Error( 'Category already exists' );
                          }
                      } )
+                     .then( addedCat => {
+                         return Users.findById( userId )
+                                    .then( user => {
+                                        user.categories.push( addedCat._id )
+                                        user.save();
+                                        addedCat.owner = user._id;
+                                        return addedCat.save();
+                                    } )
+                      } )
                      .then( addedCat => res.status(200).json( addedCat ) )
                      .catch( error => res.status(400).json( { error } ) )
 }

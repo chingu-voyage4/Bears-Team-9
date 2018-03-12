@@ -4,6 +4,7 @@ import FetchState from './FetchState';
 const AddCategory = (newCategoryTitle) => {
     return (dispatch) => {
         fetch(`/api/categories`, {
+            credentials: 'include',
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -15,6 +16,12 @@ const AddCategory = (newCategoryTitle) => {
                 }
             })
         })
+            .then( res => {
+                if (!res.ok) {
+                  throw Error('Category already exists');
+                }
+                return res;
+            } )
             .then(res => res.json())
             .then(res => dispatch(FetchState()))
             // .then(res => dispatch(FetchSuccess(res)))

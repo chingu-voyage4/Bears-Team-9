@@ -30,6 +30,7 @@ const AddCard = (stacks, currentStackId, frontText, backText) => {
 
     return(dispatch) => {
         fetch(`/api/category/${currentStackId}`, {
+            credentials: 'include',
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
