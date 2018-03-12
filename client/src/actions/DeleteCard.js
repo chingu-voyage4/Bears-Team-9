@@ -21,6 +21,7 @@ const DeleteCard = (stacks, currentStackId, cardId) => {
     }
     return(dispatch) => {
         fetch(`/api/category/${currentStackId}`, {
+            credentials: 'include',
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'

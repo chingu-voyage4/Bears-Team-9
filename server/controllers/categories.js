@@ -1,4 +1,5 @@
 const Categories = require( '../models/categories' );
+const User       = require( '../models/users' );
 const { sanitize, escapeChars } = require( '../helpers/sanitizeInputs' );
 
 
@@ -29,6 +30,8 @@ const getAll = ( req, res ) => {
  */
 const addNewCategory = ( req, res ) => {
     const { newCategory } = req.body;
+
+    console.log( req.user )
 
     // ===== Need to check if this category already exists ===== //
     return Categories.findOne( { 'categoryName' : newCategory.categoryName } )

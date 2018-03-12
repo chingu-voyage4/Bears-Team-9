@@ -4,6 +4,7 @@ import FetchState from './FetchState';
 const AddCategory = (newCategoryTitle) => {
     return (dispatch) => {
         fetch(`/api/categories`, {
+            credentials: 'include',
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

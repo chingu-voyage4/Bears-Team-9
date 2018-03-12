@@ -4,6 +4,7 @@ import FetchState from './FetchState';
 const DeleteCategory = (deleteCategoryId) => {
     return (dispatch) => {
         fetch(`/api/categories`, {
+            credentials: 'include',
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',

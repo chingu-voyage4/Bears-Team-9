@@ -31,6 +31,7 @@ const EditCard = (stacks, currentStackId, cardId, newFront, newBack) => {
     }
     return (dispatch) => {
         fetch(`/api/category/${currentStackId}`, {
+            credentials: 'include',
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
