@@ -3,6 +3,7 @@ const express  = require( 'express' );
 const router   = express.Router();
 const Categories = require( '../models/categories' );
 const handler    = require( '../controllers/categories.js' );
+const checkAuth = require('../helpers/checkAuth');
 
 const { sanitizeUpdatedCards } = require('../middleware/sanitizeInput');
 
