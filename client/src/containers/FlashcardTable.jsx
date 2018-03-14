@@ -120,6 +120,7 @@ class FlashcardTable extends Component {
 
     render() {
         const stateProps = this.props.store.getState().cards;
+        const user = this.props.store.getState().user;
         let modal = null;
         let flashcardTable = null;
         let deleteModal = null;
@@ -162,7 +163,7 @@ class FlashcardTable extends Component {
                     newFront={this.state.newFront}
                     newBack={this.state.newBack}
                 />
-                { this.props.store.getState().user.isLoggedIn ? this.addDeleteButtons : null }
+                { user.isLoggedIn ? this.addDeleteButtons : null }
                 </div>
             );
         }
