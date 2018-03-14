@@ -5,7 +5,6 @@ class navbar extends Component {
 
     render() {
         const user = this.props.store.getState().user;
-        console.log( user ) 
 
         const login = (
             <a className="btn btn--navbar"

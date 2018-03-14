@@ -23,7 +23,7 @@ const flashcardRow = (props) => {
             className='flashcardTable__row'>
             <span className='flashcardTable__row--content--front'>{props.frontText}</span>
             <span className='flashcardTable__row--content--back'>{props.backText}</span>
-            { props.user.isLoggedIn ? addDeleteButtons(props) : null }
+            { ( props.user.isLoggedIn && props.stack.owner === props.user._id )  ? addDeleteButtons(props) : null }
         </div>
     );
 }

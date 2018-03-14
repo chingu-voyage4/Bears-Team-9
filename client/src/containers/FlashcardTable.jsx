@@ -140,8 +140,10 @@ class FlashcardTable extends Component {
         }
         let rows = <Loader />;
         if (stateProps.status === 'success' && stateProps.currentStackId !== '') {
-            const rowContents = this.getCurrentCards().cards.map(card => {
+            const currentStack = this.getCurrentCards();
+            const rowContents = currentStack.cards.map(card => {
                 return <FlashcardRow
+                    stack={currentStack}
                     user={this.props.store.getState().user}
                     edit={() => this.editCardHandler(card._id)}
                     delete={() => this.deleteCardHandler(card._id)}
@@ -163,7 +165,7 @@ class FlashcardTable extends Component {
                     newFront={this.state.newFront}
                     newBack={this.state.newBack}
                 />
-                { user.isLoggedIn ? this.addDeleteButtons : null }
+                { ( user.isLoggedIn && currentStack.owner === user._id ) ? this.addDeleteButtons : null }
                 </div>
             );
         }
