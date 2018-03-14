@@ -1,11 +1,8 @@
 import React from 'react';
 
-const flashcardRow = (props) => {
+const addDeleteButtons = (props) => {
     return (
-        <div
-            className='flashcardTable__row'>
-            <span className='flashcardTable__row--content--front'>{props.frontText}</span>
-            <span className='flashcardTable__row--content--back'>{props.backText}</span>
+        <span>
             <button
                 onClick={props.delete}
                 className='btn btn-row btn-row-delete'>
@@ -16,6 +13,17 @@ const flashcardRow = (props) => {
                 className='btn btn-row btn-row-edit'>
                 <i className="far fa-edit"></i>
             </button>
+        </span>
+    )
+}
+
+const flashcardRow = (props) => {
+    return (
+        <div
+            className='flashcardTable__row'>
+            <span className='flashcardTable__row--content--front'>{props.frontText}</span>
+            <span className='flashcardTable__row--content--back'>{props.backText}</span>
+            { props.user.isLoggedIn ? addDeleteButtons(props) : null }
         </div>
     );
 }
