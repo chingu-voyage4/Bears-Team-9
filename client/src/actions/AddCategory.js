@@ -18,7 +18,15 @@ const AddCategory = (newCategoryTitle) => {
         })
             .then( res => {
                 if (!res.ok) {
-                  throw Error('Category already exists');
+                  switch( res.status ){
+                      case 401:
+                         throw Error('Unauthorized')
+                         break;
+                     
+                      case 400: 
+                      throw Error('Category already exists');
+                     
+                  }
                 }
                 return res;
             } )

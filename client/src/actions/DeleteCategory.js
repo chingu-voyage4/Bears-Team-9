@@ -11,11 +11,19 @@ const DeleteCategory = (deleteCategoryId) => {
                 'id': deleteCategoryId
             }
         })
-            .then( res => {
-              if (!res.ok) {
-                throw Error('Can\'t delete category');
-              }
-              return res;
+             .then( res => {
+                if (!res.ok) {
+                  switch( res.status ){
+                      case 401:
+                         throw Error('Unauthorized')
+                         break;
+                     
+                      case 400: 
+                      throw Error('Cannot Delete');
+                     
+                  }
+                }
+                return res;
             } )
             .then(res => res.json())
             .then(res => dispatch(FetchState()))
