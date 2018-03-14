@@ -30,7 +30,7 @@ const getAll = ( req, res ) => {
  */
 const addNewCategory = ( req, res ) => {
     const { newCategory } = req.body;
-
+    if( !req.user ) return res.status(401).json( { error: 'Unauthorized' } )
     const userId = req.user._id
 
     // ===== Need to check if this category already exists ===== //
@@ -116,7 +116,7 @@ const addNewCard = ( req, res ) => {
                         { new: true }
                     )
                      .then( category => res.status(200).json({ status: 'OK' }) )
-                     .catch( error => res.status(401).json({ error }))
+                     .catch( error => res.status(400).json({ error }))
 }
 
 

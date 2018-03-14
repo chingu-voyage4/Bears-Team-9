@@ -32,8 +32,16 @@ class Dashboard extends Component {
 
     render () {
         const stateProps = this.props.store.getState().cards;
+        const user = this.props.store.getState().user;
         let stacks = <Loader />;
         let modal = null;
+        const addStackButton = (
+            <button
+                onClick={ () => this.addStackHandler() } 
+                className='btn btn--add-stack'>
+                Add Stack
+            </button>
+        )
         if (stateProps.status === 'success') {
             const stackContent = stateProps.stacks.map((stack, id) => {
                 return (
@@ -43,14 +51,11 @@ class Dashboard extends Component {
                         count={stack.cards.length} />
                 );
             })
-            stacks = (
+             
+             stacks = (
                 <div>
                     <div>
-                        <button
-                            onClick={ () => this.addStackHandler() } 
-                            className='btn btn--add-stack'>
-                            Add Stack
-                        </button>
+                       { user.isLoggedIn ? addStackButton : null  }
                     </div>
                     {stackContent}
                 </div>

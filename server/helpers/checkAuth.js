@@ -3,7 +3,8 @@ const checkAuth = (req, res, next) => {
         //if user is looged in, req.isAuthenticated() will return true
         next();
     } else {
-        res.redirect("/");
+        res.status(401).json({ error: 'Unauthorized'})
+        // res.redirect("http://localhost:3000/");
     }
 };
 

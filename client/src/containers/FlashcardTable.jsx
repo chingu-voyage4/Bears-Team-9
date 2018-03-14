@@ -91,6 +91,28 @@ class FlashcardTable extends Component {
        return stack; 
     }
 
+    addDeleteButtons = (
+        <div>
+            <button
+                onClick={() => {
+                    this.clearInputs();
+                    this.props.store.dispatch(
+                        AddCard(
+                            this.props.store.getState().cards.stacks,
+                            this.props.store.getState().cards.currentStackId,
+                            this.state.newFront, this.state.newBack))
+                }}
+                className='btn btn--add-card'>
+                Add Card
+            </button>
+            <button
+                onClick={this.deleteCategoryHandler}
+                className='btn btn--add-card'>
+                Delete Category
+                </button>
+        </div>
+    )
+
     componentWillMount = () => {
         this.props.store.subscribe(() => this.forceUpdate());
         this.props.store.dispatch(FetchState());
@@ -98,6 +120,7 @@ class FlashcardTable extends Component {
 
     render() {
         const stateProps = this.props.store.getState().cards;
+        const user = this.props.store.getState().user;
         let modal = null;
         let flashcardTable = null;
         let deleteModal = null;
@@ -119,6 +142,7 @@ class FlashcardTable extends Component {
         if (stateProps.status === 'success' && stateProps.currentStackId !== '') {
             const rowContents = this.getCurrentCards().cards.map(card => {
                 return <FlashcardRow
+                    user={this.props.store.getState().user}
                     edit={() => this.editCardHandler(card._id)}
                     delete={() => this.deleteCardHandler(card._id)}
                     frontText={card.front}
@@ -139,23 +163,7 @@ class FlashcardTable extends Component {
                     newFront={this.state.newFront}
                     newBack={this.state.newBack}
                 />
-                <button
-                    onClick={() => {
-                        this.clearInputs();
-                        this.props.store.dispatch(
-                            AddCard(
-                                stateProps.stacks,
-                                stateProps.currentStackId,
-                                this.state.newFront, this.state.newBack))
-                    }}
-                    className='btn btn--add-card'>
-                    Add Card
-                </button>
-                <button
-                    onClick={ this.deleteCategoryHandler }
-                    className='btn btn--add-card'>
-                    Delete Category
-                </button>
+                { user.isLoggedIn ? this.addDeleteButtons : null }
                 </div>
             );
         }
