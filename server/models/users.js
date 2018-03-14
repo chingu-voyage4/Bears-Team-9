@@ -7,6 +7,9 @@ const userSchema = new mongoose.Schema( {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Category'
         }
+    ],
+    scores: [
+        { categoryId : mongoose.Schema.Types.ObjectId , score: Number }
     ]
 } );
 
