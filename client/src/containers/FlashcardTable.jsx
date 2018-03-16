@@ -151,7 +151,16 @@ class FlashcardTable extends Component {
                     backText={card.back}
                     key={card._id}
                 />;
-            })
+            });
+            let inputRow = null;
+            if (user.isLoggedIn && currentStack.owner === user._id) {
+                inputRow =  <InputRow
+                    textChangeFront={this.textChangeHandlerFront}
+                    textChangeBack={this.textChangeHandlerBack}
+                    newFront={this.state.newFront}
+                    newBack={this.state.newBack}
+                />
+            }
             rows = (
                 <div>
                 <div className='flashcardTable__row--header'>
@@ -159,12 +168,7 @@ class FlashcardTable extends Component {
                     <span className='flashcardTable__row--header--back'>Answer</span>
                 </div>
                 { rowContents }
-                <InputRow
-                    textChangeFront={this.textChangeHandlerFront}
-                    textChangeBack={this.textChangeHandlerBack}
-                    newFront={this.state.newFront}
-                    newBack={this.state.newBack}
-                />
+                { inputRow }
                 { ( user.isLoggedIn && currentStack.owner === user._id ) ? this.addDeleteButtons : null }
                 </div>
             );
