@@ -2,6 +2,33 @@
     text-decoration: none;
     padding: 2px auto;
     transition: all .2s;
+    &--left {
+        display: inline-block;
+        font-size: 7rem;
+        width: 10%;
+        float: left;
+        margin-top: 10rem;
+        color: $color-light-blue;
+        cursor: pointer;
+        transition: all .2s;
+        &:hover {
+            color: $color-white;
+        }
+    }
+    &--right {
+        display: inline-block;
+        font-size: 7rem;
+        margin-top: 10rem;
+        width: 10%;
+        float: right;
+        text-align: right;
+        color: $color-light-blue;
+        cursor: pointer;
+        transition: all .2s;
+        &:hover {
+            color: $color-white;
+        }
+    }
     &--flashcard {
         display: inline-block;
         width: 5rem;

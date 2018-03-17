@@ -37,6 +37,29 @@ body {
   text-decoration: none;
   padding: 2px auto;
   transition: all .2s; }
+  .btn--left {
+    display: inline-block;
+    font-size: 7rem;
+    width: 10%;
+    float: left;
+    margin-top: 10rem;
+    color: #9dabc1;
+    cursor: pointer;
+    transition: all .2s; }
+    .btn--left:hover {
+      color: #fff; }
+  .btn--right {
+    display: inline-block;
+    font-size: 7rem;
+    margin-top: 10rem;
+    width: 10%;
+    float: right;
+    text-align: right;
+    color: #9dabc1;
+    cursor: pointer;
+    transition: all .2s; }
+    .btn--right:hover {
+      color: #fff; }
   .btn--flashcard {
     display: inline-block;
     width: 5rem;
@@ -385,14 +408,34 @@ body {
     transform: rotate(360deg); } }
 
 .flashcard {
-  margin: 3rem auto;
-  width: 90%;
+  margin: 3rem 5%;
+  width: 70%;
   height: 25rem;
-  background-color: #fff;
-  border-radius: 1rem;
+  display: inline-block;
   text-align: center;
-  overflow: auto;
-  position: relative; }
+  position: relative;
+  perspective: 300rem;
+  -moz-perspective: 300rem; }
+  .flashcard__side {
+    transition: all 1s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 1rem; }
+    .flashcard__side--front {
+      background-color: #fff;
+      overflow: auto; }
+    .flashcard__side--back {
+      transform: rotateY(-180deg);
+      background-color: #9dabc1;
+      overflow: auto; }
+  .flashcard:hover .flashcard__side--front {
+    transform: rotateY(180deg); }
+  .flashcard:hover .flashcard__side--back {
+    transform: rotateY(0deg); }
   .flashcard__text {
     position: relative;
     display: block;
@@ -409,12 +452,12 @@ body {
 .studypage__column {
   width: calc(100% / 2);
   display: inline-block;
-  padding-left: calc((50% - 40rem) / 2);
+  padding-left: calc((50% - 50rem) / 2);
   margin-top: 2rem; }
   .studypage__column:not(:last-child) {
     border-right: 2px solid #fff; }
   .studypage__column--item {
-    width: 40rem; }
+    width: 50rem; }
 
 .studypage__btn-group {
   width: 60%;

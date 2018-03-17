@@ -3,13 +3,13 @@
         // border: 1px solid white;
         width: calc(100% / 2);
         display: inline-block;
-        padding-left: calc((50% - 40rem) / 2);
+        padding-left: calc((50% - 50rem) / 2);
         margin-top: 2rem;
         &:not(:last-child) {
             border-right: 2px solid $color-white;
         }
         &--item {
-            width: 40rem;
+            width: 50rem;
             // border: 1px solid white;
             // margin: 0 (calc(100% - 40rem) / 2);
         }
@@ -20,4 +20,6 @@
         text-align: center;
     }
 }
+
+// .card
 

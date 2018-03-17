@@ -1,14 +1,39 @@
 .flashcard {
-    margin: 3rem auto;
-    width: 90%;
-    // border: 1px solid red;
+    margin: 3rem 5%;
+    width: 70%;
     height: 25rem;
-    background-color: $color-white;
-    border-radius: 1rem;
+    display: inline-block;
     text-align: center;
-    overflow: auto;
-    // padding: auto 1rem;
+    // overflow: auto;
     position: relative;
+    perspective: 300rem;
+    -moz-perspective: 300rem;
+    &__side {
+        transition: all 1s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        backface-visibility: hidden;
+        border-radius: 1rem;
+        &--front {
+            background-color: $color-white;
+            overflow: auto;
+        }
+        &--back {
+            transform: rotateY(-180deg);
+            background-color: $color-light-blue;
+            overflow: auto;
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(180deg);
+    }
+    &:hover &__side--back {
+        transform: rotateY(0deg);
+    }
     &__text {
         position: relative;
         display: block;

@@ -10,7 +10,7 @@ const flashcardButton = (props) => {
             break;
         case 'flip':
             classCategory = 'btn btn--flashcard btn--flashcard--flip';
-            text = <i className="fas fa-redo-alt"></i>
+            text = <i className="fas fa-bookmark"></i>
             break;
         case 'incorrect':
             classCategory = 'btn btn--flashcard btn--flashcard--incorrect';
