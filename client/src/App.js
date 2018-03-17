@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Dashboard from './containers/Dashboard';
 import EditPage from './containers/EditPage';
 import PreferencePage from './containers/PreferencePage';
+import StudyPage from './containers/StudyPage';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import FetchState from './actions/FetchState';
 import VerifyAuth from './components/VerifyAuth';
@@ -64,6 +65,7 @@ class App extends Component {
           <Route path='/edit' render={() => <EditPage store={ this.props.store } />} />
           <Route path='/dashboard' render={() => <Dashboard store={ this.props.store } />} />
           <Route path='/preferences' component={ PreferencePage } />
+          <Route path='/study' render={ () => <StudyPage store={ this.props.store }/> } />
           <Route path='/verify' component={ VerifyAuth } />          
           <Redirect from='/' to='/dashboard' />
         </Switch>

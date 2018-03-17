@@ -2,6 +2,33 @@
     text-decoration: none;
     padding: 2px auto;
     transition: all .2s;
+    &--flashcard {
+        display: inline-block;
+        width: 5rem;
+        height: 5rem;
+        font-size: 3rem;
+        padding: .5rem;
+        border-radius: 50%;
+        cursor: pointer;
+        &:hover {
+            color: $color-white;
+        }
+        &:not(:last-child) {
+            margin-right: 4rem;
+        }
+        &--correct {
+            background-color: $color-green;
+            color: lighten($color-green, 30%);
+        }
+        &--flip {
+            background-color: $color-light-blue;
+            color: lighten($color-light-blue, 20%);
+        }
+        &--incorrect {
+            background-color: $color-red;
+            color: lighten($color-red, 30%);
+        }
+    }
     &--add-stack {
         color: $color-white;
         display: inline-block;

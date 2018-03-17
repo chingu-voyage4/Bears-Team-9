@@ -1,0 +1,23 @@
+.studypage {
+    &__column {
+        // border: 1px solid white;
+        width: calc(100% / 2);
+        display: inline-block;
+        padding-left: calc((50% - 40rem) / 2);
+        margin-top: 2rem;
+        &:not(:last-child) {
+            border-right: 2px solid $color-white;
+        }
+        &--item {
+            width: 40rem;
+            // border: 1px solid white;
+            // margin: 0 (calc(100% - 40rem) / 2);
+        }
+    }
+    &__btn-group {
+        width: 60%;
+        margin: 2rem auto;
+        text-align: center;
+    }
+}
+

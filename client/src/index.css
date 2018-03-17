@@ -37,6 +37,27 @@ body {
   text-decoration: none;
   padding: 2px auto;
   transition: all .2s; }
+  .btn--flashcard {
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    font-size: 3rem;
+    padding: .5rem;
+    border-radius: 50%;
+    cursor: pointer; }
+    .btn--flashcard:hover {
+      color: #fff; }
+    .btn--flashcard:not(:last-child) {
+      margin-right: 4rem; }
+    .btn--flashcard--correct {
+      background-color: #25b43d;
+      color: #8be79a; }
+    .btn--flashcard--flip {
+      background-color: #9dabc1;
+      color: #dbe1e9; }
+    .btn--flashcard--incorrect {
+      background-color: red;
+      color: #ff9999; }
   .btn--add-stack {
     color: #fff;
     display: inline-block;
@@ -363,7 +384,39 @@ body {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 
+.flashcard {
+  margin: 3rem auto;
+  width: 90%;
+  height: 25rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  text-align: center;
+  overflow: auto;
+  position: relative; }
+  .flashcard__text {
+    position: relative;
+    display: block;
+    top: 40%;
+    transform: translateY(-18%);
+    margin: auto 1rem;
+    font-size: 2rem; }
+
 .dashboard {
   margin: 1.5rem auto;
   max-width: 80%;
+  text-align: center; }
+
+.studypage__column {
+  width: calc(100% / 2);
+  display: inline-block;
+  padding-left: calc((50% - 40rem) / 2);
+  margin-top: 2rem; }
+  .studypage__column:not(:last-child) {
+    border-right: 2px solid #fff; }
+  .studypage__column--item {
+    width: 40rem; }
+
+.studypage__btn-group {
+  width: 60%;
+  margin: 2rem auto;
   text-align: center; }

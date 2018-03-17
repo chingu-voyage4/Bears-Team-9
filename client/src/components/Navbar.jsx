@@ -27,22 +27,25 @@ class navbar extends Component {
                             className="btn btn--navbar"
                             activeClassName="btn--navbar btn--navbar--active">
                             Dashboard
-                    </NavLink>
+                        </NavLink>
                         <NavLink
                             to='/edit'
                             className="btn btn--navbar"
                             activeClassName="btn btn--navbar btn--navbar--active">
                             Edit Cards
-                    </NavLink>
+                        </NavLink>
                         <NavLink
                             to='/preferences'
                             className="btn btn--navbar"
                             activeClassName="btn btn--navbar btn--navbar--active">
                             Preferences
-                    </NavLink>
-                        {/* <a href="#" className="btn btn--navbar">Dashboard</a>
-                    <a href="#" className="btn btn--navbar">Edit Cards</a>
-                    <a href="#" className="btn btn--navbar">Preferences</a> */}
+                        </NavLink>
+                        <NavLink
+                            to='/study'
+                            className="btn btn--navbar"
+                            activeClassName="btn btn--navbar btn--navbar--active">
+                            Study
+                        </NavLink>
                     </div>
                 </div>
                 <div className="navbar__right">

@@ -1,0 +1,23 @@
+.flashcard {
+    margin: 3rem auto;
+    width: 90%;
+    // border: 1px solid red;
+    height: 25rem;
+    background-color: $color-white;
+    border-radius: 1rem;
+    text-align: center;
+    overflow: auto;
+    // padding: auto 1rem;
+    position: relative;
+    &__text {
+        position: relative;
+        display: block;
+        top: 40%;
+        transform: translateY(-18%);
+        margin: auto 1rem;
+        font-size: 2rem;
+        &--front {
+            
+        }
+    }
+}
