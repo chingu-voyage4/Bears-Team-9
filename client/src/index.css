@@ -413,6 +413,7 @@ body {
   height: 25rem;
   display: inline-block;
   text-align: center;
+  overflow: auto;
   position: relative;
   perspective: 300rem;
   -moz-perspective: 300rem; }
@@ -444,6 +445,22 @@ body {
     margin: auto 1rem;
     font-size: 2rem; }
 
+.flashcardSummary {
+  height: 25rem;
+  margin: 3rem;
+  display: inline-block; }
+  .flashcardSummary__row--header {
+    font-size: 2rem;
+    color: #fff; }
+    .flashcardSummary__row--header--title {
+      display: inline-block;
+      border: 1px solid white;
+      padding: 2px 10px; }
+      .flashcardSummary__row--header--title:not(:nth-child(2)) {
+        width: 4rem; }
+      .flashcardSummary__row--header--title:nth-child(2) {
+        width: 27rem; }
+
 .dashboard {
   margin: 1.5rem auto;
   max-width: 80%;
@@ -457,7 +474,8 @@ body {
   .studypage__column:not(:last-child) {
     border-right: 2px solid #fff; }
   .studypage__column--item {
-    width: 50rem; }
+    width: 50rem;
+    border: 1px solid white; }
 
 .studypage__btn-group {
   width: 60%;

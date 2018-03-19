@@ -7,6 +7,7 @@ class FlashcardContainer extends Component {
         return (
             <div className="studypage__column--item">
                 <div className="flashcard-row">
+                    {/* <div>Test</div> */}
                     <a className="btn--left">
                         <i className="fas fa-caret-left"></i>
                     </a>
