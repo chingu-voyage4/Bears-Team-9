@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Stack from '../components/Stack';
 import Loader from '../components/Loader';
 import AddStackModal from '../components/AddStackModal';
+import Navbar from '../components/Navbar';
 
 class Dashboard extends Component {
     state = {
@@ -71,9 +72,12 @@ class Dashboard extends Component {
         }
         
         return (
-            <div className="dashboard">
-                { modal }
-                { stacks }
+            <div>
+                <Navbar store={ this.props.store } studyMode={false} />
+                <div className="dashboard">
+                    { modal }
+                    { stacks }
+                </div>
             </div>
         );
     }

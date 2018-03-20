@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FlashcardContainer from './FlashcardContainer';
 import FlashcardSummaryTable from './FlashcardSummaryTable';
+import Navbar from '../components/Navbar';
 
 class StudyPage extends Component {
     state = {
@@ -87,16 +88,19 @@ class StudyPage extends Component {
     }
     render() {
         return (
-            <div className="content-width center">
-                <FlashcardContainer  
-                    card={ this.state.cards[this.state.currentCard] }
-                    leftclicked={() => this.onArrowClicked(-1)}
-                    rightclicked={() => this.onArrowClicked(1)}
-                    correctClicked={() => this.onMarkClick('correct')}
-                    bookmarkClicked={() => this.onMarkClick('bookmark')}
-                    incorrectClicked={() => this.onMarkClick('incorrect')}
-                    />
-                <FlashcardSummaryTable cards={ this.state.cards } statuses={ this.state.status }/>
+            <div>
+                <Navbar store={ this.props.store } studyMode={true} />
+                <div className="content-width center">
+                    <FlashcardContainer  
+                        card={ this.state.cards[this.state.currentCard] }
+                        leftclicked={() => this.onArrowClicked(-1)}
+                        rightclicked={() => this.onArrowClicked(1)}
+                        correctClicked={() => this.onMarkClick('correct')}
+                        bookmarkClicked={() => this.onMarkClick('bookmark')}
+                        incorrectClicked={() => this.onMarkClick('incorrect')}
+                        />
+                    <FlashcardSummaryTable cards={ this.state.cards } statuses={ this.state.status }/>
+                </div>
             </div>
         )
     }

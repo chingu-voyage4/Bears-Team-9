@@ -60,11 +60,11 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Navbar store={ this.props.store }/>
+        {/* <Navbar store={ this.props.store }/> */}
         <Switch>
           <Route path='/edit' render={() => <EditPage store={ this.props.store } />} />
           <Route path='/dashboard' render={() => <Dashboard store={ this.props.store } />} />
-          <Route path='/preferences' component={ PreferencePage } />
+          {/* <Route path='/preferences' component={ PreferencePage } /> */}
           <Route path='/study' render={ () => <StudyPage store={ this.props.store }/> } />
           <Route path='/verify' component={ VerifyAuth } />          
           <Redirect from='/' to='/dashboard' />
