@@ -1,4 +1,5 @@
 import React from 'react';
+import ChangeStack from './../actions/ChangeStack';
 
 const stack = (props) => {
     return (
@@ -11,8 +12,12 @@ const stack = (props) => {
                 High Score:
             </span>
             <div className="btn-group--stack">
-                <a href="#" className="btn btn--stack">Quiz</a>
-                <a href="#" className="btn btn--stack">Study</a>
+                <a  className="btn btn--stack">Quiz</a>
+                <a  
+                    onClick={ () => props.store.dispatch(ChangeStack(props.id)) } 
+                    className="btn btn--stack">
+                    Study
+                </a>
             </div>
         </div>
     );

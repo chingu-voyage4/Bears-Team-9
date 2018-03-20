@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Flashcard from './../components/Flashcard';
-import FlashcardButton from './../components/FlashcardButton';
 import FlashcardSummaryRow from './../components/FlashcardSummaryRow';
 
 class FlashcardSummaryTable extends Component {
@@ -12,6 +10,7 @@ class FlashcardSummaryTable extends Component {
                 return (
                     <FlashcardSummaryRow
                         num={i}
+                        key={i}
                         front={card.front}
                         correct={this.props.statuses[i].correct}
                         incorrect={this.props.statuses[i].incorrect}

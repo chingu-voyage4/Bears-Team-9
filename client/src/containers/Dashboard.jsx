@@ -46,7 +46,10 @@ class Dashboard extends Component {
             const stackContent = stateProps.stacks.map((stack, id) => {
                 return (
                     <Stack
-                        key={id}
+                        store={this.props.store}
+                        key={stack._id}
+                        id={stack._id}
+                        // key={id}
                         name={stack.categoryName}
                         count={stack.cards.length} />
                 );

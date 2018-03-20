@@ -16,7 +16,7 @@ class StudyPage extends Component {
         currentCard: 0
     };
 
-    componentWillMount() {
+    componentDidMount() {
         const stateProps = this.props.store.getState();
         if (stateProps.cards.currentStackId !== '') {
             const cards = stateProps.cards.stacks.filter(stack => stack._id === stateProps.cards.currentStackId)[0];
@@ -27,7 +27,6 @@ class StudyPage extends Component {
             };
             const statuses = cards.cards.map(stack => statusObj);
             this.setState({cards: cards.cards, status: statuses});
-            
         }
     }
 

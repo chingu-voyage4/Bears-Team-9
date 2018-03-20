@@ -1,4 +1,3 @@
-import * as actionTypes from './actions';
 import FetchState from './FetchState';
 
 const EditCard = (stacks, currentStackId, cardId, newFront, newBack) => {
@@ -13,22 +12,7 @@ const EditCard = (stacks, currentStackId, cardId, newFront, newBack) => {
             return card;
         }
     });
-    const updatedStack = {
-        ...currentStack,
-        cards: newCards
-    }
-    const newStacks = stacks.map(stack => {
-        if (stack._id === currentStackId) {
-            return updatedStack;
-        } else {
-            return stack;
-        }
-    });
 
-    const EDIT_CARD_OBJ = {
-        type: actionTypes.UPDATE_CARD,
-        stacks: newStacks
-    }
     return (dispatch) => {
         fetch(`/api/category/${currentStackId}`, {
             credentials: 'include',
@@ -43,12 +27,10 @@ const EditCard = (stacks, currentStackId, cardId, newFront, newBack) => {
             .then( res => {
                 if (!res.ok) {
                   switch( res.status ){
-                      case 401:
-                         throw Error('Unauthorized')
-                         break;
-
-                      default: 
-                      throw Error('Error');
+                        case 401:
+                            throw Error('Unauthorized')
+                        default: 
+                            throw Error('Error');
 
                   }
                 }
@@ -56,13 +38,8 @@ const EditCard = (stacks, currentStackId, cardId, newFront, newBack) => {
             } )
             .then(res => res.json())
             .then(res => dispatch(FetchState()))
-            // .then(res => dispatch(FetchSuccess(res)))
-            // .then(() => {return ADD_CARD_OBJ})
             .catch(err => console.log(err))
     }
-
-
-    // return EDIT_CARD_OBJ;
 }
 
 export default EditCard;
