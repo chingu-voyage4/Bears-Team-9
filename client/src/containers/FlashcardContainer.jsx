@@ -5,14 +5,13 @@ import FlashcardButton from './../components/FlashcardButton';
 class FlashcardContainer extends Component {
     render() {
         return (
-            <div className="studypage__column--item">
+            <div className="studypage__column">
                 <div className="flashcard-row">
-                    {/* <div>Test</div> */}
                     <a className="btn--left">
                         <i className="fas fa-caret-left"></i>
                     </a>
                     <Flashcard 
-                        front="This is a flashcard question" 
+                        front=" This is a flashcard question loremslijfeijfslijei jslifjeijsl ilsijfliejflsije lsjfijeilkjels fsljfeliej This is a flashcard question loremslijfeijfslijei jslifjeijsl ilsijfliejflsije lsjfijeilkjels fsljfeliej" 
                         back="This is a flascard answer" />
                     <a className="btn--right">
                         <i className="fas fa-caret-right"></i>

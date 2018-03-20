@@ -4,14 +4,19 @@ const Flashcard = (props) => {
     return (
         <div className="flashcard">
             <div className="flashcard__side flashcard__side--front">
-                <span className="flashcard__text flashcard__text--front">
-                        { props.front }
-                </span>
+                <div className="flashcard__side--text">
+                    <span>
+                        {props.front}
+                    </span>
+                </div>
+                
             </div>
             <div className="flashcard__side flashcard__side--back">
-                <span className="flashcard__text flashcard__text--back">
+                <div className="flashcard__side--text">
+                    <span>
                         { props.back }
-                </span>
+                    </span>
+                </div>
             </div>
         </div>
     );

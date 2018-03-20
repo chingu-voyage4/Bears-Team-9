@@ -1,19 +1,8 @@
 .studypage {
     &__column {
-        // border: 1px solid white;
-        width: calc(100% / 2);
-        display: inline-block;
-        padding-left: calc((50% - 50rem) / 2);
-        margin-top: 2rem;
-        &:not(:last-child) {
-            border-right: 2px solid $color-white;
-        }
-        &--item {
-            width: 50rem;
-            border: 1px solid white;
-            // display: inline-block;
-            // margin: 0 (calc(100% - 40rem) / 2);
-        }
+        margin: 2rem auto;
+        min-width: 50rem;
+        max-width: 80rem;
     }
     &__btn-group {
         width: 60%;
@@ -22,5 +11,4 @@
     }
 }
 
-// .card
 

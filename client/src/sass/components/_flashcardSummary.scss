@@ -1,14 +1,13 @@
 .flashcardSummary {
     height: 25rem;
-    // float: left;
-    margin: 3rem;
-    display: inline-block;
-    // position: relative;
+    margin: 3rem auto;
+    width: 90%;
     &__row {
         &--header {
             font-size: 2rem;
-            color:$color-white;
+            color: transparent;
             &--title {
+                // color: transparent;
                 display: inline-block;
                 border: 1px solid white;
                 padding: 2px 10px;
@@ -16,9 +15,13 @@
                     width: 4rem;
                 }
                 &:nth-child(2) {
-                    width: 27rem;
+                    width: calc(100% - 4 * 4rem);
                 }
             }
         }
     }
+}
+
+.show {
+    color: $color-white;
 }

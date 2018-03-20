@@ -3,15 +3,23 @@ import FlashcardContainer from './FlashcardContainer';
 import FlashcardSummaryTable from './FlashcardSummaryTable';
 
 class StudyPage extends Component {
+    state = {
+        cards: []
+    };
+
+    componentWillMount() {
+        const stateProps = this.props.store.getState();
+        const cards = stateProps.cards.stacks.filter(stack => stack._id === stateProps.cards.currentStackId)[0];
+        this.setState({
+            cards: cards
+        })
+    }
     render() {
+        // console.log(this.state.cards);
         return (
             <div className="content-width center">
-                <div className="studypage__column">
-                    <FlashcardContainer store={ this.props.store } />
-                </div>
-                <div className="studypage__column">
-                    <FlashcardSummaryTable store={ this.props.store } />
-                </div>
+                <FlashcardContainer store={ this.state.cards } />
+                <FlashcardSummaryTable cards={ this.state.cards } />
             </div>
         )
     }
