@@ -18,32 +18,39 @@ class navbar extends Component {
                     href="http://localhost:3001/auth/logout">Log Out</a>
             </div>
         )
+        let links = null;
+        if (this.props.studyMode) {
+            links = (
+                <div>
+                    <a
+                        onClick={() => this.props.dashboardClicked()}
+                        className="btn btn--navbar">
+                        <i className="fas fa-arrow-left"></i> Dashboard
+                    </a>
+                </div>
+            );
+        } else {
+            links = (
+                <div>
+                    <NavLink
+                        to='/dashboard'
+                        className="btn btn--navbar"
+                        activeClassName="btn--navbar btn--navbar--active">
+                        Dashboard
+                    </NavLink>
+                    <NavLink
+                        to='/edit'
+                        className="btn btn--navbar"
+                        activeClassName="btn btn--navbar btn--navbar--active">
+                        Edit Cards
+                    </NavLink>
+                </div>
+            );
+        }
         return (
             <div className="navbar content-width">
                 <div className="navbar__left">
-                    <div>
-                        <NavLink
-                            to='/dashboard'
-                            className="btn btn--navbar"
-                            activeClassName="btn--navbar btn--navbar--active">
-                            Dashboard
-                    </NavLink>
-                        <NavLink
-                            to='/edit'
-                            className="btn btn--navbar"
-                            activeClassName="btn btn--navbar btn--navbar--active">
-                            Edit Cards
-                    </NavLink>
-                        <NavLink
-                            to='/preferences'
-                            className="btn btn--navbar"
-                            activeClassName="btn btn--navbar btn--navbar--active">
-                            Preferences
-                    </NavLink>
-                        {/* <a href="#" className="btn btn--navbar">Dashboard</a>
-                    <a href="#" className="btn btn--navbar">Edit Cards</a>
-                    <a href="#" className="btn btn--navbar">Preferences</a> */}
-                    </div>
+                    { links }
                 </div>
                 <div className="navbar__right">
                     <div>

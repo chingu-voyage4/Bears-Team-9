@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actionTypes from '../actions/actions';
 import EditCard from '../actions/EditCard';
 
 class EditModal extends Component {

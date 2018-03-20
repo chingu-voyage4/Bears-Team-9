@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import Stack from '../components/Stack';
 import Loader from '../components/Loader';
 import AddStackModal from '../components/AddStackModal';
+import Navbar from '../components/Navbar';
+import StudyModal from '../components/StudyModal';
 
 class Dashboard extends Component {
     state = {
-        modalShow: false
+        modalShow: false,
+        studyModalShow: false
     }
 //     componentDidMount() {
 //         fetch('/api/category/5a9f238bb1046f575107c377', {
@@ -27,6 +30,13 @@ class Dashboard extends Component {
     closeModalHandler = () => {
         this.setState({
             modalShow: false,
+            studyModalShow: false
+        })
+    }
+
+    studyHandler = () => {
+        this.setState({
+            studyModalShow: true
         })
     }
 
@@ -35,6 +45,7 @@ class Dashboard extends Component {
         const user = this.props.store.getState().user;
         let stacks = <Loader />;
         let modal = null;
+        let studyModal = null;
         const addStackButton = (
             <button
                 onClick={ () => this.addStackHandler() } 
@@ -46,7 +57,10 @@ class Dashboard extends Component {
             const stackContent = stateProps.stacks.map((stack, id) => {
                 return (
                     <Stack
-                        key={id}
+                        studyClicked={() => this.studyHandler()}
+                        store={this.props.store}
+                        key={stack._id}
+                        id={stack._id}
                         name={stack.categoryName}
                         count={stack.cards.length} />
                 );
@@ -67,10 +81,20 @@ class Dashboard extends Component {
                 store={ this.props.store } />;
         }
         
+        if (this.state.studyModalShow) {
+            studyModal = <StudyModal
+                start={true}
+                text="Do you want to start a study session?" 
+                closeModal={ this.closeModalHandler } />
+        }
         return (
-            <div className="dashboard">
-                { modal }
-                { stacks }
+            <div>
+                <Navbar store={ this.props.store } studyMode={false} />
+                <div className="dashboard">
+                    { studyModal }
+                    { modal }
+                    { stacks }
+                </div>
             </div>
         );
     }

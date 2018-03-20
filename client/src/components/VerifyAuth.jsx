@@ -1,4 +1,5 @@
-import { React, Component } from 'react';
+// import React, { Component } from 'react';
+import { Component } from 'react';
 
 class VerifyAuth extends Component {
 
@@ -14,4 +15,4 @@ class VerifyAuth extends Component {
     }
 }
 
-export default VerifyAuth
+export default VerifyAuth;

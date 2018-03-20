@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import FlashcardRow from '../components/FlashcardRow';
-import InputRow from '../components/InputRow';
-import EditModal from '../components/EditModal';
-import * as actionTypes from '../actions/actions';
-import AddCard from '../actions/AddCard';
-import DeleteCard from '../actions/DeleteCard';
-import FetchState from '../actions/FetchState';
-import Loader from '../components/Loader';
-import DeleteCategoryModal from '../components/DeleteCategoryModal';
+import FlashcardRow         from '../components/FlashcardRow';
+import InputRow             from '../components/InputRow';
+import EditModal            from '../components/EditModal';
+import AddCard              from '../actions/AddCard';
+import DeleteCard           from '../actions/DeleteCard';
+import FetchState           from '../actions/FetchState';
+import Loader               from '../components/Loader';
+import DeleteCategoryModal  from '../components/DeleteCategoryModal';
 
 class FlashcardTable extends Component {
     state = {
