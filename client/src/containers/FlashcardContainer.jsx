@@ -4,23 +4,28 @@ import FlashcardButton from './../components/FlashcardButton';
 
 class FlashcardContainer extends Component {
     render() {
+        let flashcard = <Flashcard 
+                front=" This is a flashcard question" 
+                back="This is a flascard answer" />;
+        if (this.props.card) {
+            flashcard = <Flashcard front={ this.props.card.front } back={ this.props.card.back } />
+        }
+        // console.log(this.props.card)
         return (
             <div className="studypage__column">
                 <div className="flashcard-row">
-                    <a className="btn--left">
+                    <a className="btn--left" onClick={this.props.leftclicked}>
                         <i className="fas fa-caret-left"></i>
                     </a>
-                    <Flashcard 
-                        front=" This is a flashcard question loremslijfeijfslijei jslifjeijsl ilsijfliejflsije lsjfijeilkjels fsljfeliej This is a flashcard question loremslijfeijfslijei jslifjeijsl ilsijfliejflsije lsjfijeilkjels fsljfeliej" 
-                        back="This is a flascard answer" />
-                    <a className="btn--right">
+                    { flashcard }
+                    <a className="btn--right" onClick={this.props.rightclicked}>
                         <i className="fas fa-caret-right"></i>
                     </a>
                 </div>
                 <div className="studypage__btn-group" >
-                    <FlashcardButton type="correct" />
-                    <FlashcardButton type="flip" />
-                    <FlashcardButton type="incorrect" />
+                    <FlashcardButton type="correct" clicked={this.props.correctClicked}/>
+                    <FlashcardButton type="flip"  clicked={this.props.bookmarkClicked}/>
+                    <FlashcardButton type="incorrect"  clicked={this.props.incorrectClicked}/>
                 </div>
             </div>
         )
