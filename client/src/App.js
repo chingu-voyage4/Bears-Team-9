@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Navbar from './components/Navbar';
 import Dashboard from './containers/Dashboard';
 import EditPage from './containers/EditPage';
-import PreferencePage from './containers/PreferencePage';
 import StudyPage from './containers/StudyPage';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import FetchState from './actions/FetchState';
@@ -60,11 +58,9 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        {/* <Navbar store={ this.props.store }/> */}
         <Switch>
           <Route path='/edit' render={() => <EditPage store={ this.props.store } />} />
           <Route path='/dashboard' render={() => <Dashboard store={ this.props.store } />} />
-          {/* <Route path='/preferences' component={ PreferencePage } /> */}
           <Route path='/study' render={ () => <StudyPage store={ this.props.store }/> } />
           <Route path='/verify' component={ VerifyAuth } />          
           <Redirect from='/' to='/dashboard' />

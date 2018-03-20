@@ -38,7 +38,6 @@ body {
   padding: 2px auto;
   transition: all .2s; }
   .btn--left {
-    display: inline-block;
     font-size: 7rem;
     width: 10%;
     float: left;
@@ -49,7 +48,6 @@ body {
     .btn--left:hover {
       color: #fff; }
   .btn--right {
-    display: inline-block;
     font-size: 7rem;
     margin-top: 10rem;
     width: 10%;
@@ -189,7 +187,8 @@ body {
     text-align: center;
     line-height: 3rem;
     box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75);
-    transition: all .2s; }
+    transition: all .2s;
+    cursor: pointer; }
     .btn--stack:first-child {
       margin-right: 2rem; }
     .btn--stack:hover {
@@ -199,6 +198,9 @@ body {
     width: 15rem;
     margin: 4.5rem auto 0 auto;
     text-align: center; }
+
+a {
+  cursor: pointer; }
 
 .modal {
   border-radius: 8px;

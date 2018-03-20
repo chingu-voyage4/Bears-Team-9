@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FlashcardContainer from './FlashcardContainer';
 import FlashcardSummaryTable from './FlashcardSummaryTable';
 import Navbar from '../components/Navbar';
+import StudyModal from '../components/StudyModal';
 
 class StudyPage extends Component {
     state = {
@@ -14,7 +15,8 @@ class StudyPage extends Component {
             incorrect: false,
             bookmark: true
         }],
-        currentCard: 0
+        currentCard: 0,
+        closeModalShow: false
     };
 
     componentDidMount() {
@@ -86,10 +88,33 @@ class StudyPage extends Component {
             status: newStatus
         })
     }
+
+    closeModalHandler = () => {
+        this.setState({
+            closeModalShow: false
+        })
+    }
+
+    endSessionHandler = () => {
+        this.setState({
+            closeModalShow: true
+        })
+    }
     render() {
+        let closeModal = null;
+        if (this.state.closeModalShow) {
+            closeModal = <StudyModal
+                start={false}
+                text="Are you sure you want to end this study session?" 
+                closeModal={ this.closeModalHandler } />
+        }
         return (
             <div>
-                <Navbar store={ this.props.store } studyMode={true} />
+                { closeModal }
+                <Navbar 
+                    dashboardClicked={() => this.endSessionHandler()}
+                    store={ this.props.store } 
+                    studyMode={true} />
                 <div className="content-width center">
                     <FlashcardContainer  
                         card={ this.state.cards[this.state.currentCard] }

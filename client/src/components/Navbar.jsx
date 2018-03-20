@@ -22,12 +22,11 @@ class navbar extends Component {
         if (this.props.studyMode) {
             links = (
                 <div>
-                    <NavLink
-                        to='/dashboard'
-                        className="btn btn--navbar"
-                        activeClassName="btn--navbar btn--navbar--active">
-                        <i class="fas fa-arrow-left"></i> Dashboard
-                    </NavLink>
+                    <a
+                        onClick={() => this.props.dashboardClicked()}
+                        className="btn btn--navbar">
+                        <i className="fas fa-arrow-left"></i> Dashboard
+                    </a>
                 </div>
             );
         } else {
@@ -52,26 +51,6 @@ class navbar extends Component {
             <div className="navbar content-width">
                 <div className="navbar__left">
                     { links }
-                    {/* <div>
-                        <NavLink
-                            to='/dashboard'
-                            className="btn btn--navbar"
-                            activeClassName="btn--navbar btn--navbar--active">
-                            Dashboard
-                        </NavLink>
-                        <NavLink
-                            to='/edit'
-                            className="btn btn--navbar"
-                            activeClassName="btn btn--navbar btn--navbar--active">
-                            Edit Cards
-                        </NavLink>
-                        <NavLink
-                            to='/study'
-                            className="btn btn--navbar"
-                            activeClassName="btn btn--navbar btn--navbar--active">
-                            Study
-                        </NavLink>
-                    </div> */}
                 </div>
                 <div className="navbar__right">
                     <div>

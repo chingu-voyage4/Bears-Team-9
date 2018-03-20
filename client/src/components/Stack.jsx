@@ -14,7 +14,10 @@ const stack = (props) => {
             <div className="btn-group--stack">
                 <a  className="btn btn--stack">Quiz</a>
                 <a  
-                    onClick={ () => props.store.dispatch(ChangeStack(props.id)) } 
+                    onClick={ () => {
+                        props.studyClicked();
+                        props.store.dispatch(ChangeStack(props.id))} 
+                    } 
                     className="btn btn--stack">
                     Study
                 </a>

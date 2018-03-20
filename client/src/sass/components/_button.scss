@@ -3,7 +3,7 @@
     padding: 2px auto;
     transition: all .2s;
     &--left {
-        display: inline-block;
+        // display: inline-block;
         font-size: 7rem;
         width: 10%;
         float: left;
@@ -16,7 +16,7 @@
         }
     }
     &--right {
-        display: inline-block;
+        // display: inline-block;
         font-size: 7rem;
         margin-top: 10rem;
         width: 10%;
@@ -189,7 +189,6 @@
         color: $color-white;
         display: inline-block;
         border: 2px solid $color-white;
-        // background-color: $color-white;
         font-size: 1.5rem;
         width: 6rem;
         font-weight: 600;
@@ -197,6 +196,7 @@
         line-height: 3rem;
         box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75);
         transition: all .2s;
+        cursor: pointer;
         &:first-child {
             margin-right: 2rem;
         }
@@ -210,4 +210,8 @@
         margin: 4.5rem auto 0 auto;
         text-align: center;
     }
+}
+
+a {
+    cursor: pointer;
 }
