@@ -113,8 +113,7 @@ body {
       background-color: red; }
   .btn__group--modal {
     position: relative;
-    padding: 3rem 0;
-    margin-left: 3rem; }
+    padding: 3rem 0; }
   .btn--modal {
     font-size: 1.7rem;
     line-height: 2rem;
@@ -229,16 +228,14 @@ a {
     text-align: center; }
   .modal__add-stack {
     width: 40rem;
-    text-align: left; }
+    text-align: center; }
     .modal__add-stack--titles {
       font-size: 1.5rem;
       margin-top: 2rem;
-      margin-bottom: 1rem;
-      margin-left: 3rem; }
+      margin-bottom: 1rem; }
     .modal__add-stack--input {
       width: 30rem;
       height: 4rem;
-      margin-left: 3rem;
       outline: none;
       border: none;
       font-size: 3rem;
@@ -340,6 +337,9 @@ a {
       .flashcardTable__row--header--back {
         width: 40%;
         display: inline-block; }
+  .flashcardTable-add-delete {
+    text-align: center;
+    margin-top: 1rem; }
 
 .stackChoiceContainer {
   text-align: center;
