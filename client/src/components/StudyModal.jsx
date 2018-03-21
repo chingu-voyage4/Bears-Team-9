@@ -5,23 +5,15 @@ const studyModal = (props) => {
     let continueAction = null;
     if (props.start) {
         continueAction = (
-            // <button
-            //     component={Link} 
-            //     to='/study'
-            //     className="btn btn--modal">
-            //         Continue
-            // </button> 
             <NavLink to='/study' className="btn btn--modal">
                 Continue
             </NavLink>
         );
     } else {
         continueAction = (
-            <button 
-                className="btn btn--modal" 
-                onClick={() => window.location.href='/dashboard'}>
-                    End Session
-            </button> 
+            <NavLink to='/dashboard' className="btn btn--modal">
+                End Session
+            </NavLink>
         );
     }
     return (
@@ -36,11 +28,9 @@ const studyModal = (props) => {
                     </div>
                     <div className="btn__group--modal">
                         { continueAction }
-                        <button
-                            onClick={props.closeModal}
-                            className="btn btn--modal">
+                        <a onClick={props.closeModal} className="btn btn--modal">
                             Cancel
-                        </button>
+                        </a>
                     </div>
 
                 </div>
