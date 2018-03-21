@@ -1,15 +1,19 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const studyModal = (props) => {
     let continueAction = null;
     if (props.start) {
         continueAction = (
-            <button 
-                className="btn btn--modal" 
-                onClick={() => window.location.href='/study'}>
-                    Continue
-            </button> 
+            // <button
+            //     component={Link} 
+            //     to='/study'
+            //     className="btn btn--modal">
+            //         Continue
+            // </button> 
+            <NavLink to='/study' className="btn btn--modal">
+                Continue
+            </NavLink>
         );
     } else {
         continueAction = (
