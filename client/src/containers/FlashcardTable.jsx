@@ -91,7 +91,7 @@ class FlashcardTable extends Component {
     }
 
     addDeleteButtons = (
-        <div>
+        <div className='flashcardTable-add-delete'>
             <button
                 onClick={() => {
                     this.clearInputs();
