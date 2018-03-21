@@ -4,9 +4,21 @@ import { NavLink } from 'react-router-dom';
 const studyModal = (props) => {
     let continueAction = null;
     if (props.start) {
-        continueAction = <NavLink to='/study' >Continue</NavLink>
+        continueAction = (
+            <button 
+                className="btn btn--modal" 
+                onClick={() => window.location.href='/study'}>
+                    Continue
+            </button> 
+        );
     } else {
-        continueAction = <NavLink to='/dashboard' >End Session</NavLink>
+        continueAction = (
+            <button 
+                className="btn btn--modal" 
+                onClick={() => window.location.href='/dashboard'}>
+                    End Session
+            </button> 
+        );
     }
     return (
         <div>
@@ -19,9 +31,7 @@ const studyModal = (props) => {
                         <div className="modal__add-stack--titles">{props.text}</div>
                     </div>
                     <div className="btn__group--modal">
-                        <button className="btn btn--modal">
-                            { continueAction }
-                        </button>
+                        { continueAction }
                         <button
                             onClick={props.closeModal}
                             className="btn btn--modal">
