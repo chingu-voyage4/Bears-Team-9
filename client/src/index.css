@@ -27,8 +27,9 @@ body {
   font-size: 1.5rem;
   margin-bottom: 1rem; }
 
+/* width changed from 80%-85% */
 .content-width {
-  width: 80%; }
+  width: 85%; }
 
 .center {
   margin: 0 auto; }
@@ -480,3 +481,40 @@ a {
   width: 60%;
   margin: 2rem auto;
   text-align: center; }
+
+/* responsive header media queries added below */
+  @media (max-width: 630px) {
+    .content-width {
+      width: 90%; }
+  }
+
+  @media (max-width: 470px){
+    .content-width {
+      width: 95%; }
+
+    .btn--navbar:not(:first-child) {
+      margin-left: 1.5rem; }
+
+    .navbar {
+      height: 3.6rem; }
+  }
+
+  /* add padding to left n right */
+  @media (max-width: 410px){
+    .navbar__right div div .btn:first-child {
+      display: none; }
+
+    .navbar__left div .btn--navbar:first-child{
+      padding: 0px 2px 2px 8px; }
+
+    .navbar__right div .btn--navbar:not(:first-child){
+      padding: 2px 8px 2px 2px; }
+  }
+
+  @media (max-width: 320px) {
+    .btn--navbar {
+      font-size: 1.3rem; }
+
+    .navbar {
+      height: 3.5rem; }
+  }
