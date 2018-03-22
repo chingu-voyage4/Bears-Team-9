@@ -27,6 +27,7 @@ body {
   font-size: 1.5rem;
   margin-bottom: 1rem; }
 
+/* width changed from 80%-85% */
 .content-width {
   width: 85%; }
 
@@ -481,6 +482,7 @@ a {
   margin: 2rem auto;
   text-align: center; }
 
+/* responsive header media queries added below */
   @media (max-width: 630px) {
     .content-width {
       width: 90%; }
