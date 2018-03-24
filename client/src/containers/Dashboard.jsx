@@ -9,7 +9,8 @@ class Dashboard extends Component {
     state = {
         modalShow: false,
         studyModalShow: false,
-        showFixedNav: false
+        showFixedNav: false,
+        intervalId: 0
     }
 //     componentDidMount() {
 //         fetch('/api/category/5a9f238bb1046f575107c377', {
@@ -56,6 +57,21 @@ class Dashboard extends Component {
       } else {
         this.setState({ showFixedNav: false });
       }
+    }
+
+    //const scrollStepInPx = 50;
+    //const delayInMs = 16.66;
+
+    scrollStep = () => {
+      if (window.pageYOffset === 0){
+        clearInterval(this.state.intervalId);
+      }
+      window.scroll(0, window.pageYOffset - 100);
+    }
+
+    scrollToTop = () => {
+      let intervalId = setInterval(this.scrollStep.bind(this), 20);
+      this.setState({ intervalId: intervalId });
     }
 
     render () {
@@ -113,9 +129,10 @@ class Dashboard extends Component {
                     { modal }
                     { stacks }
                 </div>
-                <a href="#" className={this.state.showFixedNav === false ? "display-none" : "fixed-nav"}>
+                <div className={this.state.showFixedNav === false ? "display-none" : "fixed-nav"}
+                    onClick={() => { this.scrollToTop(); }}>
                     <i className="fas fa-chevron-up arrow-up"></i>
-                </a>
+                </div>
             </div>
         );
     }

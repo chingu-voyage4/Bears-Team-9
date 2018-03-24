@@ -521,16 +521,24 @@ a {
 
 /* 10 px = 1 rem */
 .fixed-nav {
-  display: block;
   position: fixed;
   right: 4.5rem;
   bottom: 3.5rem;
   border-radius: 50%;
-  background-color: rgba(29, 27, 27, 0.7);
+  background-color: rgba(22, 22, 22, 0.6);
   width: 5rem;
   height: 5rem;
   margin-left: 50px;
   text-align: center;
+  cursor: pointer;
+}
+
+.fixed-nav:hover {
+  background: rgba(29, 27, 27, 0.9);
+}
+
+.fixed-nav:hover .arrow-up {
+  top: 5px;
 }
 
 .arrow-up {
