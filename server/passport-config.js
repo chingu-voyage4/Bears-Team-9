@@ -44,7 +44,8 @@ router.use( session( {
   secret: process.env.secret,
   resave: true,
   saveUninitialized: true, 
-  store: new MongoStore( { mongooseConnection: mongoose.connection } )
+  store: new MongoStore( { mongooseConnection: mongoose.connection } ),
+  maxAge: 7200000   // 2 hours
 } ) );
 
 router.use( passport.initialize() );
