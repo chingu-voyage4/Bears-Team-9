@@ -8,14 +8,15 @@ import StudyModal from '../components/StudyModal';
 class Dashboard extends Component {
     state = {
         modalShow: false,
-        studyModalShow: false
+        studyModalShow: false,
+        showFixedNav: false
     }
 //     componentDidMount() {
 //         fetch('/api/category/5a9f238bb1046f575107c377', {
 //             method: 'DELETE',
 //             body: JSON.stringify({
 //                 cardId: "5aa1a9bafc19ee2a1e8cd322"
-//             })     
+//             })
 //         })
 //             .then(res => res.json())
 //             .then(cats => console.log(cats))
@@ -24,7 +25,7 @@ class Dashboard extends Component {
     addStackHandler = () => {
         this.setState({
             modalShow: true
-        }); 
+        });
     }
 
     closeModalHandler = () => {
@@ -40,6 +41,23 @@ class Dashboard extends Component {
         })
     }
 
+    componentDidMount(){
+      window.addEventListener("scroll", this.handleScroll);
+    }
+
+    componentWillUnmount(){
+      window.addEventListener("scroll", this.handleScroll);
+    }
+
+    handleScroll = () => {
+      const y = Math.round(window.pageYOffset);
+      if (y >= 100) {
+        this.setState({ showFixedNav: true });
+      } else {
+        this.setState({ showFixedNav: false });
+      }
+    }
+
     render () {
         const stateProps = this.props.store.getState().cards;
         const user = this.props.store.getState().user;
@@ -48,7 +66,7 @@ class Dashboard extends Component {
         let studyModal = null;
         const addStackButton = (
             <button
-                onClick={ () => this.addStackHandler() } 
+                onClick={ () => this.addStackHandler() }
                 className='btn btn--add-stack'>
                 Add Stack
             </button>
@@ -65,7 +83,7 @@ class Dashboard extends Component {
                         count={stack.cards.length} />
                 );
             })
-             
+
              stacks = (
                 <div>
                     <div>
@@ -80,13 +98,13 @@ class Dashboard extends Component {
                 closeModal={ this.closeModalHandler }
                 store={ this.props.store } />;
         }
-        
         if (this.state.studyModalShow) {
             studyModal = <StudyModal
                 start={true}
-                text="Do you want to start a study session?" 
+                text="Do you want to start a study session?"
                 closeModal={ this.closeModalHandler } />
         }
+
         return (
             <div>
                 <Navbar store={ this.props.store } studyMode={false} />
@@ -95,6 +113,9 @@ class Dashboard extends Component {
                     { modal }
                     { stacks }
                 </div>
+                <a href="#" className={this.state.showFixedNav === false ? "display-none" : "fixed-nav"}>
+                    <i className="fas fa-chevron-up arrow-up"></i>
+                </a>
             </div>
         );
     }

@@ -518,3 +518,28 @@ a {
     .navbar {
       height: 3.5rem; }
   }
+
+/* 10 px = 1 rem */
+.fixed-nav {
+  display: block;
+  position: fixed;
+  right: 4.5rem;
+  bottom: 3.5rem;
+  border-radius: 50%;
+  background-color: rgba(29, 27, 27, 0.7);
+  width: 5rem;
+  height: 5rem;
+  margin-left: 50px;
+  text-align: center;
+}
+
+.arrow-up {
+  position: relative;
+  top: 13px;
+  font-size: 19px;
+  color: white;
+}
+
+.display-none {
+  display: none;
+}
