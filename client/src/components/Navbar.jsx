@@ -38,12 +38,14 @@ class navbar extends Component {
                         activeClassName="btn--navbar btn--navbar--active">
                         Dashboard
                     </NavLink>
-                    <NavLink
-                        to='/edit'
-                        className="btn btn--navbar"
-                        activeClassName="btn btn--navbar btn--navbar--active">
-                        Edit Cards
-                    </NavLink>
+                    { user.isLoggedIn ? (
+                        <NavLink
+                            to='/edit'
+                            className="btn btn--navbar"
+                            activeClassName="btn btn--navbar btn--navbar--active">
+                            Edit Cards
+                        </NavLink>
+                    ) : null }
                 </div>
             );
         }
