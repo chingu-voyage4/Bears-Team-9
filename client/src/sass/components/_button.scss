@@ -143,6 +143,10 @@
             color: $color-medium-yellow;
             padding-top: 1px;
         }
+        &--brand {
+            font-weight: 600;
+            font-size: 1.8rem;
+        }
     }
     &--add-card {
         margin-top: 10px;
