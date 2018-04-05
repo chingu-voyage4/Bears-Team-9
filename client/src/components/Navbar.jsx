@@ -33,6 +33,12 @@ class navbar extends Component {
             links = (
                 <div>
                     <NavLink
+                        to='/'
+                        className="btn btn--navbar btn--navbar--brand"
+                        >
+                        Flashcard App
+                    </NavLink>
+                    <NavLink
                         to='/dashboard'
                         className="btn btn--navbar"
                         activeClassName="btn--navbar btn--navbar--active">

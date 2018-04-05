@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Dashboard from './containers/Dashboard';
 import EditPage from './containers/EditPage';
 import StudyPage from './containers/StudyPage';
+import LandingPage from './components/LandingPage';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import FetchState from './actions/FetchState';
 import VerifyAuth from './components/VerifyAuth';
@@ -59,11 +60,11 @@ class App extends Component {
     return (
       <div className="app">
         <Switch>
-          <Route path='/edit' render={() => <EditPage store={ this.props.store } />} />
-          <Route path='/dashboard' render={() => <Dashboard store={ this.props.store } />} />
-          <Route path='/study' render={ () => <StudyPage store={ this.props.store }/> } />
-          <Route path='/verify' component={ VerifyAuth } />          
-          <Redirect from='/' to='/dashboard' />
+          <Route exact path='/edit' render={() => <EditPage store={ this.props.store } />} />
+          <Route exact path='/dashboard' render={() => <Dashboard store={ this.props.store } />} />
+          <Route exact path='/study' render={ () => <StudyPage store={ this.props.store }/> } />
+          <Route exact path='/verify' component={ VerifyAuth } />
+          <Route exact path='/' render={() => <LandingPage store={this.props.store} />} />          
         </Switch>
       </div>
     );
