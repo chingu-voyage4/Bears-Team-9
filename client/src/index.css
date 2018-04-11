@@ -84,9 +84,6 @@ body {
 .btn--flashcard:hover {
   color: #fff;
 }
-.btn--flashcard:not(:last-child) {
-  margin-right: 4rem;
-}
 .btn--flashcard--correct {
   background-color: #25b43d;
   color: #8be79a;
@@ -582,13 +579,45 @@ a {
 
 .studypage__column {
   margin: 2rem auto;
-  min-width: 50rem;
   max-width: 80rem;
 }
 .studypage__btn-group {
-  width: 60%;
+  width: 30%;
   margin: 2rem auto;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+@media (max-width: 600px) {
+  .studypage__btn-group {
+    width: 60%;
+  }
+}
+@media (max-width: 950px) {
+  .studypage__btn-group {
+    width: 40%;
+  }
+}
+@media (max-width: 750px) {
+  .studypage__btn-group {
+    width: 50%;
+  }
+}
+@media (max-width: 600px) {
+  .studypage__btn-group {
+    width: 60%;
+  }
+}
+@media (max-width: 550px) {
+  .studypage__btn-group {
+    width: 70%;
+  }
+}
+@media (max-width: 450px) {
+  .studypage__btn-group {
+    width: 80%;
+  }
 }
 
 .landing__header {
