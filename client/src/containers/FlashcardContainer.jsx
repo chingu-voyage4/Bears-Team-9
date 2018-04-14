@@ -6,7 +6,7 @@ class FlashcardContainer extends Component {
     render() {
         let flashcard = <Flashcard
                 front=" This is a flashcard question"
-                back="This is a flascard answer" />;
+                back="This is a flashcard answer" />;
         if (this.props.card) {
             flashcard = <Flashcard front={ this.props.card.front } back={ this.props.card.back } />
         }

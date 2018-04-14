@@ -467,6 +467,12 @@ a {
 .show {
   color: #fff; }
 
+.tick {
+  color: #25b43d; }
+
+.cross {
+  color: red; }
+
 .dashboard {
   margin: 1.5rem auto;
   max-width: 80%;
