@@ -4,13 +4,14 @@ import FlashcardButton from './../components/FlashcardButton';
 
 class FlashcardContainer extends Component {
     render() {
-        let flashcard = <Flashcard 
-                front=" This is a flashcard question" 
+        let flashcard = <Flashcard
+                front=" This is a flashcard question"
                 back="This is a flascard answer" />;
         if (this.props.card) {
             flashcard = <Flashcard front={ this.props.card.front } back={ this.props.card.back } />
         }
-        // console.log(this.props.card)
+        //console.log("PROPS BELOW HERE");
+        //console.log(this.props.card)
         return (
             <div className="studypage__column">
                 <div className="flashcard-row">
@@ -28,7 +29,7 @@ class FlashcardContainer extends Component {
                     <FlashcardButton type="incorrect"  clicked={this.props.incorrectClicked}/>
                 </div>
             </div>
-        )
+        );
     };
 };
 

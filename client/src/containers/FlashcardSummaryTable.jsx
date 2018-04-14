@@ -15,7 +15,7 @@ class FlashcardSummaryTable extends Component {
                         correct={this.props.statuses[i].correct}
                         incorrect={this.props.statuses[i].incorrect}
                         bookmark={this.props.statuses[i].bookmark}
-                    />
+                        firstRow={ true } />
                 );
             });
         }
@@ -27,7 +27,8 @@ class FlashcardSummaryTable extends Component {
                         front='Question'
                         correct={ true }
                         incorrect={ true }
-                        bookmark={ true } />
+                        bookmark={ true }
+                        firstRow={ true } />
                     { progressRows }
                 </div>
             </div>

@@ -23,19 +23,18 @@ const studyModal = (props) => {
                 className="modal-background">
             </div>
             <div className="modal modal__add-stack">
-                    <div className="">
-                        <div className="modal__add-stack--titles">{props.text}</div>
-                    </div>
-                    <div className="btn__group--modal">
-                        { continueAction }
-                        <a onClick={props.closeModal} className="btn btn--modal">
-                            Cancel
-                        </a>
-                    </div>
-
+                <div className="">
+                    <div className="modal__add-stack--titles">{props.text}</div>
                 </div>
+                <div className="btn__group--modal">
+                    { continueAction }
+                    <a onClick={props.closeModal} className="btn btn--modal">
+                        Cancel
+                    </a>
+                </div>
+            </div>
         </div>
-    )
+    );
 }
 
 export default studyModal;

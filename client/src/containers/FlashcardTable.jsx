@@ -53,8 +53,8 @@ class FlashcardTable extends Component {
         console.log(id);
         this.props.store.dispatch(
             DeleteCard(
-                this.props.store.getState().cards.stacks, 
-                this.props.store.getState().cards.currentStackId, 
+                this.props.store.getState().cards.stacks,
+                this.props.store.getState().cards.currentStackId,
                 id)
         );
     }
@@ -80,14 +80,14 @@ class FlashcardTable extends Component {
             cardId: ''
         })
     }
-    
+
     getCurrentCards = () => {
         const currentStackId = this.props.store.getState().cards.currentStackId;
         const stack = this.props.store.getState().cards.stacks.filter(stack => {
            return stack._id === currentStackId;
        })[0];
         // console.log(stack);
-       return stack; 
+       return stack;
     }
 
     addDeleteButtons = (
@@ -108,7 +108,7 @@ class FlashcardTable extends Component {
                 onClick={this.deleteCategoryHandler}
                 className='btn btn--add-card'>
                 Delete Category
-                </button>
+            </button>
         </div>
     )
 
@@ -132,7 +132,7 @@ class FlashcardTable extends Component {
                 currentBack={this.state.currentBack} />;
         }
         if (this.state.modalDeleteShow) {
-            deleteModal = <DeleteCategoryModal 
+            deleteModal = <DeleteCategoryModal
                 store={this.props.store}
                 closeModal={this.closeDeleteModalHandler}
                 />
