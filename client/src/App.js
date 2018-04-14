@@ -17,7 +17,7 @@ class App extends Component {
   //       'content-type': 'application/json',   // actual category id
   //       'id': '5a9886bb4164834e2560dd0a'
   //      },
-  //       body: JSON.stringify( 
+  //       body: JSON.stringify(
   //       {
   //           newCategory: {
   //             categoryName: 'New Category',
@@ -29,7 +29,7 @@ class App extends Component {
   //         }
   //       )
   //   })
-  //       .then( res => res.json() ) 
+  //       .then( res => res.json() )
   //       .then( res => console.log( res ))
   //       .catch( err => console.log( err ) )
   //   }
@@ -40,19 +40,19 @@ class App extends Component {
   //     headers: {
   //       'content-type': 'application/json',
   //      },
-  //       body: JSON.stringify( 
+  //       body: JSON.stringify(
   //         { cardId : '5aa1ba7ecc5cde4e7b4b70d0'}
   //       )
   //   })
-  //       .then( res => res.json() ) 
+  //       .then( res => res.json() )
   //       .then( res => console.log( res ))
   //       .catch( err => console.log( err ) )
   // }
-  
+
   componentWillMount = () => {
     this.props.store.subscribe(() => this.forceUpdate());
     this.props.store.dispatch(FetchState());
-    this.props.store.dispatch(FetchUser())
+    this.props.store.dispatch(FetchUser());
   }
 
 
@@ -64,7 +64,7 @@ class App extends Component {
           <Route exact path='/dashboard' render={() => <Dashboard store={ this.props.store } />} />
           <Route exact path='/study' render={ () => <StudyPage store={ this.props.store }/> } />
           <Route exact path='/verify' component={ VerifyAuth } />
-          <Route exact path='/' render={() => <LandingPage store={this.props.store} />} />          
+          <Route exact path='/' render={() => <LandingPage store={this.props.store} />} />
         </Switch>
       </div>
     );

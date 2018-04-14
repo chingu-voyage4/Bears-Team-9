@@ -100,23 +100,24 @@ class StudyPage extends Component {
             closeModalShow: true
         })
     }
+    
     render() {
         let closeModal = null;
         if (this.state.closeModalShow) {
             closeModal = <StudyModal
                 start={false}
-                text="Are you sure you want to end this study session?" 
+                text="Are you sure you want to end this study session?"
                 closeModal={ this.closeModalHandler } />
         }
         return (
             <div>
                 { closeModal }
-                <Navbar 
+                <Navbar
                     dashboardClicked={() => this.endSessionHandler()}
-                    store={ this.props.store } 
+                    store={ this.props.store }
                     studyMode={true} />
                 <div className="content-width center">
-                    <FlashcardContainer  
+                    <FlashcardContainer
                         card={ this.state.cards[this.state.currentCard] }
                         leftclicked={() => this.onArrowClicked(-1)}
                         rightclicked={() => this.onArrowClicked(1)}
@@ -127,7 +128,7 @@ class StudyPage extends Component {
                     <FlashcardSummaryTable cards={ this.state.cards } statuses={ this.state.status }/>
                 </div>
             </div>
-        )
+        );
     }
 }
 
