@@ -8,11 +8,11 @@ const stack = (props) => {
             <span className="stack__text">
                 Count: <span className="stack__text--count">{props.count}</span>
             </span>
-            <span className="stack__text">
+            {/* <span className="stack__text">
                 High Score:
-            </span>
+            </span> */}
             <div className="btn-group--stack">
-                <a  className="btn btn--stack">Quiz</a>
+                {/* <a  className="btn btn--stack">Quiz</a> */}
                 <a  
                     onClick={ () => {
                         props.studyClicked();
