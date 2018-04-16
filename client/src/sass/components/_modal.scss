@@ -46,6 +46,35 @@
             border: none;
             font-size: 3rem;
             border-bottom: 2px solid $color-medium-blue;
+
+            @media ( max-width: 650px ) {
+                width: 28rem;
+            }
+
+            @media ( max-width: 600px ) {
+                width: 25rem;
+            }
+
+            @media ( max-width: 500px ) {
+                width: 20rem;
+            }
+
+            @media ( max-width: 450px ) {
+                width: 15rem;
+            }
+        }
+
+        @media ( max-width: 650px ) {
+            width: 35rem;
+        }
+        @media ( max-width: 600px ) {
+            width: 30rem;
+        }
+        @media ( max-width: 500px ) {
+            width: 25rem;
+        }
+        @media ( max-width: 450px ) {
+            width: 20rem;
         }
     }
     &__front,

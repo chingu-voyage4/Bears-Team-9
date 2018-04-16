@@ -5,11 +5,12 @@
     // background-color: $color-light-yellow;
     border: 4px solid $color-red;
     padding: 3rem 3rem 3rem 3rem;
-    margin-top: 3rem;
+    margin: 2rem 1rem;
+    // margin-top: 3rem;
     transition: all .2s;
     text-align: left;
     &:not(:last-child) {
-        margin-right: 2rem;
+        // margin-right: 2rem;
     }
     &:hover {
         box-shadow: 5px 5px 0px $color-red;
@@ -33,5 +34,10 @@
             color: $color-light-blue;
             font-weight: 400;
         }
+    }
+
+    @media ( max-width: 410px ) {
+        padding: 1rem 1rem;
+        margin: 1rem 0;
     }
 }
