@@ -479,10 +479,32 @@ a {
 .show {
   color: #fff; }
 
+.tick {
+  color: #25b43d; }
+
+.cross {
+  color: red; }
+
 .dashboard {
   margin: 1.5rem auto;
   max-width: 80%;
   text-align: center; }
+
+@media (max-width: 768px) {
+  .content-width {
+    width: 90%; } }
+
+@media (max-width: 640px) {
+  .content-width {
+    width: 92%; }
+  .btn--navbar:first-child {
+    display: none; }
+  .btn--navbar:not(:first-child) {
+    margin-left: 1.8rem; } }
+
+@media (max-width: 350px) {
+  .btn--navbar:not(:first-child) {
+    margin-left: 1.4rem; } }
 
 .studypage__column {
   margin: 2rem auto;
@@ -559,6 +581,7 @@ a {
   width: 80%;
   margin: 3rem auto;
   height: 30vh;
+  padding: 2rem;
   text-align: left;
   color: #faffb0;
   font-size: 2.5rem; }
