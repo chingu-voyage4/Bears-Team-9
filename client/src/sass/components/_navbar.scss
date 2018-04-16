@@ -1,12 +1,12 @@
 .navbar {
     position: relative;
     // width: 80%;
-    margin: 1.5rem auto;
+    margin: 0 auto 1.5rem auto;
     box-sizing: border-box;
     // border: 1px solid black;
     border-bottom: 1px solid $color-light-blue;
     height: 4rem;
-    padding-bottom: 1rem;
+    padding: 1rem auto;
     @include clearfix;
     &__left {
         float: left;
