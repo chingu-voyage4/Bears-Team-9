@@ -24,11 +24,50 @@
             padding-top: 8rem;
             font-size: 8rem;
             font-family: 'Fira Sans', sans-serif;
+
+            @media ( max-height: 650px ) {
+                font-size: 6rem;
+            }
+            @media ( max-height: 575px ) {
+                font-size: 5rem;
+            }
+
+
+            @media ( max-width: 1300px ) {
+                font-size: 7rem;
+            }
+            @media ( max-width: 1150px ) {
+                font-size: 6rem;
+            }
+            @media ( max-width: 650px ) {
+                font-size: 5rem;
+            }
+            @media ( max-width: 500px ) {
+                font-size: 4rem;
+            }
         }
         &--secondary {
             margin-top: 2rem;
             color: white;
             font-size: 2rem;
+
+            @media ( max-height: 650px ) {
+                font-size: 1.8rem;
+            }
+
+
+            @media ( max-width: 1300px ) {
+                font-size: 1.8rem;
+            }
+            @media ( max-width: 950px ) {
+                font-size: 1.6rem;
+            }
+            @media ( max-width: 550px ) {
+                font-size: 1.4rem;
+            }
+            @media ( max-width: 500px ) {
+                font-size: 1.3rem;
+            }
         }
     }
 

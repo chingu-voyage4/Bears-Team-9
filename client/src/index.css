@@ -364,11 +364,11 @@ a {
 
 .navbar {
   position: relative;
-  margin: 1.5rem auto;
+  margin: 0 auto 1.5rem auto;
   box-sizing: border-box;
   border-bottom: 1px solid #9dabc1;
   height: 4rem;
-  padding-bottom: 1rem;
+  padding: 1rem auto;
 }
 .navbar::after {
   content: "";
@@ -418,6 +418,7 @@ a {
     margin: 1rem 0;
   }
 }
+
 .flashcardTable {
   width: 80rem;
   position: relative;
@@ -720,10 +721,65 @@ a {
   font-size: 8rem;
   font-family: "Fira Sans", sans-serif;
 }
+@media (max-height: 650px) {
+  .landing__header--main {
+    font-size: 6rem;
+  }
+}
+@media (max-height: 575px) {
+  .landing__header--main {
+    font-size: 5rem;
+  }
+}
+@media (max-width: 1300px) {
+  .landing__header--main {
+    font-size: 7rem;
+  }
+}
+@media (max-width: 1150px) {
+  .landing__header--main {
+    font-size: 6rem;
+  }
+}
+@media (max-width: 650px) {
+  .landing__header--main {
+    font-size: 5rem;
+  }
+}
+@media (max-width: 500px) {
+  .landing__header--main {
+    font-size: 4rem;
+  }
+}
 .landing__header--secondary {
   margin-top: 2rem;
   color: white;
   font-size: 2rem;
+}
+@media (max-height: 650px) {
+  .landing__header--secondary {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 1300px) {
+  .landing__header--secondary {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 950px) {
+  .landing__header--secondary {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 550px) {
+  .landing__header--secondary {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 500px) {
+  .landing__header--secondary {
+    font-size: 1.3rem;
+  }
 }
 .landing__operation {
   width: 100%;
