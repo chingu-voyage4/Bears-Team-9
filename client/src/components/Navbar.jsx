@@ -8,14 +8,14 @@ class navbar extends Component {
 
         const login = (
             <a className="btn btn--navbar"
-                            href="http://localhost:3001/auth/login">Log in</a>
+                            href="/auth/login">Log in</a>
         );
 
         const logout = (
             <div>
                 <a className="btn btn--navbar" href="">{user.userName}</a>
                 <a className="btn btn--navbar"
-                    href="http://localhost:3001/auth/logout">Log Out</a>
+                    href="/auth/logout">Log Out</a>
             </div>
         )
         let links = null;

@@ -7,10 +7,10 @@ const Users    = require( '../models/users' );
 
 router.get( '/login', passport.authenticate( 'auth0' ) );
 router.get( '/login/callback',  
-            passport.authenticate( 'auth0', { failureRedirect: 'http://localhost:3000/'} ), 
+            passport.authenticate( 'auth0', { failureRedirect: '/'} ), 
             ( req, res ) => {
     // ==== succcessful login ===== //
-    res.redirect( 'http://localhost:3000/dashboard' );
+    res.redirect( '/dashboard' );
 } );
 
 router.get( '/checkAuth', ( req, res ) => {
@@ -23,7 +23,7 @@ router.get( '/checkAuth', ( req, res ) => {
 
 router.get( '/logout', ( req, res ) => {
     req.logOut();
-    res.redirect( 'http://localhost:3000/' )
+    res.redirect( '/' )
 } )
 
 
