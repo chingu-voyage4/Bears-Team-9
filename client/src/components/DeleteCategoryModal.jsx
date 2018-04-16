@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DeleteCategory from '../actions/DeleteCategory';
 import ChangeStack from '../actions/ChangeStack';
+
 class DeleteCategoryModal extends Component {
     deleteCategoryHandler = () => {
         const categoryId = this.props.store.getState().cards.currentStackId

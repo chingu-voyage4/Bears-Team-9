@@ -25,7 +25,7 @@ class FlashcardContainer extends Component {
                 </div>
                 <div className="studypage__btn-group" >
                     <FlashcardButton type="correct" clicked={this.props.correctClicked}/>
-                    <FlashcardButton type="flip"  clicked={this.props.bookmarkClicked}/>
+                    <FlashcardButton type="bookmark"  clicked={this.props.bookmarkClicked}/>
                     <FlashcardButton type="incorrect"  clicked={this.props.incorrectClicked}/>
                 </div>
             </div>

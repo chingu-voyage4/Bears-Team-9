@@ -9,13 +9,12 @@ class FlashcardSummaryTable extends Component {
             progressRows = this.props.cards.map((card, i) => {
                 return (
                     <FlashcardSummaryRow
-                        num={i}
-                        key={i}
+                        num={i+1}
+                        key={i+1}
                         front={card.front}
                         correct={this.props.statuses[i].correct}
                         incorrect={this.props.statuses[i].incorrect}
-                        bookmark={this.props.statuses[i].bookmark}
-                        firstRow={ true } />
+                        bookmark={this.props.statuses[i].bookmark} />
                 );
             });
         }
@@ -27,8 +26,7 @@ class FlashcardSummaryTable extends Component {
                         front='Question'
                         correct={ true }
                         incorrect={ true }
-                        bookmark={ true }
-                        firstRow={ true } />
+                        bookmark={ true } />
                     { progressRows }
                 </div>
             </div>

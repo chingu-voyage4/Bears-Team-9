@@ -8,8 +8,8 @@ const flashcardButton = (props) => {
             classCategory = 'btn btn--flashcard btn--flashcard--correct';
             text = <i className="fas fa-check"></i>
             break;
-        case 'flip':
-            classCategory = 'btn btn--flashcard btn--flashcard--flip';
+        case 'bookmark':
+            classCategory = 'btn btn--flashcard btn--flashcard--bookmark';
             text = <i className="fas fa-bookmark"></i>
             break;
         case 'incorrect':
@@ -19,7 +19,7 @@ const flashcardButton = (props) => {
         default:
             break;
     }
-    return <a 
+    return <a
         onClick={ props.clicked }
         className={ classCategory }>
             { text }

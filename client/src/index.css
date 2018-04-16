@@ -84,7 +84,7 @@ body {
     .btn--flashcard--correct {
       background-color: #25b43d;
       color: #8be79a; }
-    .btn--flashcard--flip {
+    .btn--flashcard--bookmark {
       background-color: #9dabc1;
       color: #dbe1e9; }
     .btn--flashcard--incorrect {
@@ -472,7 +472,8 @@ a {
       border: 1px solid white;
       padding: 2px 10px; }
       .flashcardSummary__row--header--title:not(:nth-child(2)) {
-        width: 4rem; }
+        width: 4rem;
+        text-align: center; }
       .flashcardSummary__row--header--title:nth-child(2) {
         width: calc(100% - 4 * 4rem); }
 
@@ -497,8 +498,6 @@ a {
 @media (max-width: 640px) {
   .content-width {
     width: 92%; }
-  .btn--navbar:first-child {
-    display: none; }
   .btn--navbar:not(:first-child) {
     margin-left: 1.8rem; } }
 

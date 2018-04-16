@@ -12,14 +12,10 @@ const stack = (props) => {
                 High Score:
             </span> */}
             <div className="btn-group--stack">
-<<<<<<< HEAD
                 {/* <a  className="btn btn--stack">Quiz</a> */}
-                <a  
-=======
-                <a  className="btn btn--stack">Quiz</a>
-                <a
->>>>>>> development
-                    onClick={ () => {
+
+                <a className="btn btn--stack">Quiz</a>
+                <a onClick={ () => {
                         props.studyClicked();
                         props.store.dispatch(ChangeStack(props.id))}
                     }
