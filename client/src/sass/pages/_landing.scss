@@ -1,15 +1,35 @@
 .landing {
+    &__btn-group {
+        width: 50%;
+        margin: 7rem auto 0 auto;
+    }
     &__header {
         width: 100%;
         // border: 1px solid white;
-        height: 95vh;
+        height: 85vh;
         background-image: linear-gradient(
         to right bottom,
         rgba($color-medium-blue, 0.80),
         rgba(white, 0.80)), url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0c4b5fcc53abd6158286dc86a9be4bee&auto=format&fit=crop&w=1650&q=80');
         background-size: cover;
+        // border-radius: 2rem;
         // clip-path: polygon(66% 12%, 15% 13%, 13% 62%, 39% 78%, 82% 68%, 95% 14%);
-        clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 90%, 0% 70%);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+        &--main {
+            color: white;
+            text-shadow: 4px 4px 4px $color-medium-blue;
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 8rem;
+            font-size: 8rem;
+            font-family: 'Fira Sans', sans-serif;
+        }
+        &--secondary {
+            margin-top: 2rem;
+            color: white;
+            font-size: 2rem;
+        }
     }
 
     &__operation {

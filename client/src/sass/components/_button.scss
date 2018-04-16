@@ -2,6 +2,23 @@
     text-decoration: none;
     padding: 2px auto;
     transition: all .2s;
+    &--landing {
+        font-size: 2rem;
+        // border: 1px solid black;
+        &:not(:last-child) {
+            margin-right: 2rem;
+        }
+        padding: 6px 10px;
+        background-color: rgba(9, 30, 54, .4); 
+        border-radius: 4px;
+        color: white;
+        transition: all .2s;
+        &:hover {
+            color: $color-medium-blue;
+            background-color: white;
+        }
+        
+    }
     &--left {
         // display: inline-block;
         font-size: 7rem;
@@ -200,9 +217,9 @@
         box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75);
         transition: all .2s;
         cursor: pointer;
-        &:first-child {
-            margin-right: 2rem;
-        }
+        // &:first-child {
+        //     margin-right: 2rem;
+        // }
         &:hover {
             background-color: $color-white;
             color: $color-dark-blue;

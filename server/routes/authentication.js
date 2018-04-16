@@ -10,7 +10,7 @@ router.get( '/login/callback',
             passport.authenticate( 'auth0', { failureRedirect: 'http://localhost:3000/'} ), 
             ( req, res ) => {
     // ==== succcessful login ===== //
-    res.redirect( 'http://localhost:3000/' );
+    res.redirect( 'http://localhost:3000/dashboard' );
 } );
 
 router.get( '/checkAuth', ( req, res ) => {

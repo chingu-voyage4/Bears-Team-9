@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:900i");
 *,
 *::after,
 *::before {
@@ -37,6 +38,18 @@ body {
   text-decoration: none;
   padding: 2px auto;
   transition: all .2s; }
+  .btn--landing {
+    font-size: 2rem;
+    padding: 6px 10px;
+    background-color: rgba(9, 30, 54, 0.4);
+    border-radius: 4px;
+    color: white;
+    transition: all .2s; }
+    .btn--landing:not(:last-child) {
+      margin-right: 2rem; }
+    .btn--landing:hover {
+      color: #243972;
+      background-color: white; }
   .btn--left {
     font-size: 7rem;
     width: 10%;
@@ -189,8 +202,6 @@ body {
     box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75);
     transition: all .2s;
     cursor: pointer; }
-    .btn--stack:first-child {
-      margin-right: 2rem; }
     .btn--stack:hover {
       background-color: #fff;
       color: #091e36; }
@@ -287,7 +298,8 @@ a {
     display: block;
     font-weight: 400;
     font-size: 2rem;
-    color: #fff; }
+    color: #fff;
+    text-align: center; }
     .stack__text--category {
       font-weight: 600;
       text-decoration: underline;
@@ -524,12 +536,29 @@ a {
     .studypage__btn-group {
       width: 80%; } }
 
+.landing__btn-group {
+  width: 50%;
+  margin: 7rem auto 0 auto; }
+
 .landing__header {
   width: 100%;
-  height: 95vh;
+  height: 85vh;
   background-image: linear-gradient(to right bottom, rgba(36, 57, 114, 0.8), rgba(255, 255, 255, 0.8)), url("https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0c4b5fcc53abd6158286dc86a9be4bee&auto=format&fit=crop&w=1650&q=80");
   background-size: cover;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 90%, 0% 70%); }
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%); }
+  .landing__header--main {
+    color: white;
+    text-shadow: 4px 4px 4px #243972;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 8rem;
+    font-size: 8rem;
+    font-family: 'Fira Sans', sans-serif; }
+  .landing__header--secondary {
+    margin-top: 2rem;
+    color: white;
+    font-size: 2rem; }
 
 .landing__operation {
   width: 100%; }
