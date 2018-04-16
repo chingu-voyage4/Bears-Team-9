@@ -9,7 +9,7 @@
             margin-right: 2rem;
         }
         padding: 6px 10px;
-        background-color: rgba(9, 30, 54, .4); 
+        background-color: rgba(9, 30, 54, .4);
         border-radius: 4px;
         color: white;
         transition: all .2s;
@@ -17,7 +17,7 @@
             color: $color-medium-blue;
             background-color: white;
         }
-        
+
     }
     &--left {
         // display: inline-block;
@@ -64,7 +64,7 @@
             background-color: $color-green;
             color: lighten($color-green, 30%);
         }
-        &--flip {
+        &--bookmark {
             background-color: $color-light-blue;
             color: lighten($color-light-blue, 20%);
         }

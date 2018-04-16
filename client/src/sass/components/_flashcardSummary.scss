@@ -13,6 +13,7 @@
                 padding: 2px 10px;
                 &:not(:nth-child(2)) {
                     width: 4rem;
+                    text-align: center;
                 }
                 &:nth-child(2) {
                     width: calc(100% - 4 * 4rem);
