@@ -3,25 +3,3 @@
     max-width: 80%;
     text-align: center;
 }
-
-@media (max-width: 768px) {
-  .content-width {
-    width: 90%;
-  }
-}
-
-@media (max-width: 640px) {
-  .content-width {
-    width: 92%;
-  }
-
-  .btn--navbar:not(:first-child) {
-    margin-left: 1.8rem;
-  }
-}
-
-@media (max-width: 350px) {
-  .btn--navbar:not(:first-child) {
-    margin-left: 1.4rem;
-  }
-}

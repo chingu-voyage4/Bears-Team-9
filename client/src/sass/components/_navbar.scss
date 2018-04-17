@@ -1,7 +1,7 @@
 .navbar {
     position: relative;
     // width: 80%;
-    margin: 0 auto 1.5rem auto;
+    margin: 1rem auto 1.5rem auto;
     box-sizing: border-box;
     // border: 1px solid black;
     border-bottom: 1px solid $color-light-blue;
@@ -14,4 +14,34 @@
     &__right {
         float: right;
     }
+}
+
+@media (max-width: 768px) {
+  .content-width {
+    width: 90%;
+  }
+}
+
+@media (max-width: 670px) {
+  .content-width {
+    width: 92%;
+  }
+
+  .btn--navbar:not(:first-child) {
+    margin-left: 1.8rem;
+  }
+}
+
+/*
+@media (max-width: 600px) {
+  .btn--navbar:not(:first-child) {
+    display: none;
+  }
+}
+*/
+
+@media (max-width: 350px) {
+  .btn--navbar:not(:first-child) {
+    margin-left: 1.4rem;
+  }
 }

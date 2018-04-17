@@ -115,7 +115,7 @@ class navbar extends Component {
                 <AppBar
                     style={{ backgroundColor: 'transparent', fontFamily: 'Poppins' }}
                     showMenuIconButton={false}
-                    title={<NavLink style={{ textDecoration: 'none', color: 'white', fontWeight: 'bold' }} to='/'>Flaschard App</NavLink>}
+                    title={<NavLink style={{ textDecoration: 'none', color: 'white', fontWeight: 'bold' }} to='/'>Flashcard App</NavLink>}
                     iconElementRight={this.props.store.getState().user.isLoggedIn ? <Logged /> : <Login />}
                 />
             </MuiThemeProvider>
