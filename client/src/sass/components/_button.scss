@@ -13,6 +13,7 @@
         border-radius: 4px;
         color: white;
         transition: all .2s;
+        margin-bottom: 1rem;
         &:hover {
             color: $color-medium-blue;
             background-color: white;
@@ -22,7 +23,7 @@
     &--left {
         // display: inline-block;
         font-size: 7rem;
-        width: 10%;
+        //width: 10%;
         float: left;
         margin-top: 10rem;
         color: $color-light-blue;
@@ -36,7 +37,7 @@
         // display: inline-block;
         font-size: 7rem;
         margin-top: 10rem;
-        width: 10%;
+        //width: 10%;
         float: right;
         text-align: right;
         color: $color-light-blue;
@@ -233,5 +234,18 @@
 }
 
 a {
+    display: inline-block;
     cursor: pointer;
+}
+
+@media (max-width: 428px) {
+  .btn--landing:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 385px) {
+  .btn--landing:not(:last-child) {
+    margin-right: 1rem;
+  }
 }

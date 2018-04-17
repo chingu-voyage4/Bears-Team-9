@@ -1,7 +1,7 @@
 .landing {
     &__btn-group {
-        width: 50%;
         margin: 7rem auto 0 auto;
+        padding: 0 1.5rem;
     }
     &__header {
         width: 100%;
@@ -32,7 +32,6 @@
                 font-size: 5rem;
             }
 
-
             @media ( max-width: 1300px ) {
                 font-size: 7rem;
             }
@@ -54,7 +53,6 @@
             @media ( max-height: 650px ) {
                 font-size: 1.8rem;
             }
-
 
             @media ( max-width: 1300px ) {
                 font-size: 1.8rem;
