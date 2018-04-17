@@ -589,87 +589,64 @@ a {
     .studypage__btn-group {
       width: 70%; } }
 
-.landing__btn-group {
-  margin: 7rem auto 0 auto;
-  padding: 0 1.5rem; }
-
-.landing__header {
-  width: 100%;
-  height: 85vh;
+.landing {
   background-image: linear-gradient(to right bottom, rgba(36, 57, 114, 0.8), rgba(255, 255, 255, 0.8)), url("https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0c4b5fcc53abd6158286dc86a9be4bee&auto=format&fit=crop&w=1650&q=80");
   background-size: cover;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%); }
-  .landing__header--main {
-    color: white;
-    text-shadow: 4px 4px 4px #243972;
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 8rem;
-    font-size: 8rem;
-    font-family: 'Fira Sans', sans-serif; }
-    @media (max-height: 650px) {
-      .landing__header--main {
-        font-size: 6rem; } }
-    @media (max-height: 575px) {
-      .landing__header--main {
-        font-size: 5rem; } }
-    @media (max-width: 1300px) {
-      .landing__header--main {
-        font-size: 7rem; } }
-    @media (max-width: 1150px) {
-      .landing__header--main {
-        font-size: 6rem; } }
-    @media (max-width: 650px) {
-      .landing__header--main {
-        font-size: 5rem; } }
-    @media (max-width: 500px) {
-      .landing__header--main {
-        font-size: 4rem; } }
-  .landing__header--secondary {
-    margin-top: 2rem;
-    color: white;
-    font-size: 2rem; }
-    @media (max-height: 650px) {
-      .landing__header--secondary {
-        font-size: 1.8rem; } }
-    @media (max-width: 1300px) {
-      .landing__header--secondary {
-        font-size: 1.8rem; } }
-    @media (max-width: 950px) {
-      .landing__header--secondary {
-        font-size: 1.6rem; } }
-    @media (max-width: 550px) {
-      .landing__header--secondary {
-        font-size: 1.4rem; } }
-    @media (max-width: 500px) {
-      .landing__header--secondary {
-        font-size: 1.3rem; } }
-
-.landing__operation {
+  height: calc(100vh - 64px);
   width: 100%; }
-  .landing__operation--screenshot {
-    width: 50%;
-    padding: 3rem; }
-    .landing__operation--screenshot--left {
-      display: inline-block;
-      margin-top: 10rem; }
-    .landing__operation--screenshot--right {
-      display: inline-block;
-      float: right; }
-  .landing__operation::after {
-    content: "";
-    display: table;
-    clear: both; }
-
-.landing__features {
-  background-color: #091e36;
-  width: 80%;
-  margin: 3rem auto;
-  height: 30vh;
-  padding: 2rem;
-  text-align: left;
-  color: #faffb0;
-  font-size: 2.5rem; }
-  .landing__features ul {
-    list-style-type: none; }
+  .landing__btn-group {
+    text-align: center;
+    margin-top: 2rem; }
+  .landing__header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    .landing__header--main {
+      color: white;
+      text-shadow: 4px 4px 4px #243972;
+      width: 75%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 8rem;
+      font-size: 8rem;
+      font-family: 'Fira Sans', sans-serif;
+      text-align: center; }
+      @media (max-height: 650px) {
+        .landing__header--main {
+          font-size: 6rem; } }
+      @media (max-height: 575px) {
+        .landing__header--main {
+          font-size: 5rem; } }
+      @media (max-width: 1300px) {
+        .landing__header--main {
+          font-size: 7rem; } }
+      @media (max-width: 1150px) {
+        .landing__header--main {
+          font-size: 6rem; } }
+      @media (max-width: 650px) {
+        .landing__header--main {
+          font-size: 5rem; } }
+      @media (max-width: 500px) {
+        .landing__header--main {
+          font-size: 4rem; } }
+    .landing__header--secondary {
+      margin-top: 2rem;
+      color: white;
+      font-size: 2rem;
+      text-align: center; }
+      @media (max-height: 650px) {
+        .landing__header--secondary {
+          font-size: 1.8rem; } }
+      @media (max-width: 1300px) {
+        .landing__header--secondary {
+          font-size: 1.8rem; } }
+      @media (max-width: 950px) {
+        .landing__header--secondary {
+          font-size: 1.6rem; } }
+      @media (max-width: 550px) {
+        .landing__header--secondary {
+          font-size: 1.4rem; } }
+      @media (max-width: 500px) {
+        .landing__header--secondary {
+          font-size: 1.3rem; } }

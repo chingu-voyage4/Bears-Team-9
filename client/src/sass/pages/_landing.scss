@@ -1,55 +1,56 @@
 .landing {
-    &__btn-group {
-        margin: 7rem auto 0 auto;
-        padding: 0 1.5rem;
-    }
-    &__header {
-        width: 100%;
-        // border: 1px solid white;
-        height: 85vh;
-        background-image: linear-gradient(
+    background-image: linear-gradient(
         to right bottom,
         rgba($color-medium-blue, 0.80),
         rgba(white, 0.80)), url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=0c4b5fcc53abd6158286dc86a9be4bee&auto=format&fit=crop&w=1650&q=80');
-        background-size: cover;
-        // border-radius: 2rem;
-        // clip-path: polygon(66% 12%, 15% 13%, 13% 62%, 39% 78%, 82% 68%, 95% 14%);
-        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 50% 100%, 0% 80%);
+    background-size: cover;
+    height: calc(100vh - 64px);
+    width: 100%;
+    &__btn-group {
+        text-align: center;
+        margin-top: 2rem;
+    }
+    &__header {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         &--main {
-            color: white;
-            text-shadow: 4px 4px 4px $color-medium-blue;
-            width: 75%;
-            margin-left: auto;
-            margin-right: auto;
-            padding-top: 8rem;
-            font-size: 8rem;
-            font-family: 'Fira Sans', sans-serif;
+                color: white;
+                text-shadow: 4px 4px 4px $color-medium-blue;
+                width: 75%;
+                margin-left: auto;
+                margin-right: auto;
+                padding-top: 8rem;
+                font-size: 8rem;
+                font-family: 'Fira Sans', sans-serif;
+                text-align: center;
+                @media ( max-height: 650px ) {
+                    font-size: 6rem;
+                }
+                @media ( max-height: 575px ) {
+                    font-size: 5rem;
+                }
 
-            @media ( max-height: 650px ) {
-                font-size: 6rem;
+                @media ( max-width: 1300px ) {
+                    font-size: 7rem;
+                }
+                @media ( max-width: 1150px ) {
+                    font-size: 6rem;
+                }
+                @media ( max-width: 650px ) {
+                    font-size: 5rem;
+                }
+                @media ( max-width: 500px ) {
+                    font-size: 4rem;
+                }
             }
-            @media ( max-height: 575px ) {
-                font-size: 5rem;
-            }
-
-            @media ( max-width: 1300px ) {
-                font-size: 7rem;
-            }
-            @media ( max-width: 1150px ) {
-                font-size: 6rem;
-            }
-            @media ( max-width: 650px ) {
-                font-size: 5rem;
-            }
-            @media ( max-width: 500px ) {
-                font-size: 4rem;
-            }
-        }
+        
         &--secondary {
             margin-top: 2rem;
             color: white;
             font-size: 2rem;
-
+            text-align: center;
             @media ( max-height: 650px ) {
                 font-size: 1.8rem;
             }
@@ -68,43 +69,4 @@
             }
         }
     }
-
-    &__operation {
-        width: 100%;
-        // height: 95vh;
-        // height: 140vh;
-        // margin-top: 2rem;
-        &--screenshot {
-            width: 50%;
-            padding: 3rem;
-            &--left {
-                display: inline-block;
-                margin-top: 10rem;
-            }
-            &--right {
-                display: inline-block;
-                float: right;
-
-            }
-        }
-        @include clearfix;
-    }
-
-    &__features {
-            // border: 1px solid red;
-            // margin-top: 3rem;
-            background-color: $color-dark-blue;
-            // display: inline-block;
-            width: 80%;
-            margin: 3rem auto;
-            height: 30vh;
-            // padding: 3rem; -> looks weird
-            padding: 2rem;
-            text-align: left;
-            color: $color-light-yellow;
-            font-size: 2.5rem;
-            & ul {
-                list-style-type: none;
-            }
-        }
 }
