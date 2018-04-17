@@ -369,11 +369,10 @@ a {
       margin: 1rem 0; } }
 
 .flashcardTable {
-  width: 80rem;
-  position: relative;
-  margin-top: 30rem;
-  left: 50%;
-  transform: translate(-50%, -25rem); }
+  /* font-family: 'Varela Round', sans-serif; */ }
+  .flashcardTable table {
+    border-collapse: collapse;
+    margin: 0 auto; }
   .flashcardTable__row {
     color: #243972;
     padding: 5px 10px;
@@ -390,11 +389,9 @@ a {
     .flashcardTable__row:nth-child(even) {
       background-color: #bcc6d5; }
     .flashcardTable__row--content--front {
-      width: 30%;
       padding: 1rem;
       font-size: 1.5rem; }
     .flashcardTable__row--content--back {
-      width: 30%;
       padding: 1rem;
       font-size: 1.5rem; }
     .flashcardTable__row--header {

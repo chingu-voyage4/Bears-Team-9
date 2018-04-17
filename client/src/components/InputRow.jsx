@@ -2,14 +2,14 @@ import React from 'react';
 
 const inputRow = (props) => {
     return (
-        <div className='flashcardTable__row'>
-            <span className='flashcardTable__row--content--front'>
+        <tr className='flashcardTable__row'>
+            <td className='flashcardTable__row--content--front' col-span='1'>
                 <input type="text" onChange={props.textChangeFront} value={props.newFront} placeholder='New Question' />
-            </span>
-            <span className='flashcardTable__row--content--back'>
+            </td>
+            <td className='flashcardTable__row--content--back'  col-span='2'>
                 <input type="text" onChange={props.textChangeBack} value={props.newBack} placeholder='New Answer' />
-            </span>
-        </div>
+            </td>
+        </tr>
     );
 }
 

@@ -1,11 +1,17 @@
 .flashcardTable {
-    width: $table-width;
-    // font-family: 'Varela Round', sans-serif;
-    position: relative;
+    //width: $table-width;
+    /* font-family: 'Varela Round', sans-serif; */
+    //position: relative;
     // top: 50%;
-    margin-top: 30rem;
-    left: 50%;
-    transform: translate(-50%, -25rem);
+    //margin-top: 30rem;
+    // left: 50%;
+    // transform: translate(-50%, -25rem);
+
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+
     &__row {
         color:  $color-medium-blue;
         padding: 5px 10px;
@@ -30,15 +36,13 @@
 
         &--content {
             // font-family: 'Varela Round', sans-serif;
-
-
             &--front {
-                width: 30%;
+                //width: 30%;
                 padding: 1rem;
                 font-size: $row-content-font;
             }
             &--back {
-                width: 30%;
+                //width: 30%;
                 padding: 1rem;
                 font-size: $row-content-font;
             }
@@ -50,7 +54,7 @@
             color: $color-white;
             padding: 5px 10px;
             &--front {
-
+              
             }
             &--back {
 
