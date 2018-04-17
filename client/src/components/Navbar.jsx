@@ -79,7 +79,8 @@ import FlatButton from 'material-ui/FlatButton';
 import Toggle from 'material-ui/Toggle';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import FontIcon from 'material-ui/FontIcon';
+import SvgIcon from 'material-ui/SvgIcon';
+import { blue500, red500, greenA200 } from 'material-ui/styles/colors';
 
 class Login extends Component {
     static muiName = 'FlatButton';
@@ -113,10 +114,8 @@ class navbar extends Component {
             <MuiThemeProvider>
                 <AppBar
                     style={{ backgroundColor: 'transparent', fontFamily: 'Poppins' }}
-                    title="Flashcard App"
-                    iconElementLeft={<FontIcon
-                        className="muidocs-icon-action-home"
-                    />}
+                    showMenuIconButton={false}
+                    title={<NavLink style={{ textDecoration: 'none', color: 'white', fontWeight: 'bold' }} to='/'>Flaschard App</NavLink>}
                     iconElementRight={this.props.store.getState().user.isLoggedIn ? <Logged /> : <Login />}
                 />
             </MuiThemeProvider>
