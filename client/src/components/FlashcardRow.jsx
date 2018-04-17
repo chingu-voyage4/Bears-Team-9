@@ -19,11 +19,11 @@ const addDeleteButtons = (props) => {
 
 const flashcardRow = (props) => {
     return (
-        <div className='flashcardTable__row'>
-            <span className='flashcardTable__row--content--front'>{props.frontText}</span>
-            <span className='flashcardTable__row--content--back'>{props.backText}</span>
+        <tr className='flashcardTable__row'>
+            <td className='flashcardTable__row--content--front'>{props.frontText}</td>
+            <td className='flashcardTable__row--content--back'>{props.backText}</td>
             { ( props.user.isLoggedIn && props.stack.owner === props.user._id )  ? addDeleteButtons(props) : null }
-        </div>
+        </tr>
     );
 }
 

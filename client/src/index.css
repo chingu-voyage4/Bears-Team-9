@@ -390,24 +390,18 @@ a {
     .flashcardTable__row:nth-child(even) {
       background-color: #bcc6d5; }
     .flashcardTable__row--content--front {
-      width: 40%;
-      display: inline-block;
+      width: 30%;
+      padding: 1rem;
       font-size: 1.5rem; }
     .flashcardTable__row--content--back {
-      width: 49%;
-      display: inline-block;
+      width: 30%;
+      padding: 1rem;
       font-size: 1.5rem; }
     .flashcardTable__row--header {
       font-size: 4rem;
       border-bottom: 4px solid red;
       color: #fff;
       padding: 5px 10px; }
-      .flashcardTable__row--header--front {
-        width: 40%;
-        display: inline-block; }
-      .flashcardTable__row--header--back {
-        width: 40%;
-        display: inline-block; }
   .flashcardTable-add-delete {
     text-align: center;
     margin-top: 1rem; }
