@@ -11,6 +11,8 @@ import CardsReducer from './reducers/CardsReducer';
 import userReducer from './reducers/UserReducer';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const rootReducer = combineReducers({
     cards: CardsReducer,
@@ -27,6 +29,6 @@ ReactDOM.render(
         <BrowserRouter>
             <App store={ store }/>
         </BrowserRouter>
-    </Provider>, 
+    </Provider>,
     document.getElementById('root'));
 registerServiceWorker();

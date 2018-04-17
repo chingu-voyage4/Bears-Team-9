@@ -7,7 +7,6 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import FetchState from './actions/FetchState';
 import VerifyAuth from './components/VerifyAuth';
 import FetchUser from './actions/FetchUser';
-
 class App extends Component {
 
   // componentDidMount(){

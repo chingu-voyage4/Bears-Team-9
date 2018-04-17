@@ -1,14 +1,17 @@
+.flashcard-row {
+  text-align: center;
+}
+
 .flashcardSummary {
     height: 25rem;
     margin: 3rem auto;
     width: 90%;
+    border-collapse: collapse;
+    font-size: 2rem;
     &__row {
         &--header {
-            font-size: 2rem;
             color: transparent;
             &--title {
-                // color: transparent;
-                display: inline-block;
                 border: 1px solid white;
                 padding: 2px 10px;
                 &:not(:nth-child(2)) {
@@ -33,4 +36,43 @@
 
 .cross {
     color: $color-red;
+}
+
+// tablet (768px) to mobile L (425px)
+@media (max-width: 701px) {
+  .content-width{
+    width: 100%;
+  }
+
+  .flashcardSummary {
+    width: 100%;
+  }
+
+  .fa-caret-right {
+    margin-right: 1.5rem;
+  }
+
+  .fa-caret-left {
+    margin-left: 1.5rem;
+  }
+}
+
+// tablet (768px) to mobile L (425px)
+@media (max-width: 501px) {
+  .flashcardSummary {
+    font-size: 1.6rem;
+  }
+
+  .btn--flashcard {
+    width: 4.5rem;
+    height: 4.5rem;
+    font-size: 2.6rem;
+  }
+}
+
+// Mobile M (375px)
+@media (max-width: 376px) {
+  .flashcard {
+    width: 60%;
+  }
 }
