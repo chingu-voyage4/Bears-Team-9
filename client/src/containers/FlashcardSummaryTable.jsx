@@ -20,7 +20,7 @@ class FlashcardSummaryTable extends Component {
         }
         return (
             <div className="studypage__column">
-                <div className="flashcardSummary">
+                <table className="flashcardSummary">
                     <FlashcardSummaryRow
                         num='#'
                         front='Question'
@@ -28,7 +28,7 @@ class FlashcardSummaryTable extends Component {
                         incorrect={ true }
                         bookmark={ true } />
                     { progressRows }
-                </div>
+                </table>
             </div>
         );
     }

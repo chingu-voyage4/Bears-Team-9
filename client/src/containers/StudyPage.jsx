@@ -100,7 +100,7 @@ class StudyPage extends Component {
             closeModalShow: true
         })
     }
-    
+
     render() {
         let closeModal = null;
         if (this.state.closeModalShow) {

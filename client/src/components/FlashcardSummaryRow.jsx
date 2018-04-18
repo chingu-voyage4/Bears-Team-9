@@ -14,13 +14,13 @@ const flashcardSummaryRow = (props) => {
         bookmarkClass = ' show';
     }
     return (
-        <div className='flashcardSummary__row--header'>
-            <span className='flashcardSummary__row--header--title show'>{ props.num }</span>
-            <span className='flashcardSummary__row--header--title show'>{ props.front }</span>
-            <span className={'flashcardSummary__row--header--title'.concat(correctClass)}><i className="fas fa-check"></i></span>
-            <span className={'flashcardSummary__row--header--title'.concat(incorrectClass)}><i className="fas fa-times"></i></span>
-            <span className={'flashcardSummary__row--header--title'.concat(bookmarkClass)}><i className="fas fa-bookmark"></i></span>
-        </div>
+        <tr className='flashcardSummary__row--header'>
+            <td className='flashcardSummary__row--header--title show'>{ props.num }</td>
+            <td className='flashcardSummary__row--header--title show'>{ props.front }</td>
+            <td className={'flashcardSummary__row--header--title'.concat(correctClass)}><i className="fas fa-check"></i></td>
+            <td className={'flashcardSummary__row--header--title'.concat(incorrectClass)}><i className="fas fa-times"></i></td>
+            <td className={'flashcardSummary__row--header--title'.concat(bookmarkClass)}><i className="fas fa-bookmark"></i></td>
+        </tr>
     );
 };
 
