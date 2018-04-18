@@ -24,11 +24,20 @@
     &__category-title {
         display: block;
         font-size: 3rem;
-        margin-top: 1.5rem;
+        margin: 1.5rem auto 0 auto;
+        width: 95%;
         color: $color-red;
-        width: 80%;
         overflow-wrap: break-word;
         text-align: center;
+
+        @media ( max-width: 600px ) {
+            width: 90%;
+        }
+
+        @media ( max-width: 500px ) {
+            font-size: 2.5rem;
+        }
+
     }
     &__add-stack {
         width: $modal-width-small;
