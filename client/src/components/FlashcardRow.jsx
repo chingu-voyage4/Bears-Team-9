@@ -2,7 +2,9 @@ import React from 'react';
 
 const addDeleteButtons = (props) => {
     return (
-        <td>
+        <div className="flashcardTable__row--content nested-grid">
+          {props.backText}
+          <span>
             <button
                 onClick={props.delete}
                 className='btn btn-row btn-row-delete'>
@@ -13,18 +15,23 @@ const addDeleteButtons = (props) => {
                 className='btn btn-row btn-row-edit'>
                 <i className="far fa-edit"></i>
             </button>
-        </td>
+          </span>
+        </div>
     );
 }
 
 const flashcardRow = (props) => {
+  // parent div w className flashcardTable__row
     return (
-        <tr className='flashcardTable__row'>
-            <td className='flashcardTable__row--content--front'>{props.frontText}</td>
-            <td className='flashcardTable__row--content--back'>{props.backText}</td>
+        <React.Fragment>
+            <div className='flashcardTable__row--content'>{props.frontText}</div>
 
-            { ( props.user.isLoggedIn && props.stack.owner === props.user._id )  ? addDeleteButtons(props) : null }
-        </tr>
+            { ( props.user.isLoggedIn && props.stack.owner === props.user._id )  ? addDeleteButtons(props) :
+                <div className='flashcardTable__row--content'>
+                  {props.backText}
+                </div>
+            }
+        </React.Fragment>
     );
 }
 

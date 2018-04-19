@@ -1,24 +1,27 @@
 .flashcardTable {
-    //width: $table-width;
     /* font-family: 'Varela Round', sans-serif; */
-    //position: relative;
-    // top: 50%;
-    //margin-top: 30rem;
-    // left: 50%;
-    // transform: translate(-50%, -25rem);
 
-    table {
-      border-collapse: collapse;
-      margin: 0 auto;
+    .edit-page__wrapper {
+      display: grid;
+      grid-template-columns: 30% 35%;
+      justify-content: center;
+
+      /* maybe don't care
+      .front { // flashcardTable__row--header front
+        width: 26rem;
+      }
+      .back { // flashcardTable__row--header back
+        width: 24rem;
+      } */
+
+      .nested-grid { // edit n delete buttons
+        display: grid;
+        grid-template-columns: 1fr 8rem;
+        align-items: center;
+      }
     }
 
     &__row {
-        color:  $color-medium-blue;
-        padding: 5px 10px;
-        overflow-wrap: break-word;
-        &:not(:first-child) {
-            margin-top: 3px;
-        }
         input {
             background-color: transparent;
             border: 1px solid transparent;
@@ -27,37 +30,24 @@
                 outline: none;
             }
         }
-        &:nth-child(odd) {
-            background-color:$color-light-blue;
-        }
-        &:nth-child(even) {
-            background-color: lighten($color-light-blue, 10%);
-        }
 
-        &--content {
-            // font-family: 'Varela Round', sans-serif;
-            &--front {
-                //width: 30%;
-                padding: 1rem;
-                font-size: $row-content-font;
-            }
-            &--back {
-                //width: 30%;
-                padding: 1rem;
-                font-size: $row-content-font;
-            }
-        }
-
+        // header (non-content)
         &--header {
             font-size: $row-header-font;
             border-bottom: 4px solid $color-red;
             color: $color-white;
             padding: 5px 10px;
-            &--front {
-              
-            }
-            &--back {
+        }
+        // content (non-header)
+        &--content {
+            padding: 1rem;
+            font-size: $row-content-font;
 
+            &:nth-child(odd) {
+                background-color:$color-light-blue;
+            }
+            &:nth-child(even) {
+                background-color: lighten($color-light-blue, 10%);
             }
         }
     }

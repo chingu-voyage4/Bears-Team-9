@@ -161,19 +161,15 @@ class FlashcardTable extends Component {
                 />
             }
             rows = (
-                <table>
-                  <thead>
-                    <tr className='flashcardTable__row--header'>
-                        <td className='flashcardTable__row--header--front'>Question</td>
-                        <td className='flashcardTable__row--header--back'>Answer</td>
-                    </tr>
-                  </thead>
+                <section className="edit-page__wrapper">
+                  <div className='flashcardTable__row--header front'>Question</div>
+                  <div className='flashcardTable__row--header back'>Answer</div>
 
-                    { rowContents }
-                    { inputRow }
-                    { ( user.isLoggedIn && currentStack.owner === user._id ) ? this.addDeleteButtons : null }
+                  { rowContents }
+                  { inputRow }
+                  { ( user.isLoggedIn && currentStack.owner === user._id ) ? this.addDeleteButtons : null }
 
-                </table>
+                </section>
             );
         }
         if (stateProps.currentStackId !== '') {
