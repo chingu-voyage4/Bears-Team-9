@@ -9,5 +9,16 @@
 
 @import "components/button";
 @import "components/modal";
+@import "components/navbar";
+@import "components/stack";
+@import "components/flashcardTable";
+@import "components/stackchoiceContainer";
+@import "components/loader";
+@import "components/flashcard";
+@import "components/flashcardSummary";
 
-@import "layout/navbar";
+@import "pages/dashboard";
+@import "pages/studypage";
+@import "pages/landing";
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:900i');

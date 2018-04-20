@@ -1,0 +1,103 @@
+.modal {
+    // width: 60rem;
+    border-radius: 8px;
+    // height: 26rem;
+    // overflow: auto;
+    width: $modal-width;
+    // padding-bottom: $modal-padding-horizontal;
+
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background-color: white;
+    &-background {
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100vw;
+        height: 100vh;
+    }
+    &__category-title {
+        display: block;
+        font-size: 3rem;
+        margin: 1.5rem auto 0 auto;
+        width: 95%;
+        color: $color-red;
+        overflow-wrap: break-word;
+        text-align: center;
+
+        @media ( max-width: 600px ) {
+            width: 90%;
+        }
+
+        @media ( max-width: 500px ) {
+            font-size: 2.5rem;
+        }
+
+    }
+    &__add-stack {
+        width: $modal-width-small;
+        text-align: center;
+        // height: 0rem;
+        &--titles {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        &--input {
+            width: 30rem;
+            height: 4rem;
+            outline: none;
+            border: none;
+            font-size: 3rem;
+            border-bottom: 2px solid $color-medium-blue;
+
+            @media ( max-width: 650px ) {
+                width: 28rem;
+            }
+
+            @media ( max-width: 600px ) {
+                width: 25rem;
+            }
+
+            @media ( max-width: 500px ) {
+                width: 20rem;
+            }
+
+            @media ( max-width: 450px ) {
+                width: 15rem;
+            }
+        }
+
+        @media ( max-width: 650px ) {
+            width: 35rem;
+        }
+        @media ( max-width: 600px ) {
+            width: 30rem;
+        }
+        @media ( max-width: 500px ) {
+            width: 25rem;
+        }
+    }
+    &__front,
+    &__back {
+        width: calc((100% - (2*#{$modal-padding-horizontal}) - #{$modal-gutter}) / 2);
+        position: relative;
+        margin-top: $modal-padding-vertical;
+        display: inline-block;
+        &--textarea {
+            width: 100%;
+            height: 12rem;
+            resize: none;
+            padding: 1rem;
+        }
+    }
+    &__front {
+        margin-right: $modal-gutter;
+        margin-left: $modal-padding-horizontal;
+    }
+}

@@ -9,3 +9,11 @@
 html {
     font-size: 62.5%; // sets 1rem to 10px;
 }
+
+body {
+    background-color: $color-medium-blue;
+}
+
+.app {
+    width: 100%;
+}

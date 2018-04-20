@@ -1,0 +1,115 @@
+  .edit-page__wrapper { // parent grid
+    display: grid;
+    grid-template-columns: 30% 35%;
+    grid-column-gap: 0.1rem;
+    grid-row-gap: 0.1rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+
+  .nested-grid { // edit n delete buttons
+    display: grid;
+    grid-template-columns: 1fr 8rem;
+    align-items: center;
+  }
+
+.flashcardTable {
+    &__row {
+        input {
+            background-color: transparent;
+            border: 1px solid transparent;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        // header (non-content)
+        &--header {
+            font-size: $row-header-font;
+            border-bottom: 4px solid $color-red;
+            color: $color-white;
+            padding: 1rem 1.6rem;
+        }
+        // content (non-header)
+        &--content {
+            padding: 1rem;
+            font-size: $row-content-font;
+            background-color: lighten($color-light-blue, 10%);
+        }
+            /*
+            &:nth-child(odd) {
+                background-color:$color-light-blue;
+            }
+            &:nth-child(even) {
+                background-color: lighten($color-light-blue, 10%);
+            } */
+    }
+    /*
+    &-add-delete {
+        text-align: center;
+        margin-top: 1rem;
+    } */
+}
+
+.textarea-div {
+  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 0.1rem;
+}
+
+.textarea {
+  background-color: lighten($color-light-blue, 10%);
+  width: 100%;
+  //min-height: 8rem;
+  resize: none;
+  overflow: hidden;
+  border: 0;
+  font-size: $row-content-font;
+  padding: 1rem;
+}
+
+.qn-textarea {
+  //grid-column: 1/2;
+}
+
+.ans-textarea {
+  //grid-column: 2/3;
+}
+
+@media (max-width: 1120px) {
+  .flashcardTable .edit-page__wrapper {
+    grid-template-columns: 40% 45%;
+  }
+}
+
+@media (max-width: 769px) {
+  .flashcardTable .edit-page__wrapper {
+    grid-template-columns: 48% 52%;
+  }
+
+  .flashcardTable .flashcardTable__row--content {
+    padding: 1.2rem;
+  }
+
+  .flashcardTable .flashcardTable__row--header {
+    font-size: 3.6rem;
+  }
+
+  .nested-grid {
+    grid-template-columns: 1fr 4rem;
+  }
+}
+
+@media (max-width: 376px) {
+  .flashcardTable .flashcardTable__row--header {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 321px) {
+  .flashcardTable .flashcardTable__row--header {
+    font-size: 2.6rem;
+  }
+}
