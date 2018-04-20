@@ -9,9 +9,9 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 // import cardsReducer from './store/card';
 import CardsReducer from './reducers/CardsReducer';
 import userReducer from './reducers/UserReducer';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 const rootReducer = combineReducers({
@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
 
 const store = createStore(
     rootReducer,
-    applyMiddleware(thunk, logger)
+    applyMiddleware(thunk)
 );
 
 ReactDOM.render(
