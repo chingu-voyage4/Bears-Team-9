@@ -20,15 +20,17 @@ class FlashcardSummaryTable extends Component {
         }
         return (
             <div className="studypage__column">
-                <table className="flashcardSummary">
-                    <FlashcardSummaryRow
-                        num='#'
-                        front='Question'
-                        correct={ true }
-                        incorrect={ true }
-                        bookmark={ true } />
-                    { progressRows }
-                </table>
+              <table className="flashcardSummary">
+                <tbody>
+                  <FlashcardSummaryRow
+                      num='#'
+                      front='Question'
+                      correct={ true }
+                      incorrect={ true }
+                      bookmark={ true } />
+                  { progressRows }
+                </tbody>
+              </table>
             </div>
         );
     }
