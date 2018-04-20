@@ -31,7 +31,10 @@ body {
 .navbar-width {
   width: 94%; }
 
-.content-width {
+.study-page--width {
+  width: 85%; }
+
+.edit-page--width {
   width: 85%; }
 
 .center {
@@ -161,8 +164,9 @@ body {
     .btn--navbar--brand {
       font-weight: 600;
       font-size: 1.8rem; }
-  .btn--add-card {
-    margin-top: 10px;
+  .btn--add-card, .btn--delete-card {
+    width: 15rem;
+    margin-top: 2rem;
     font-size: 1.7rem;
     line-height: 2rem;
     border: 3px solid #9dabc1;
@@ -173,11 +177,14 @@ body {
     transition: all .2s;
     cursor: pointer;
     box-shadow: 0 4px 5px 0 rgba(50, 50, 50, 0.75); }
-    .btn--add-card:hover {
+    .btn--add-card:hover, .btn--delete-card:hover {
       background-color: #9dabc1;
       color: #243972; }
-    .btn--add-card:not(:last-child) {
-      margin-right: 1rem; }
+  .btn--add-card {
+    justify-self: end;
+    margin-right: 0.5rem; }
+  .btn--delete-card {
+    margin-left: 0.5rem; }
   .btn-row {
     padding: 10px 10px;
     border: transparent;
@@ -216,14 +223,23 @@ a {
   display: inline-block;
   cursor: pointer; }
 
+@media (max-width: 321px) {
+  .btn--add-card, .btn--delete-card {
+    width: 10rem; } }
+
+/* Don't think it is being used
 @media (max-width: 428px) {
   .btn--landing:not(:last-child) {
-    margin-right: 1rem; } }
+    margin-right: 1rem;
+  }
+}
 
 @media (max-width: 385px) {
   .btn--landing:not(:last-child) {
-    margin-right: 1rem; } }
-
+    margin-right: 1rem;
+  }
+}
+*/
 .modal {
   border-radius: 8px;
   width: 60rem;
@@ -244,11 +260,17 @@ a {
   .modal__category-title {
     display: block;
     font-size: 3rem;
-    margin-top: 1.5rem;
+    margin: 1.5rem auto 0 auto;
+    width: 95%;
     color: red;
-    width: 80%;
     overflow-wrap: break-word;
     text-align: center; }
+    @media (max-width: 600px) {
+      .modal__category-title {
+        width: 90%; } }
+    @media (max-width: 500px) {
+      .modal__category-title {
+        font-size: 2.5rem; } }
   .modal__add-stack {
     width: 40rem;
     text-align: center; }
@@ -284,9 +306,6 @@ a {
     @media (max-width: 500px) {
       .modal__add-stack {
         width: 25rem; } }
-    @media (max-width: 450px) {
-      .modal__add-stack {
-        width: 20rem; } }
   .modal__front, .modal__back {
     width: calc((100% - (2*3rem) - 4rem) / 2);
     position: relative;
@@ -317,27 +336,25 @@ a {
   .navbar__right {
     float: right; }
 
-@media (max-width: 768px) {
-  .content-width {
-    width: 90%; } }
-
+/* We're using material-ui instead
 @media (max-width: 670px) {
-  .content-width {
-    width: 92%; }
   .btn--navbar:not(:first-child) {
-    margin-left: 1.8rem; } }
+    margin-left: 1.8rem;
+  }
+}
 
-/*
 @media (max-width: 600px) {
   .btn--navbar:not(:first-child) {
     display: none;
   }
 }
-*/
+
 @media (max-width: 350px) {
   .btn--navbar:not(:first-child) {
-    margin-left: 1.4rem; } }
-
+    margin-left: 1.4rem;
+  }
+}
+*/
 .stack {
   display: inline-block;
   border: 4px solid red;
@@ -368,53 +385,88 @@ a {
       padding: 1rem 1rem;
       margin: 1rem 0; } }
 
+.edit-page__wrapper {
+  display: grid;
+  grid-template-columns: 30% 35%;
+  grid-column-gap: 0.1rem;
+  grid-row-gap: 0.1rem;
+  justify-content: center;
+  margin-bottom: 4rem; }
+
+.nested-grid {
+  display: grid;
+  grid-template-columns: 1fr 8rem;
+  align-items: center; }
+
 .flashcardTable {
-  width: 80rem;
-  position: relative;
-  margin-top: 30rem;
-  left: 50%;
-  transform: translate(-50%, -25rem); }
+  /*
+    &-add-delete {
+        text-align: center;
+        margin-top: 1rem;
+    } */ }
   .flashcardTable__row {
-    color: #243972;
-    padding: 5px 10px;
-    overflow-wrap: break-word; }
-    .flashcardTable__row:not(:first-child) {
-      margin-top: 3px; }
+    /*
+            &:nth-child(odd) {
+                background-color:$color-light-blue;
+            }
+            &:nth-child(even) {
+                background-color: lighten($color-light-blue, 10%);
+            } */ }
     .flashcardTable__row input {
       background-color: transparent;
       border: 1px solid transparent; }
       .flashcardTable__row input:focus {
         outline: none; }
-    .flashcardTable__row:nth-child(odd) {
-      background-color: #9dabc1; }
-    .flashcardTable__row:nth-child(even) {
-      background-color: #bcc6d5; }
-    .flashcardTable__row--content--front {
-      width: 40%;
-      display: inline-block;
-      font-size: 1.5rem; }
-    .flashcardTable__row--content--back {
-      width: 49%;
-      display: inline-block;
-      font-size: 1.5rem; }
     .flashcardTable__row--header {
       font-size: 4rem;
       border-bottom: 4px solid red;
       color: #fff;
-      padding: 5px 10px; }
-      .flashcardTable__row--header--front {
-        width: 40%;
-        display: inline-block; }
-      .flashcardTable__row--header--back {
-        width: 40%;
-        display: inline-block; }
-  .flashcardTable-add-delete {
-    text-align: center;
-    margin-top: 1rem; }
+      padding: 1rem 1.6rem; }
+    .flashcardTable__row--content {
+      padding: 1rem;
+      font-size: 1.5rem;
+      background-color: #bcc6d5; }
+
+.textarea-div {
+  grid-column: 1/3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 0.1rem; }
+
+.textarea {
+  background-color: #bcc6d5;
+  width: 100%;
+  resize: none;
+  overflow: hidden;
+  border: 0;
+  font-size: 1.5rem;
+  padding: 1rem; }
+
+@media (max-width: 1120px) {
+  .flashcardTable .edit-page__wrapper {
+    grid-template-columns: 40% 45%; } }
+
+@media (max-width: 769px) {
+  .flashcardTable .edit-page__wrapper {
+    grid-template-columns: 48% 52%; }
+  .flashcardTable .flashcardTable__row--content {
+    padding: 1.2rem; }
+  .flashcardTable .flashcardTable__row--header {
+    font-size: 3.6rem; }
+  .nested-grid {
+    grid-template-columns: 1fr 4rem; } }
+
+@media (max-width: 376px) {
+  .flashcardTable .flashcardTable__row--header {
+    font-size: 2.8rem; } }
+
+@media (max-width: 321px) {
+  .flashcardTable .flashcardTable__row--header {
+    font-size: 2.6rem; } }
 
 .stackChoiceContainer {
   text-align: center;
-  margin: 4rem auto; }
+  margin: 4rem auto 2rem auto; }
 
 .loader {
   color: #ffffff;
@@ -522,7 +574,6 @@ a {
   text-align: center; }
 
 .flashcardSummary {
-  height: 25rem;
   margin: 3rem auto;
   width: 90%;
   border-collapse: collapse;
@@ -548,7 +599,7 @@ a {
   color: red; }
 
 @media (max-width: 701px) {
-  .content-width {
+  .study-page--width {
     width: 100%; }
   .flashcardSummary {
     width: 100%; }
@@ -563,11 +614,17 @@ a {
   .btn--flashcard {
     width: 4.5rem;
     height: 4.5rem;
-    font-size: 2.6rem; } }
+    font-size: 2.6rem; }
+  .flashcard {
+    width: 65%; } }
 
 @media (max-width: 376px) {
   .flashcard {
     width: 60%; } }
+
+@media (max-width: 321px) {
+  .flashcardSummary__row--header--title:not(:nth-child(2)) {
+    width: 3rem; } }
 
 .dashboard {
   margin: 1.5rem auto;

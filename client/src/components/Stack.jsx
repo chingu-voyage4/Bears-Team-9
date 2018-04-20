@@ -13,8 +13,6 @@ const stack = (props) => {
             </span> */}
             <div className="btn-group--stack">
                 {/* <a  className="btn btn--stack">Quiz</a> */}
-
-                <a className="btn btn--stack">Quiz</a>
                 <a onClick={ () => {
                         props.studyClicked();
                         props.store.dispatch(ChangeStack(props.id))}

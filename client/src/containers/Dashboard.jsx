@@ -41,39 +41,7 @@ class Dashboard extends Component {
             studyModalShow: true
         })
     }
-
-    componentDidMount(){
-      window.addEventListener("scroll", this.handleScroll);
-    }
-
-    componentWillUnmount(){
-      window.removeEventListener("scroll", this.handleScroll);
-    }
-
-    handleScroll = () => {
-      const y = Math.round(window.pageYOffset);
-      if (y >= 100) {
-        this.setState({ showFixedNav: true });
-      } else {
-        this.setState({ showFixedNav: false });
-      }
-    }
-
-    //const scrollStepInPx = 50;
-    //const delayInMs = 16.66;
-
-    scrollStep = () => {
-      if (window.pageYOffset === 0){
-        clearInterval(this.state.intervalId);
-      }
-      window.scroll(0, window.pageYOffset - 100);
-    }
-
-    scrollToTop = () => {
-      let intervalId = setInterval(this.scrollStep.bind(this), 20);
-      this.setState({ intervalId: intervalId });
-    }
-
+    
     render () {
         const stateProps = this.props.store.getState().cards;
         const user = this.props.store.getState().user;
@@ -128,10 +96,6 @@ class Dashboard extends Component {
                     { studyModal }
                     { modal }
                     { stacks }
-                </div>
-                <div className={this.state.showFixedNav === false ? "display-none" : "fixed-nav"}
-                    onClick={() => { this.scrollToTop(); }}>
-                    <i className="fas fa-chevron-up arrow-up"></i>
                 </div>
             </div>
         );
