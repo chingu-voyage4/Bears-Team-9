@@ -16,32 +16,22 @@
     }
 }
 
-@media (max-width: 768px) {
-  .content-width {
-    width: 90%;
-  }
-}
-
+/* We're using material-ui instead
 @media (max-width: 670px) {
-  .content-width {
-    width: 92%;
-  }
-
   .btn--navbar:not(:first-child) {
     margin-left: 1.8rem;
   }
 }
 
-/*
 @media (max-width: 600px) {
   .btn--navbar:not(:first-child) {
     display: none;
   }
 }
-*/
 
 @media (max-width: 350px) {
   .btn--navbar:not(:first-child) {
     margin-left: 1.4rem;
   }
 }
+*/

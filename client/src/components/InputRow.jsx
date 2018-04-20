@@ -2,16 +2,15 @@ import React from 'react';
 
 const inputRow = (props) => {
     return (
-        <React.Fragment>
-            <div className='flashcardTable__row--content'>
-                <input type="text" onChange={props.textChangeFront} value={props.newFront}
-                  placeholder='New Question' className="qn-input" />
-            </div>
-            <div className='flashcardTable__row--content'>
-                <input type="text" onChange={props.textChangeBack} value={props.newBack}
-                  placeholder='New Answer' className="ans-input" />
-            </div>
-        </React.Fragment>
+        <div className="textarea-div">
+            <textarea name="qn" type="text" rows="1" onChange={props.textChangeFront}
+              placeholder='New Question' value={props.newFront}
+              className="textarea qn-textarea"></textarea>
+
+            <textarea name="ans" type="text" rows="1" onChange={props.textChangeBack}
+              placeholder='New Answer'  value={props.newBack}
+              className="textarea ans-textarea"></textarea>
+        </div>
     );
 }
 

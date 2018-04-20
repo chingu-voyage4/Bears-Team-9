@@ -7,8 +7,8 @@ class StackChoiceContainer extends Component {
         const stateProps = this.props.store.getState()
         const choices = stateProps.cards.stacks.map(stack => {
             return (
-                <StackChoice 
-                    name={ stack.categoryName } 
+                <StackChoice
+                    name={ stack.categoryName }
                     key={ stack._id }
                     active={ stack._id  }
                     currentStackId={ stateProps.cards.currentStackId }
@@ -17,7 +17,7 @@ class StackChoiceContainer extends Component {
             );
         });
         return (
-            <div className='stackChoiceContainer content-width'>
+            <div className='stackChoiceContainer edit-page--width'>
                 {choices}
             </div>
         );

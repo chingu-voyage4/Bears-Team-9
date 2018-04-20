@@ -26,17 +26,42 @@ class FlashcardTable extends Component {
         });
     }
 
+    /* Methods for two changeHandler
+    textChangeHandler = (e) => {
+        console.log(e.target.value);
+        if (e.target.name === "qn") {
+          this.setState({ newFront: e.target.value });
+        } else {
+          this.setState({ newBack: e.target.value });
+        }
+
+        if (e.target.value.length > )
+        e.target.parentNode.style.height = "auto";
+        e.target.parentNode.style.height = (e.target.scrollHeight) + "px";
+    };
+    */
+
     textChangeHandlerFront = (e) => {
-        // console.log(e.target.value);
-        this.setState({
-            newFront: e.target.value
-        })
+        // console.log(e.target);
+        this.setState({ newFront: e.target.value });
+
+        if (e.target.value.length < e.target.nextSibling.value.length){
+          e.target.parentNode.style.height = e.target.nextSibling.height;
+        } else {
+          e.target.parentNode.style.height = "auto";
+          e.target.parentNode.style.height = (e.target.scrollHeight) + "px";
+        }
     };
 
     textChangeHandlerBack = (e) => {
-        this.setState({
-            newBack: e.target.value
-        })
+        this.setState({ newBack: e.target.value });
+
+        if (e.target.value.length < e.target.previousSibling.value.length){
+          e.target.parentNode.style.height = e.target.previousSibling.height;
+        } else {
+          e.target.parentNode.style.height = "auto";
+          e.target.parentNode.style.height = (e.target.scrollHeight) + "px";
+        }
     };
 
     editCardHandler = (id) => {
@@ -91,7 +116,7 @@ class FlashcardTable extends Component {
     }
 
     addDeleteButtons = (
-        <div className='flashcardTable-add-delete'>
+        <React.Fragment>
             <button
                 onClick={() => {
                     this.clearInputs();
@@ -106,10 +131,10 @@ class FlashcardTable extends Component {
             </button>
             <button
                 onClick={this.deleteCategoryHandler}
-                className='btn btn--add-card'>
+                className='btn btn--delete-card'>
                 Delete Category
             </button>
-        </div>
+        </React.Fragment>
     )
 
     componentWillMount = () => {
@@ -152,6 +177,8 @@ class FlashcardTable extends Component {
                 />;
             });
             let inputRow = null;
+            // two changeHandler method, front and back, become one changeHandler
+            // textChange={this.textChangeHandler}
             if (user.isLoggedIn && currentStack.owner === user._id) {
                 inputRow =  <InputRow
                     textChangeFront={this.textChangeHandlerFront}

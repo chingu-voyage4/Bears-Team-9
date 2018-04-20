@@ -6,14 +6,14 @@ const addDeleteButtons = (props) => {
           {props.backText}
           <span>
             <button
-                onClick={props.delete}
-                className='btn btn-row btn-row-delete'>
-                <i className="far fa-trash-alt"></i>
-            </button>
-            <button
                 onClick={props.edit}
                 className='btn btn-row btn-row-edit'>
                 <i className="far fa-edit"></i>
+            </button>
+            <button
+                onClick={props.delete}
+                className='btn btn-row btn-row-delete'>
+                <i className="far fa-trash-alt"></i>
             </button>
           </span>
         </div>
@@ -21,7 +21,6 @@ const addDeleteButtons = (props) => {
 }
 
 const flashcardRow = (props) => {
-  // parent div w className flashcardTable__row
     return (
         <React.Fragment>
             <div className='flashcardTable__row--content'>{props.frontText}</div>

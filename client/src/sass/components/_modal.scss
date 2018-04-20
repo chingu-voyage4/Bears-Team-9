@@ -82,9 +82,6 @@
         @media ( max-width: 500px ) {
             width: 25rem;
         }
-        @media ( max-width: 450px ) {
-            width: 20rem;
-        }
     }
     &__front,
     &__back {
@@ -97,7 +94,7 @@
             height: 12rem;
             resize: none;
             padding: 1rem;
-        } 
+        }
     }
     &__front {
         margin-right: $modal-gutter;
