@@ -165,8 +165,9 @@
             font-size: 1.8rem;
         }
     }
-    &--add-card {
-        margin-top: 10px;
+    &--add-card, &--delete-card {
+        width: 15rem;
+        margin-top: 2rem;
         font-size: 1.7rem;
         line-height: 2rem;
         border: 3px solid $color-light-blue;
@@ -181,9 +182,13 @@
             background-color: $color-light-blue;
             color: $color-medium-blue;
         }
-        &:not(:last-child) {
-            margin-right: 1rem;
-        }
+    }
+    &--add-card {
+      justify-self: end;
+      margin-right: 0.5rem;
+    }
+    &--delete-card {
+      margin-left: 0.5rem;
     }
     &-row {
         padding: 10px 10px;
@@ -238,6 +243,13 @@ a {
     cursor: pointer;
 }
 
+@media (max-width: 321px) {
+  .btn--add-card, .btn--delete-card {
+    width: 10rem;
+  }
+}
+
+/* Don't think it is being used
 @media (max-width: 428px) {
   .btn--landing:not(:last-child) {
     margin-right: 1rem;
@@ -249,3 +261,4 @@ a {
     margin-right: 1rem;
   }
 }
+*/

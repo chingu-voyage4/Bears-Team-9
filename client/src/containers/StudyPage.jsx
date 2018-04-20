@@ -116,7 +116,7 @@ class StudyPage extends Component {
                     dashboardClicked={() => this.endSessionHandler()}
                     store={ this.props.store }
                     studyMode={true} />
-                <div className="content-width center">
+                <div className="study-page--width center">
                     <FlashcardContainer
                         card={ this.state.cards[this.state.currentCard] }
                         leftclicked={() => this.onArrowClicked(-1)}
