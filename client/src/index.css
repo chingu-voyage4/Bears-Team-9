@@ -387,7 +387,7 @@ a {
 
 .edit-page__wrapper {
   display: grid;
-  grid-template-columns: 30% 35%;
+  grid-template-columns: 35% 35%;
   grid-column-gap: 0.1rem;
   grid-row-gap: 0.1rem;
   justify-content: center;
@@ -395,37 +395,24 @@ a {
 
 .nested-grid {
   display: grid;
-  grid-template-columns: 1fr 8rem;
-  align-items: center; }
+  grid-template-columns: 1fr 8rem; }
 
-.flashcardTable {
-  /*
-    &-add-delete {
-        text-align: center;
-        margin-top: 1rem;
-    } */ }
-  .flashcardTable__row {
-    /*
-            &:nth-child(odd) {
-                background-color:$color-light-blue;
-            }
-            &:nth-child(even) {
-                background-color: lighten($color-light-blue, 10%);
-            } */ }
-    .flashcardTable__row input {
-      background-color: transparent;
-      border: 1px solid transparent; }
-      .flashcardTable__row input:focus {
-        outline: none; }
-    .flashcardTable__row--header {
-      font-size: 4rem;
-      border-bottom: 4px solid red;
-      color: #fff;
-      padding: 1rem 1.6rem; }
-    .flashcardTable__row--content {
-      padding: 1rem;
-      font-size: 1.5rem;
-      background-color: #bcc6d5; }
+.flashcardTable__row input {
+  background-color: transparent;
+  border: 1px solid transparent; }
+  .flashcardTable__row input:focus {
+    outline: none; }
+
+.flashcardTable__row--header {
+  font-size: 4rem;
+  border-bottom: 4px solid red;
+  color: #fff;
+  padding: 1rem 1.6rem; }
+
+.flashcardTable__row--content {
+  padding: 1rem;
+  font-size: 1.5rem;
+  background-color: #bcc6d5; }
 
 .textarea-div {
   grid-column: 1/3;
@@ -442,13 +429,22 @@ a {
   font-size: 1.5rem;
   padding: 1rem; }
 
-@media (max-width: 1120px) {
+/*
+.qn-textarea {
+  //grid-column: 1/2;
+}
+
+.ans-textarea {
+  //grid-column: 2/3;
+}
+*/
+@media (max-width: 1051px) {
   .flashcardTable .edit-page__wrapper {
-    grid-template-columns: 40% 45%; } }
+    grid-template-columns: 44% 44%; } }
 
 @media (max-width: 769px) {
   .flashcardTable .edit-page__wrapper {
-    grid-template-columns: 48% 52%; }
+    grid-template-columns: 50% 50%; }
   .flashcardTable .flashcardTable__row--content {
     padding: 1.2rem; }
   .flashcardTable .flashcardTable__row--header {
