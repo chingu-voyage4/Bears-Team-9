@@ -29,6 +29,6 @@ ReactDOM.render(
         <BrowserRouter>
             <App store={ store }/>
         </BrowserRouter>
-    </Provider>, 
+    </Provider>,
     document.getElementById('root'));
 registerServiceWorker();
