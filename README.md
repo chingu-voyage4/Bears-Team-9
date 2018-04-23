@@ -32,7 +32,7 @@ Once logged in, the user can click the "Edit Cards" option in the navigation men
 
 # Tech Stack
 * Front End: React, Redux, Material UI, Sass, CSS Grid, Flexbox
-* Back End: MongoDB, Express, Node.js, Passport.js, Auth0, Mocha
+* Back End: Node.js, Express, MongoDB, Mongoose, Passport.js, Auth0, Mocha
 * Tools: Git, Trello, Slack
 
 # Future Goals:
