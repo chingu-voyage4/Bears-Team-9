@@ -105,7 +105,6 @@ const Logged = (props) => (
 
 class navbar extends Component {
     render() {
-        console.log('user', this.props.store.getState().user.isLoggedIn);
         return (
             <MuiThemeProvider>
                 <AppBar
